@@ -4,9 +4,9 @@ namespace App\Domain;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Penalty extends Model
 {
-    protected $table = 'client';
+    protected $table = 'penalty';
     protected $primaryKey = 'id';
     const CREATED_AT = 'created_at';
 }

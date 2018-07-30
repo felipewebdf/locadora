@@ -88,6 +88,7 @@ class ProjectInit extends Migration
         Schema::create('type_rent', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
+            $table->timestamp('created_at')->nullable();
         });
 //
         Schema::create('schedule', function (Blueprint $table) {
@@ -114,6 +115,7 @@ class ProjectInit extends Migration
                 ->references('id')
                 ->on('schedule');
             $table->string('value');
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::create('rent', function (Blueprint $table) {
@@ -131,6 +133,7 @@ class ProjectInit extends Migration
             $table->timestamp('end');
             $table->string('comment');
             $table->integer('user_id')->unsigned();
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::create('inspection', function (Blueprint $table) {
@@ -147,6 +150,7 @@ class ProjectInit extends Migration
             $table->string('bodywork', 200); //lataria
             $table->string('washed_out', 200); //lavagem
             $table->string('note', 500);
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::create('devolution', function (Blueprint $table) {
@@ -158,6 +162,7 @@ class ProjectInit extends Migration
             $table->string('bodywork', 200); //lataria
             $table->string('washed_out', 200); //lavagem
             $table->string('note', 500);
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::create('penalty', function (Blueprint $table) {
@@ -166,7 +171,7 @@ class ProjectInit extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('value', 10);
             $table->string('note', 500);
-            $table->timestamp('datetime');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
