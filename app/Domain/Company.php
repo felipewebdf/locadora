@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    protected $fillable = ['name', 'cnpj'];
+
+    protected $dates = ['created_at'];
+
     protected $table = 'company';
     protected $primaryKey = 'id';
-    const CREATED_AT = 'created_at';
+
+    public function address()
+    {
+        return $this->hasOne('App\Address', 'foreign_key', 'address_id');
+    }
+
 }

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Company;
 
 use App\Company;
 use Illuminate\Http\Request;
+use \App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
 {
@@ -14,7 +15,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return \App\Domain\Company::all();
     }
 
     /**
