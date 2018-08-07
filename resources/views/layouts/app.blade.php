@@ -1,9 +1,10 @@
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>Locadora online</title>
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="author" content="Felipe Moura">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
     <body>
@@ -13,9 +14,7 @@
             </header>
             <div id="main" class="row">
                 <div class='col-3'>
-                    <nav>
-                        @include('layouts.sidebar')
-                    </nav>
+                    @include('layouts.sidebar')
                 </div>
                 <div class='col-9'>
                     @yield('content')
@@ -25,6 +24,8 @@
             <footer class="row">
                 @include('layouts.footer')
             </footer>
+            <script src="{{ asset('js/app.js') }}"></script>
+            @yield('page-js-files')
         </div>
     </body>
 </html>
