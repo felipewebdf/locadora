@@ -6,6 +6,7 @@ use App\Company;
 use Illuminate\Http\Request;
 use \App\Http\Controllers\Controller;
 use \App\Domain\Service\CompanyService;
+use App\Http\Request\Company\CompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -37,10 +38,10 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CompanyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
         try {
             $id = \Illuminate\Support\Facades\Auth::id();
