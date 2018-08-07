@@ -30,7 +30,7 @@ class CompanyRequest extends FormRequest
             'district.required' => 'Favor informar o bairro da empresa',
             'city.required_if' => 'Favor informar a cidade da empresa',
             'uf.required' => 'Favor informar a UF da empresa',
-            'cep.required_if' => 'Favor informar o cep da empresa'
+            'cep.required' => 'Favor informar o cep da empresa'
         ];
 
     }
