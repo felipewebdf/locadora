@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Company;
 use App\Company;
 use Illuminate\Http\Request;
 use \App\Http\Controllers\Controller;
+use \App\Domain\Service\CompanyService;
 
 class CompanyController extends Controller
 {
@@ -36,7 +37,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = $this->make(CompanyService::class)->register($request->all());
     }
 
     /**

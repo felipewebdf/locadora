@@ -2,6 +2,8 @@
 
 namespace App\Domain\Service;
 
+use Illuminate\Container\Container;
+
 /**
  * Class service company
  */
@@ -15,15 +17,29 @@ class CompanyService
 
     /**
      *
-     * @param \App\Domain\Service\Container $container
+     * @param \Illuminate\Container\Container $container
      */
     public function __construct(Container $container)
     {
         $this->container = $container;
     }
 
-    public function register($company)
+    /**
+     * New company
+     * @param array $arrCompany
+     * @return \App\Domain\Company
+     */
+    public function register($arrCompany)
     {
-        
+        $company = new \App\Domain\Company();
+        $company->name = $arrCompany['name'];
+        $company->cnpj = $arrCompany['cnpj'];
+        $company->created_at = new \DateTime();
+
+        $address = $this->container->make(AddressService::class)->register($arrCompany);
+        $company->address_id = $address->id;
+
+        $company->save();
+        return $company;
     }
 }

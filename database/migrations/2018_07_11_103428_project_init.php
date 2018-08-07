@@ -19,9 +19,11 @@ class ProjectInit extends Migration
             $table->string('description',500)->nullable(false);
             $table->string('district', 200)->nullable(false);
             $table->string('cep', 10);
-            $table->integer('city');
+            $table->string('city', 100);
             $table->string('uf', 2)->nullable(false);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('company', function (Blueprint $table)
@@ -30,6 +32,8 @@ class ProjectInit extends Migration
             $table->string('name',300)->nullable(false);
             $table->string('cnpj',14)->nullable(false);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->integer('address_id')->unsigned();
             $table->foreign('address_id')
                 ->references('id')
@@ -50,6 +54,8 @@ class ProjectInit extends Migration
                 ->references('id')
                 ->on('company');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('client', function (Blueprint $table) {
@@ -63,6 +69,8 @@ class ProjectInit extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('company_id')->unsigned();
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('car', function (Blueprint $table) {
@@ -83,12 +91,16 @@ class ProjectInit extends Migration
                 ->references('id')
                 ->on('provider');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 //
         Schema::create('type_rent', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 //
         Schema::create('schedule', function (Blueprint $table) {
@@ -105,6 +117,8 @@ class ProjectInit extends Migration
             $table->string('comment');
             $table->integer('user_id')->unsigned();
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('daily', function (Blueprint $table) {
@@ -116,6 +130,8 @@ class ProjectInit extends Migration
                 ->on('schedule');
             $table->string('value');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('rent', function (Blueprint $table) {
@@ -134,6 +150,8 @@ class ProjectInit extends Migration
             $table->string('comment');
             $table->integer('user_id')->unsigned();
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('inspection', function (Blueprint $table) {
@@ -151,6 +169,8 @@ class ProjectInit extends Migration
             $table->string('washed_out', 200); //lavagem
             $table->string('note', 500);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('devolution', function (Blueprint $table) {
@@ -163,6 +183,8 @@ class ProjectInit extends Migration
             $table->string('washed_out', 200); //lavagem
             $table->string('note', 500);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         Schema::create('penalty', function (Blueprint $table) {
@@ -172,6 +194,8 @@ class ProjectInit extends Migration
             $table->string('value', 10);
             $table->string('note', 500);
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
