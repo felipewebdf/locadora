@@ -23,5 +23,6 @@ Route::post('recover', 'AuthController@recover');
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('logout', 'AuthController@logout');
     Route::get('company', 'Api\Company\CompanyController@index');
+    Route::post('company', 'Api\Company\CompanyController@store');
 
 });

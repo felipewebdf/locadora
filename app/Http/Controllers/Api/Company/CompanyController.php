@@ -9,6 +9,11 @@ use \App\Domain\Service\CompanyService;
 
 class CompanyController extends Controller
 {
+    public function __construct(\Illuminate\Container\Container $container)
+    {
+        $this->container = $container;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +42,18 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $company = $this->make(CompanyService::class)->register($request->all());
+        try {
+            $id = \Illuminate\Support\Facades\Auth::id();
+            $arrCompany = $request->all();
+            $arrCompany['user_id'] = $id;
+            //dd($arrCompany);
+            $company = $this->container
+                    ->make(CompanyService::class)
+                    ->register($arrCompany);
+            return response()->json($company->toArray(), 201);
+        } catch (\Exception $ex) {
+            return response()->json([$ex->getMessage()], $ex->getCode());
+        }
     }
 
     /**
