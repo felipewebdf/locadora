@@ -40,7 +40,8 @@ class CompanyServiceTest extends TestCase
             'district' => '54256465465465',
             'cep' => '12123456',
             'city' => 'nome da cidade',
-            'uf' => 'DF'
+            'uf' => 'DF',
+            'user_id' => 1
         ];
         $objCompany = $this->companyService->register($arrCompany);
         $this->assertInstanceOf(Company::class, $objCompany);

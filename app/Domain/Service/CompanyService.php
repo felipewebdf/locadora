@@ -3,12 +3,14 @@
 namespace App\Domain\Service;
 
 use Illuminate\Container\Container;
+use App\Domain\Company;
 
 /**
  * Class service company
  */
 class CompanyService
 {
+
     /**
      *
      * @var \Illuminate\Container\Container
@@ -27,14 +29,21 @@ class CompanyService
     /**
      * New company
      * @param array $arrCompany
-     * @return \App\Domain\Company
+     * @return Company
      */
     public function register($arrCompany)
     {
-        $company = new \App\Domain\Company();
+        $user = \App\User::find($arrCompany['user_id']);
+
+        if (!$user) {
+            throw new \InvalidArgumentException('Usuário não encontrado');
+        }
+
+        $company = new Company();
         $company->name = $arrCompany['name'];
         $company->cnpj = $arrCompany['cnpj'];
         $company->created_at = new \DateTime();
+        $company->user_id = $user->id;
 
         $address = $this->container->make(AddressService::class)->register($arrCompany);
         $company->address_id = $address->id;
@@ -42,4 +51,5 @@ class CompanyService
         $company->save();
         return $company;
     }
+
 }
