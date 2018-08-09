@@ -25,6 +25,12 @@
                 @include('layouts.sidebar')
             </div>
             <div class="col-md-9">
+                <div id="alert-app" class="alert alert-dismissible fade hide" role="alert">
+                    <span id="alert-message"></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @yield('content')
             </div>
         </div>

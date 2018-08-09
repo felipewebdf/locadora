@@ -39,12 +39,32 @@ class CompanyService
             throw new \InvalidArgumentException('Usuário não encontrado');
         }
 
+        $companyExists = Company::where('user_id', $arrCompany['user_id'])->first();
+
+        if ($companyExists) {
+            return $this->update($companyExists, $arrCompany);
+        }
+
         $company = new Company();
         $company->name = $arrCompany['name'];
         $company->cnpj = $arrCompany['cnpj'];
         $company->created_at = new \DateTime();
         $company->user_id = $user->id;
 
+        $address = $this->container->make(AddressService::class)->register($arrCompany);
+        $company->address_id = $address->id;
+
+        $company->save();
+        return $company;
+    }
+
+    public function update($company, $arrCompany)
+    {
+
+        $company->name = $arrCompany['name'];
+        $company->cnpj = $arrCompany['cnpj'];
+
+        $arrCompany['address_id'] = $company->address_id;
         $address = $this->container->make(AddressService::class)->register($arrCompany);
         $company->address_id = $address->id;
 

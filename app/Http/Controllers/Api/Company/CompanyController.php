@@ -52,6 +52,7 @@ class CompanyController extends Controller
                     ->register($arrCompany);
             return response()->json($company->toArray(), 201);
         } catch (\Exception $ex) {
+            dd($ex->getMessage());
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
     }

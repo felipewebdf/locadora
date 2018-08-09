@@ -9,7 +9,7 @@ $().ready(function() {
                     errors = v.join(',');
                 }
 
-                $('<span class="text-danger" id="erro_'+k+'">'+ errors +'</span>')
+                $('<span class="text-danger errors-app" id="erro_'+k+'">'+ errors +'</span>')
                         .insertAfter('*[name='+k+']');
             });
         },
@@ -22,6 +22,11 @@ $().ready(function() {
             exdate.setDate(exdate.getDate() + exdays);
             var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
             document.cookie = c_name + "=" + c_value;
+        },
+        alert: function(message, type) {
+            $('#alert-app').removeClass('alert-warning').removeClass('alert-success');
+            $('#alert-app').removeClass('hide').addClass('show').addClass('alert-' + type);
+            $('#alert-message').html(message);
         }
     };
 

@@ -1,3 +1,3 @@
 <footer>
-    <p>© 2016 Company, Inc.</p>
+    <p>© 2018 Company, Inc.</p>
 </footer>

@@ -47,4 +47,20 @@ class CompanyServiceTest extends TestCase
         $this->assertInstanceOf(Company::class, $objCompany);
     }
 
+    public function testRegisterExistsCompanyUpdateReturnEntity()
+    {
+        $arrCompany = [
+            'name' => 'federal',
+            'cnpj' => '54256465465465',
+            'description' => 'federal',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da cidade',
+            'uf' => 'DF',
+            'user_id' => 1
+        ];
+        $objCompany = $this->companyService->register($arrCompany);
+        $this->assertInstanceOf(Company::class, $objCompany);
+    }
+
 }
