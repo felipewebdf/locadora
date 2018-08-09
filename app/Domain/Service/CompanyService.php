@@ -39,7 +39,7 @@ class CompanyService
             throw new \InvalidArgumentException('Usuário não encontrado');
         }
 
-        $companyExists = Company::where('user_id', $arrCompany['user_id'])->first();
+        $companyExists = $this->forUser($use->id);
 
         if ($companyExists) {
             return $this->update($companyExists, $arrCompany);
@@ -70,6 +70,11 @@ class CompanyService
 
         $company->save();
         return $company;
+    }
+
+    public function forUser($user_id)
+    {
+        return Company::where('user_id', $user_id)->first();
     }
 
 }

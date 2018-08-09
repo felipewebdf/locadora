@@ -3,7 +3,7 @@ var companyService = {
         $.post('/api/company', params, function(response, data, headers) {
             if (headers.status == 201) {
                 $('.errors-app').remove();
-                app.alert('Empresa cadastrada com sucesso', 'success');
+                app.alert('Dados da empresa salvos com sucesso', 'success');
             }
         }).fail(function(data) {
             if (data.status == 422) {

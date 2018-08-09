@@ -2,7 +2,7 @@ $().ready(function() {
     $('#form-login').submit(function(e) {
         e.preventDefault();
         $.post('/api/login', $(this).serialize(), function(response) {
-            app.setCookie('authorization', 'Bearer' + response.data.token, 1);
+            app.setCookie('Authorization', 'Bearer ' + response.data.token);
             window.location.href='/web/company';
         })
         .fail(function(data) {

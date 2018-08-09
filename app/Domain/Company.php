@@ -19,12 +19,12 @@ class Company extends Model
 
     public function address()
     {
-        return $this->hasOne('App\Domain\Address', 'foreign_key', 'address_id');
+        return $this->hasOne('App\Domain\Address', 'id', 'address_id');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User', 'foreign_key', 'user_id');
+        return $this->hasOne('App\Domain\User', 'id', 'user_id');
     }
 
 }

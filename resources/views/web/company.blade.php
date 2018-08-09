@@ -9,33 +9,43 @@
     <div class="row">
         <div class="form-group col-md-4">
             <label for="name">Empresa</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control"
+                   value="<?php echo isset($company->name)?$company->name:'' ?>"
+                   />
         </div>
         <div class="form-group col-md-4">
             <label for="cnpj">Cnpj</label>
-            <input type="text" name="cnpj" class="form-control">
+            <input type="text" name="cnpj" class="form-control"
+                   value="<?php echo isset($company->cnpj)?$company->cnpj:'' ?>">
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="cep">CEP</label>
-            <input type="text" name="cep" class="form-control">
+            <input type="text" name="cep" class="form-control"
+                   value="<?php echo isset($company->address()->first()->cep)?$company->address()->first()->cep:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="description">Logradouro</label>
-            <input type="text" name="description" class="form-control">
+            <input type="text" name="description" class="form-control"
+                   value="<?php echo isset($company->address()->first()->description)?$company->address()->first()->description:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="district">Bairro</label>
-            <input type="text" name="district" class="form-control">
+            <input type="text" name="district" class="form-control"
+                   value="<?php echo isset($company->address()->first()->district)?$company->address()->first()->district:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="city">Cidade</label>
-            <input type="text" name="city" class="form-control">
+            <input type="text" name="city" class="form-control"
+                   value="<?php echo isset($company->address()->first()->city)?$company->address()->first()->city:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="uf">UF</label>
+            <input type="hidden"
+                   id="defaultUF"
+                   value="<?php echo isset($company->address()->first()->uf)?$company->address()->first()->uf:''?>">
             <select name="uf" class="form-control">
                 <option value="">UF</option>
                 <option value="AC">Acre</option>

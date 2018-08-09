@@ -13,9 +13,10 @@ $().ready(function() {
                         .insertAfter('*[name='+k+']');
             });
         },
-        getCookie: function (n) {
-            let a = `; ${document.cookie}`.match(`;\\s*${n}=([^;]+)`);
-            return a ? a[1] : '';
+        getCookie: function (name) {
+            console.log(document.cookie);
+            var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return v ? v[2] : null;
         },
         setCookie: function(c_name, value, exdays) {
             var exdate = new Date();
@@ -32,7 +33,7 @@ $().ready(function() {
 
     $.ajaxSetup({
         headers: {
-            'Authorization': app.getCookie('authorization')
+            'Authorization': app.getCookie('Authorization')
         }
     });
 });
