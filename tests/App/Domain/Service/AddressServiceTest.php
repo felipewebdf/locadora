@@ -44,4 +44,28 @@ class AddressServiceTest extends TestCase
         $this->assertInstanceOf(Address::class, $objAddress);
     }
 
+    public function testRegisterExistAddressUpdateAndReturnEntity()
+    {
+        $arrAddress = [
+            'description' => 'federal',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da cidade',
+            'uf' => 'DF'
+        ];
+        $objAddress = $this->addressService->register($arrAddress);
+        $arrAddressUpdate = [
+            'description' => 'federala dfa',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da as dcidade',
+            'uf' => 'DF',
+            'address_id' => $objAddress->id
+        ];
+
+        $objAddressExists = $this->addressService->register($arrAddressUpdate);
+        $this->assertEquals($objAddressExists->id, $objAddress->id);
+        $this->assertEquals($arrAddressUpdate['description'], $objAddressExists->description);
+    }
+
 }

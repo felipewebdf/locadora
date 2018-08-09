@@ -60,7 +60,19 @@ class CompanyServiceTest extends TestCase
             'user_id' => 1
         ];
         $objCompany = $this->companyService->register($arrCompany);
+        $arrCompanyExists = [
+            'name' => 'federa aa sdl',
+            'cnpj' => '54256465465465',
+            'description' => 'federal asdf',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da cidade',
+            'uf' => 'DF',
+            'user_id' => 1
+        ];
+        $objCompanyExists = $this->companyService->register($arrCompanyExists);
         $this->assertInstanceOf(Company::class, $objCompany);
+        $this->assertEquals($objCompany->id, $objCompanyExists->id);
     }
 
 }
