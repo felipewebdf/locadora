@@ -28,7 +28,7 @@ class CompanyRequest extends FormRequest
             'cnpj.required' => 'Favor informar o cnpj da empresa',
             'description.required' => 'Favor informar o endereço da empresa',
             'district.required' => 'Favor informar o bairro da empresa',
-            'city.required_if' => 'Favor informar a cidade da empresa',
+            'city.required' => 'Favor informar a cidade da empresa',
             'uf.required' => 'Favor informar a UF da empresa',
             'cep.required' => 'Favor informar o cep da empresa'
         ];

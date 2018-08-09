@@ -11,17 +11,32 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-    @include('layouts.header')
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Locadora online</a>
+            </div>
+
+        </div>
+    </nav>
     <div class="container">
-        @yield('content')
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                @include('layouts.sidebar')
+            </div>
+            <div class="col-md-9">
+                @yield('content')
+            </div>
+        </div>
       <hr>
       @include('layouts.footer')
     </div> <!-- /container -->
         <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"
             type="text/javascript"></script>
-            <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"
-            type="text/javascript"></script>
-            <!--<script src="{{ asset('js/app.js') }}"></script>-->
-            @yield('page-js-files')
+        <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"
+        type="text/javascript"></script>
+        <script src="{{ asset('js/app.js') }}"
+        type="text/javascript"></script>
+        @yield('page-js-files')
     </body>
 </html>

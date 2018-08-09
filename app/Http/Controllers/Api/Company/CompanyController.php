@@ -47,7 +47,6 @@ class CompanyController extends Controller
             $id = \Illuminate\Support\Facades\Auth::id();
             $arrCompany = $request->all();
             $arrCompany['user_id'] = $id;
-            //dd($arrCompany);
             $company = $this->container
                     ->make(CompanyService::class)
                     ->register($arrCompany);
