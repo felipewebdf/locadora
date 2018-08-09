@@ -21,7 +21,7 @@
             type="text/javascript"></script>
             <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"
             type="text/javascript"></script>
-            <!--<script src="{{ asset('js/app.js') }}"></script>-->
+            <script src="{{ asset('js/app.js') }}"></script>
             @yield('page-js-files')
     </body>
 </html>
