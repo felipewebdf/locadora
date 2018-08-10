@@ -21,6 +21,9 @@ class CompanyController extends Controller
         $this->container = $container;
         $token = explode(' ', $request->cookie('Authorization'));
         $auth = $this->container->make(JWTAuth::class);
+        if (count($token) < 1) {
+            return redirect('/');
+        }
         $auth->setToken($token[1]);
         $auth->authenticate();
     }

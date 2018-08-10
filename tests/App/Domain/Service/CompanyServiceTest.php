@@ -47,7 +47,7 @@ class CompanyServiceTest extends TestCase
         $this->assertInstanceOf(Company::class, $objCompany);
     }
 
-    public function testRegisterExistsCompanyUpdateReturnEntity()
+    public function testAddExistsCompanyUpdateReturnEntity()
     {
         $arrCompany = [
             'name' => 'federal',
@@ -73,6 +73,7 @@ class CompanyServiceTest extends TestCase
         $objCompanyExists = $this->companyService->register($arrCompanyExists);
         $this->assertInstanceOf(Company::class, $objCompany);
         $this->assertEquals($objCompany->id, $objCompanyExists->id);
+        $this->assertNotEquals($arrCompany['description'], $objCompanyExists->description);
     }
 
 }

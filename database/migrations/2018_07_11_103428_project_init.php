@@ -89,9 +89,8 @@ class ProjectInit extends Migration
             $table->integer('door');
             $table->integer('capacity');
             $table->integer('company_id')->unsigned();
-            $table->integer('provider_id')->unsigned();
+            $table->integer('provider_id')->unsigned()->nullable(true);
             $table->foreign('provider_id')->index()
-                ->nullable()
                 ->references('id')
                 ->on('provider');
             $table->timestamp('created_at')->nullable();
