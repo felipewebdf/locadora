@@ -14,7 +14,8 @@ class CarService
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
         $arrCar['company_id'] = $company->id;
 
-        $exists = Car::where('tag', $arrCar['tag'])->where('company_id', $company->id)->first();
+        $exists = Car::where('tag', $arrCar['tag'])
+                ->where('company_id', $company->id)->first();
         if ($exists) {
             throw new RulesException('Carro já cadastrado');
         }
@@ -23,5 +24,11 @@ class CarService
         $car->fill($arrCar);
         $car->save();
         return $car;
+    }
+
+    public function all($params)
+    {
+        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
+        return Car::where('company_id', $company->id)->orderBy('automaker', 'asc')->get();
     }
 }

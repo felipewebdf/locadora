@@ -19,5 +19,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@postReset')->name('p
 
 Route::group(['prefix' => 'web'], function() {
     Route::get('company', '\App\Http\Controllers\Web\CompanyController@index');
+    Route::get('car', '\App\Http\Controllers\Web\CarController@index');
 });
 
