@@ -16,8 +16,12 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Locadora online</a>
             </div>
-
         </div>
+        <div id="navbar" >
+            <a href="javascript:void(0);"
+               onclick="app.login.logout()"
+               title="Sair do sistema" id="logout">sair</a>
+        </div><!--/.navbar-collapse -->
     </nav>
     <div class="container">
         <div class="row">

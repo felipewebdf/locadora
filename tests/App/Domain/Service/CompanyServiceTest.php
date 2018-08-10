@@ -41,7 +41,7 @@ class CompanyServiceTest extends TestCase
             'cep' => '12123456',
             'city' => 'nome da cidade',
             'uf' => 'DF',
-            'user_id' => 1
+            'user_id' => 2
         ];
         $objCompany = $this->companyService->register($arrCompany);
         $this->assertInstanceOf(Company::class, $objCompany);
@@ -57,7 +57,7 @@ class CompanyServiceTest extends TestCase
             'cep' => '12123456',
             'city' => 'nome da cidade',
             'uf' => 'DF',
-            'user_id' => 1
+            'user_id' => 2
         ];
         $objCompany = $this->companyService->register($arrCompany);
         $arrCompanyExists = [
@@ -68,7 +68,7 @@ class CompanyServiceTest extends TestCase
             'cep' => '12123456',
             'city' => 'nome da cidade',
             'uf' => 'DF',
-            'user_id' => 1
+            'user_id' => 2
         ];
         $objCompanyExists = $this->companyService->register($arrCompanyExists);
         $this->assertInstanceOf(Company::class, $objCompany);

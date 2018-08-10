@@ -8,5 +8,5 @@ $().ready(function() {
         .fail(function(data) {
             app.inputErros(data);
         });
-    })
+    });
 });

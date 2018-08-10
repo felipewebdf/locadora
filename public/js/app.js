@@ -14,8 +14,8 @@ $().ready(function() {
             });
         },
         getCookie: function (name) {
-            console.log(document.cookie);
-            var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            var cookie = decodeURIComponent(document.cookie);
+            var v = cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
             return v ? v[2] : null;
         },
         setCookie: function(c_name, value, exdays) {
@@ -28,6 +28,14 @@ $().ready(function() {
             $('#alert-app').removeClass('alert-warning').removeClass('alert-success');
             $('#alert-app').removeClass('hide').addClass('show').addClass('alert-' + type);
             $('#alert-message').html(message);
+        },
+        login: {
+            logout: function() {
+                $.get('/api/logout', {token: app.getCookie('Authorization').substring('7')},function() {
+                    app.setCookie('Authorization','', -1);
+                    window.location.href='/';
+                });
+            }
         }
     };
 

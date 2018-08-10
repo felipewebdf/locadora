@@ -2,15 +2,29 @@
 
 namespace App\Http\Controllers\Api\Company;
 
-use App\Company;
+
 use Illuminate\Http\Request;
-use \App\Http\Controllers\Controller;
-use \App\Domain\Service\CompanyService;
+use App\Http\Controllers\Controller;
+use App\Exceptions\RulesException;
+use App\Domain\Service\CompanyService;
 use App\Http\Request\Company\CompanyRequest;
+use Illuminate\Container\Container;
+use Illuminate\Support\Facades\Auth;
+use App\Domain\Company;
 
 class CompanyController extends Controller
 {
-    public function __construct(\Illuminate\Container\Container $container)
+    /**
+     *
+     * @var Container
+     */
+    protected $container;
+
+    /**
+     *
+     * @param Container $container
+     */
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
@@ -22,7 +36,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return \App\Domain\Company::all();
+        return Company::all();
     }
 
     /**
@@ -44,15 +58,14 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         try {
-            $id = \Illuminate\Support\Facades\Auth::id();
+            $id = Auth::id();
             $arrCompany = $request->all();
             $arrCompany['user_id'] = $id;
             $company = $this->container
                     ->make(CompanyService::class)
                     ->register($arrCompany);
             return response()->json($company->toArray(), 201);
-        } catch (\Exception $ex) {
-            dd($ex->getMessage());
+        } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
     }
@@ -60,7 +73,7 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Domain\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
@@ -71,7 +84,7 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Domain\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function edit(Company $company)
@@ -83,7 +96,7 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Company  $company
+     * @param  \App\Domain\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Company $company)
@@ -94,7 +107,7 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Domain\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function destroy(Company $company)
