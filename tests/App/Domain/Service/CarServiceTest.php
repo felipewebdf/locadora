@@ -54,7 +54,7 @@ class CarServiceTest extends TestCase
         return $this->companyService->register($arrCar);
     }
 
-    public function testRegisterReturnEntity()
+    public function testAddReturnEntity()
     {
         $this->company();
 
@@ -79,7 +79,7 @@ class CarServiceTest extends TestCase
     /**
      * @expectedException \App\Exceptions\RulesException
      */
-    public function testRegisterExistsCarUpdateReturnEntity()
+    public function testAddExistsCarLaunchException()
     {
         $this->company();
         $arrCar = [
