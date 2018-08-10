@@ -5,17 +5,19 @@
     <h1>Dados da empresa</h1>
 </div>
 <hr>
-<form method="POST" action="{{ url('/web/company')}}" id='form-company'>
+<form method="POST" action="javascript:void(0)" id='form-company'>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="name">Empresa</label>
             <input type="text" name="name" class="form-control"
+                   maxlength="300"
                    value="<?php echo isset($company->name)?$company->name:'' ?>"
                    />
         </div>
         <div class="form-group col-md-4">
             <label for="cnpj">Cnpj</label>
             <input type="text" name="cnpj" class="form-control"
+                   maxlength="14"
                    value="<?php echo isset($company->cnpj)?$company->cnpj:'' ?>">
         </div>
     </div>
@@ -24,28 +26,32 @@
         <div class="form-group col-md-4">
             <label for="cep">CEP</label>
             <input type="text" name="cep" class="form-control"
-                   value="<?php echo isset($company->address()->first()->cep)?$company->address()->first()->cep:''?>">
+                   maxlength="9"
+                   value="<?php echo isset($company->id)?$company->address()->first()->cep:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="description">Logradouro</label>
             <input type="text" name="description" class="form-control"
-                   value="<?php echo isset($company->address()->first()->description)?$company->address()->first()->description:''?>">
+                   maxlength="300"
+                   value="<?php echo isset($company->id)?$company->address()->first()->description:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="district">Bairro</label>
             <input type="text" name="district" class="form-control"
-                   value="<?php echo isset($company->address()->first()->district)?$company->address()->first()->district:''?>">
+                   maxlength="200"
+                   value="<?php echo isset($company->id)?$company->address()->first()->district:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="city">Cidade</label>
             <input type="text" name="city" class="form-control"
-                   value="<?php echo isset($company->address()->first()->city)?$company->address()->first()->city:''?>">
+                   maxlength="100"
+                   value="<?php echo isset($company->id)?$company->address()->first()->city:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="uf">UF</label>
             <input type="hidden"
                    id="defaultUF"
-                   value="<?php echo isset($company->address()->first()->uf)?$company->address()->first()->uf:''?>">
+                   value="<?php echo isset($company->id)?$company->address()->first()->uf:''?>">
             <select name="uf" class="form-control">
                 <option value="">UF</option>
                 <option value="AC">Acre</option>
@@ -83,7 +89,7 @@
             <input type="submit" name="company_submit"
                    class="btn btn-primary"
                    title="Enviar dados da empresa"
-                   value="enviar"/>
+                   value="Enviar"/>
         </div>
     </div>
 </form>
