@@ -8,8 +8,13 @@ var carService = {
         }).fail(function(data) {
             if (data.status == 422) {
                 app.alert('Favor verificar as informações', 'warning');
-                app.inputErros(data);
+                return app.inputErros(data);
             }
+            if (data.status == 412) {
+                console.log(data);
+                return app.alert(data.responseJSON[0], 'warning');
+            }
+            app.alert('Falha ao realizar cadastro', 'danger');
         });
     }
 };

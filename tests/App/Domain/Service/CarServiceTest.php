@@ -156,4 +156,25 @@ class CarServiceTest extends TestCase
 
         $this->assertEquals($arrCarUPdate['automaker'], $objCar->automaker);
     }
+
+    public function testAll()
+    {
+        $this->company();
+        $arrCar = [
+            'automaker' => 'Honda Civic',
+            'model' => 'Civic',
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'JHE-4545',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->add($arrCar);
+        $arrCar = $this->carService->all(['user_id' => 2]);
+        $this->assertArrayHasKey('automaker', $arrCar[0]);
+    }
 }

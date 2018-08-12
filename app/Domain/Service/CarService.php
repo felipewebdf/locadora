@@ -22,6 +22,7 @@ class CarService
 
         $exists = Car::where('tag', $arrCar['tag'])
                 ->where('company_id', $company->id)->first();
+
         if ($exists) {
             throw new RulesException('Veículo já cadastrado');
         }
