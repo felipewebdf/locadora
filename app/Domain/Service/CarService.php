@@ -43,7 +43,6 @@ class CarService
     {
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
         $arrCar['company_id'] = $company->id;
-
         $car = Car::where('tag', $arrCar['tag'])
                 ->where('company_id', $company->id)->first();
 
@@ -54,5 +53,14 @@ class CarService
         $car->fill($arrCar);
         $car->save();
         return $car;
+    }
+
+    public function getForTag($arrCar)
+    {
+        $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
+
+        $exists = Car::where('tag', $arrCar['tag'])
+                ->where('company_id', $company->id)->first();
+        return $exists;
     }
 }

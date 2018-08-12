@@ -1,8 +1,8 @@
 var companyService = {
     post: function(params) {
+        $('.errors-app').remove();
         $.post('/api/company', params, function(response, data, headers) {
             if (headers.status == 201) {
-                $('.errors-app').remove();
                 app.alert('Dados da empresa salvos com sucesso', 'success');
             }
         }).fail(function(data) {

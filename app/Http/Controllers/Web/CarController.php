@@ -6,6 +6,7 @@ use Illuminate\Container\Container;
 use App\Domain\Service\CarService;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\JWTAuth;
+use Illuminate\Http\Request;
 
 
 class CarController extends Controller
@@ -38,6 +39,16 @@ class CarController extends Controller
     public function create()
     {
         return view('web.car.create');
+    }
+
+    public function update($tag)
+    {
+        $arrCar = [
+            'tag' => $tag,
+            'user_id' => Auth::id()
+        ];
+        $car = $this->container->make(CarService::class)->getForTag($arrCar);
+        return view('web.car.update', ['car' => $car]);
     }
 
 }

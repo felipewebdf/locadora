@@ -10,7 +10,7 @@ use App\Domain\Service\CarService;
 use App\Http\Request\Car\CarRequest;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Auth;
-use App\Domain\Cars;
+use App\Domain\Car;
 
 class CarController extends Controller
 {
@@ -74,10 +74,10 @@ class CarController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Domain\Cars  $cars
+     * @param  \App\Domain\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show(Cars $cars)
+    public function show(Car $car)
     {
         //
     }
@@ -85,10 +85,10 @@ class CarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Domain\Cars  $cars
+     * @param  \App\Domain\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cars $cars)
+    public function edit(Car $car)
     {
         //
     }
@@ -97,21 +97,30 @@ class CarController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Domain\Cars  $cars
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cars $cars)
+    public function update($tag, Request $request)
     {
-        //
+        try {
+            $id = Auth::id();
+            $arrCar = $request->all();
+            $arrCar['user_id'] = $id;
+            $carResult = $this->container
+                    ->make(CarService::class)
+                    ->update($arrCar);
+            return response()->json($carResult->toArray(), 200);
+        } catch (RulesException $ex) {
+            return response()->json([$ex->getMessage()], $ex->getCode());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Domain\Cars  $cars
+     * @param  \App\Domain\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cars $cars)
+    public function destroy(Car $car)
     {
         //
     }

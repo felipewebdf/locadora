@@ -21,5 +21,6 @@ Route::group(['prefix' => 'web'], function() {
     Route::get('company', '\App\Http\Controllers\Web\CompanyController@index');
     Route::get('car', '\App\Http\Controllers\Web\CarController@index');
     Route::get('car/create', '\App\Http\Controllers\Web\CarController@create');
+    Route::get('car/update/{tag}', '\App\Http\Controllers\Web\CarController@update');
 });
 

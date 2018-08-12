@@ -13,13 +13,13 @@
         <tr>
             <th>Montadora</th>
             <th>Modelo</th>
-            <th>Ano</th>
+            <th>Fabricação/Ano</th>
             <th>Placa</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($cars as $car)
-        <tr>
+        <tr itemref="{{ url('/web/car/update/' . $car->tag) }}" class='form_update'>
             <td>{{ $car->automaker}}</td>
             <td>{{ $car->model }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>
