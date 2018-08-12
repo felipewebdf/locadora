@@ -99,9 +99,61 @@ class CarServiceTest extends TestCase
         $this->carService->add($arrCar);
     }
 
-    public function testAllReturnArrayOrderByAutoMakeAsc()
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
+    public function testUpdateVerifyExists()
     {
-        
+        $this->company();
+        $arrCar = [
+            'automaker' => 'Honda Civic',
+            'model' => 'Civic',
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'Honda',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->update($arrCar);
     }
 
+    public function testUpdateReturnEntityUpdate()
+    {
+        $this->company();
+        $arrCar = [
+            'automaker' => 'Honda Civic',
+            'model' => 'Civic',
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'JHE-4545',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->add($arrCar);
+
+        $arrCarUPdate = [
+            'automaker' => 'Honda',
+            'model' => 'Civic',
+            'power' => '2.0',
+            'year_factory' => '2018',
+            'year' => '2018',
+            'tag' => 'JHE-4545',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->update($arrCarUPdate);
+
+        $this->assertEquals($arrCarUPdate['automaker'], $objCar->automaker);
+    }
 }

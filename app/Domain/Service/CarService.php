@@ -9,6 +9,12 @@ class CarService
 {
     use ContainerTrait;
 
+    public function all($params)
+    {
+        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
+        return Car::where('company_id', $company->id)->orderBy('automaker', 'asc')->get();
+    }
+
     public function add($arrCar)
     {
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
@@ -17,7 +23,7 @@ class CarService
         $exists = Car::where('tag', $arrCar['tag'])
                 ->where('company_id', $company->id)->first();
         if ($exists) {
-            throw new RulesException('Carro já cadastrado');
+            throw new RulesException('Veículo já cadastrado');
         }
 
         $car = new Car();
@@ -26,9 +32,26 @@ class CarService
         return $car;
     }
 
-    public function all($params)
+    /**
+     *
+     * @param array $arrCar
+     * @return type
+     * @throws RulesException
+     */
+    public function update($arrCar)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
-        return Car::where('company_id', $company->id)->orderBy('automaker', 'asc')->get();
+        $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
+        $arrCar['company_id'] = $company->id;
+
+        $car = Car::where('tag', $arrCar['tag'])
+                ->where('company_id', $company->id)->first();
+
+        if (!$car) {
+            throw new RulesException('Veículo não encontrado');
+        }
+
+        $car->fill($arrCar);
+        $car->save();
+        return $car;
     }
 }

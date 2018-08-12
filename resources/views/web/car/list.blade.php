@@ -20,7 +20,7 @@
     <tbody>
         @foreach ($cars as $car)
         <tr>
-            <td>{{ $car->automake }}</td>
+            <td>{{ $car->automaker}}</td>
             <td>{{ $car->model }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>
             <td>{{ $car->tag }}</td>

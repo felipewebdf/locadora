@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Cars;
+namespace App\Http\Controllers\Api\Car;
 
 
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Auth;
 use App\Domain\Cars;
 
-class CarsController extends Controller
+class CarController extends Controller
 {
     /**
      *
@@ -64,7 +64,7 @@ class CarsController extends Controller
             $arrCars['user_id'] = $id;
             $cars = $this->container
                     ->make(CarService::class)
-                    ->register($arrCars);
+                    ->add($arrCars);
             return response()->json($cars->toArray(), 201);
         } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());
