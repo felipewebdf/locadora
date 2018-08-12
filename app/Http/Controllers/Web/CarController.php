@@ -34,4 +34,10 @@ class CarController extends Controller
         $cars = $this->container->make(CarService::class)->all(['user_id' => $user_id]);
         return view('web.car.list', ['cars' => $cars]);
     }
+
+    public function create()
+    {
+        return view('web.car.create');
+    }
+
 }

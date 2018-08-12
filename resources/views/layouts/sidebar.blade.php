@@ -4,4 +4,3 @@
     <li class="nav-item"><a href='{{ url('/web/car') }}'
            title='Gerenciar carros'>Gerenciar carros</a></li>
 </ul>
-

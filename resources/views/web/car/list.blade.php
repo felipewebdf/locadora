@@ -3,10 +3,10 @@
 @section('content')
 <div class="header">
     <h1>Lista de carros</h1>
-    <button type="button"
+    <a href="{{url('web/car/create')}}"
             name="add_car"
             title="Adicionar carro"
-            class="btn btn-primary right">Adicionar carro</button>
+            class="btn btn-primary right">Adicionar carro</a>
 </div>
 <table class="table table-hover">
     <thead>
