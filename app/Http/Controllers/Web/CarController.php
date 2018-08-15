@@ -2,25 +2,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Container\Container;
 use App\Domain\Service\CarService;
 use Illuminate\Support\Facades\Auth;
-use Tymon\JWTAuth\JWTAuth;
-use Illuminate\Http\Request;
+use App\Traits\ContainerTrait;
 
 
 class CarController extends Controller
 {
-    /**
-     *
-     * @var Container
-     */
-    protected $container;
-
-    public function __construct(Container $container, Request $request)
-    {
-        $this->container = $container;
-    }
+    use ContainerTrait;
 
     public function index()
     {

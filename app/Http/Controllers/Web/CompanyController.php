@@ -2,31 +2,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Container\Container;
 use App\Domain\Service\CompanyService;
 use Illuminate\Support\Facades\Auth;
-use Tymon\JWTAuth\JWTAuth;
-
+use App\Traits\ContainerTrait;
 
 class CompanyController extends Controller
 {
-    /**
-     *
-     * @var Container
-     */
-    protected $container;
+    use ContainerTrait;
 
-    public function __construct(Container $container, \Illuminate\Http\Request $request)
-    {
-        $this->container = $container;
-        $token = explode(' ', $request->cookie('Authorization'));
-        $auth = $this->container->make(JWTAuth::class);
-        if (count($token) < 1) {
-            return redirect('/');
-        }
-        $auth->setToken($token[1]);
-        $auth->authenticate();
-    }
     public function index()
     {
         $user_id = Auth::id();
