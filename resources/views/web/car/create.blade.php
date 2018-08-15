@@ -7,13 +7,16 @@
 <hr>
 <form method="POST" action="javascript:void(0)" id='form-car'>
     <div class="row">
-<!--        <div class="form-group col-md-3">
+        <div class="form-group col-md-3">
             <label for="automaker">Montadora</label>
-            <input type="text" name="automaker" class="form-control"
-                   maxlength="100"
-                   value="<?php //echo isset($car->model)?$car->automaker:'' ?>"
-                   />
-        </div>-->
+            <select name="brand" class="form-control">
+                @foreach ($brands as $brand)
+                <option value="{{ $brand->id }}">
+                    {{ $brand->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
         <div class="form-group col-md-3">
             <label for="model">Modelo</label>
             <input type="text" name="model" class="form-control"

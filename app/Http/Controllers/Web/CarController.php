@@ -20,7 +20,8 @@ class CarController extends Controller
 
     public function create()
     {
-        return view('web.car.create');
+        $brands = \App\Domain\Brand::all();
+        return view('web.car.create', ['brands' => $brands]);
     }
 
     public function update($tag)

@@ -6,6 +6,7 @@ use Closure;
 use App\Traits\ContainerTrait;
 use Tymon\JWTAuth\JWTAuth;
 use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class AuthCookieMiddleware
 {
@@ -33,6 +34,8 @@ class AuthCookieMiddleware
             $auth->setToken($token[1]);
             $auth->authenticate();
         } catch(TokenBlacklistedException $ex) {
+            return redirect('/');
+        } catch(TokenExpiredException $e) {
             return redirect('/');
         }
         return $next($request);
