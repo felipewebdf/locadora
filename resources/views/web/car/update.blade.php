@@ -7,13 +7,13 @@
 <hr>
 <form method="PUT" action="javascript:void(0)" id='form-car'>
     <div class="row">
-        <div class="form-group col-md-3">
+<!--        <div class="form-group col-md-3">
             <label for="automaker">Montadora</label>
             <input type="text" name="automaker" class="form-control"
                    maxlength="100"
-                   value="<?php echo isset($car->automaker)?$car->automaker:'' ?>"
+                   value="<?php //echo isset($car->automaker)?$car->automaker:'' ?>"
                    />
-        </div>
+        </div>-->
         <div class="form-group col-md-3">
             <label for="model">Modelo</label>
             <input type="text" name="model" class="form-control"

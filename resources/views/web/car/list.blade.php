@@ -11,7 +11,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Montadora</th>
+            <!--<th>Montadora</th>-->
             <th>Modelo</th>
             <th>Fabricação/Ano</th>
             <th>Placa</th>
@@ -20,7 +20,7 @@
     <tbody>
         @foreach ($cars as $car)
         <tr style='cursor: pointer' itemref="{{ url('/web/car/update/' . $car->tag) }}" class='form_update'>
-            <td>{{ $car->automaker}}</td>
+            <!--model_id<td>{{ $car->automaker}}</td>-->
             <td>{{ $car->model }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>
             <td>{{ $car->tag }}</td>

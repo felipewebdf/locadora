@@ -20,13 +20,6 @@ class CarController extends Controller
     public function __construct(Container $container, Request $request)
     {
         $this->container = $container;
-        $token = explode(' ', $request->cookie('Authorization'));
-        $auth = $this->container->make(JWTAuth::class);
-        if (count($token) < 1) {
-            return redirect('/');
-        }
-        $auth->setToken($token[1]);
-        $auth->authenticate();
     }
 
     public function index()

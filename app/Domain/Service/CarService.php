@@ -12,7 +12,7 @@ class CarService
     public function all($params)
     {
         $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
-        return Car::where('company_id', $company->id)->orderBy('automaker', 'asc')->get();
+        return Car::where('company_id', $company->id)->get();
     }
 
     /**
