@@ -15,6 +15,12 @@ class CarService
         return Car::where('company_id', $company->id)->orderBy('automaker', 'asc')->get();
     }
 
+    /**
+     *
+     * @param array $arrCar
+     * @return Car
+     * @throws RulesException
+     */
     public function add($arrCar)
     {
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
@@ -50,11 +56,17 @@ class CarService
             throw new RulesException('Veículo não encontrado');
         }
 
+        $arrCar['updated_at'] = new \DateTime();
         $car->fill($arrCar);
         $car->save();
         return $car;
     }
 
+    /**
+     *
+     * @param array $arrCar
+     * @return Car
+     */
     public function getForTag($arrCar)
     {
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);

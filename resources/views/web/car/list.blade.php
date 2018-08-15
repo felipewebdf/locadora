@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         @foreach ($cars as $car)
-        <tr itemref="{{ url('/web/car/update/' . $car->tag) }}" class='form_update'>
+        <tr style='cursor: pointer' itemref="{{ url('/web/car/update/' . $car->tag) }}" class='form_update'>
             <td>{{ $car->automaker}}</td>
             <td>{{ $car->model }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>

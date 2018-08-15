@@ -17,7 +17,7 @@ class CarController extends Controller
      */
     protected $container;
 
-    public function __construct(Container $container, \Illuminate\Http\Request $request)
+    public function __construct(Container $container, Request $request)
     {
         $this->container = $container;
         $token = explode(' ', $request->cookie('Authorization'));

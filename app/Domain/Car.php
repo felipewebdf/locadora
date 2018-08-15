@@ -38,4 +38,9 @@ class Car extends Model
     {
         return $this->hasOne('App\Domain\Provider', 'id', 'provider_id');
     }
+
+    public function model()
+    {
+        return $this->hasOne('App\Domain\Model', 'id', 'model_id');
+    }
 }

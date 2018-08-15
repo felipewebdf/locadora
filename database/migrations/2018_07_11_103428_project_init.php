@@ -13,6 +13,28 @@ class ProjectInit extends Migration
      */
     public function up()
     {
+        Schema::create('brand', function (Blueprint $table)
+        {
+            $table->increments('id')->index()->unsigned();
+            $table->string('name',500)->nullable(false);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+        });
+
+        Schema::create('model', function (Blueprint $table)
+        {
+            $table->increments('id')->index()->unsigned();
+            $table->string('name',500)->nullable(false);
+            $table->integer('brand_id')->unsigned();
+            $table->foreign('brand_id')
+                ->references('id')
+                ->on('brand');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+        });
+
         Schema::create('address', function (Blueprint $table)
         {
             $table->increments('id')->index()->unsigned();
@@ -43,7 +65,6 @@ class ProjectInit extends Migration
                 ->references('id')
                 ->on('users');
         });
-
 
         Schema::create('provider', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
@@ -79,8 +100,10 @@ class ProjectInit extends Migration
 
         Schema::create('car', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
-            $table->string('automaker',100)->nullable(false);
-            $table->string('model',200)->nullable(false);
+            $table->integer('model_id')->unsigned();
+            $table->foreign('model_id')
+                ->references('id')
+                ->on('model');
             $table->string('power',4);
             $table->string('year_factory', 4);
             $table->string('year', 4);
