@@ -33,7 +33,7 @@ class ModelController extends Controller
      */
     public function index(Request $request)
     {
-        return response()->json(ModelCar::where('brand_id', '=', $request->get('brand_id'))->get());
+        return response()->json(ModelCar::where('brand_id', '=', $request->get('brand_id'))->orderBy('name')->get());
     }
 
     /**
