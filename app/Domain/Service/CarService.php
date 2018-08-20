@@ -4,6 +4,7 @@ namespace App\Domain\Service;
 use App\Traits\ContainerTrait;
 use App\Domain\Car;
 use App\Exceptions\RulesException;
+use App\Domain\ModelCar;
 
 class CarService
 {
@@ -32,6 +33,14 @@ class CarService
         if ($exists) {
             throw new RulesException('Veículo já cadastrado');
         }
+
+        $model = ModelCar::where('id', '=', $arrCar['model'])->first();
+
+        if (!$model) {
+            throw new RulesException('Modelo não encontrado');
+        }
+
+        $arrCar['model_id'] = $model->id;
 
         $car = new Car();
         $car->fill($arrCar);

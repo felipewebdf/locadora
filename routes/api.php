@@ -26,4 +26,5 @@ Route::group(['middleware' => ['jwt.auth']], function() {
     Route::post('company', 'Api\Company\CompanyController@store');
     Route::post('car', 'Api\Car\CarController@store');
     Route::put('car/{tag}', 'Api\Car\CarController@update');
+    Route::get('car/model', 'Api\Car\ModelController@index');
 });

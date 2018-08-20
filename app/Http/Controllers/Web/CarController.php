@@ -31,7 +31,9 @@ class CarController extends Controller
             'user_id' => Auth::id()
         ];
         $car = $this->container->make(CarService::class)->getForTag($arrCar);
-        return view('web.car.update', ['car' => $car]);
+        $brands = \App\Domain\Brand::all();
+        $models = \App\Domain\ModelCar::where('brand_id', '=', $car->model->brand->id)->get();
+        return view('web.car.update', ['car' => $car, 'brands' => $brands, 'models' => $models]);
     }
 
 }

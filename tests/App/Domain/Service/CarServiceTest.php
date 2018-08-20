@@ -59,8 +59,7 @@ class CarServiceTest extends TestCase
         $this->company();
 
         $arrCar = [
-            'automaker' => 'Honda Civic',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '1.8',
             'year_factory' => '2007',
             'year' => '2007',
@@ -83,8 +82,7 @@ class CarServiceTest extends TestCase
     {
         $this->company();
         $arrCar = [
-            'automaker' => 'Honda Civic',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '1.8',
             'year_factory' => '2007',
             'year' => '2007',
@@ -106,8 +104,7 @@ class CarServiceTest extends TestCase
     {
         $this->company();
         $arrCar = [
-            'automaker' => 'Honda Civic',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '1.8',
             'year_factory' => '2007',
             'year' => '2007',
@@ -125,8 +122,7 @@ class CarServiceTest extends TestCase
     {
         $this->company();
         $arrCar = [
-            'automaker' => 'Honda Civic',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '1.8',
             'year_factory' => '2007',
             'year' => '2007',
@@ -140,8 +136,7 @@ class CarServiceTest extends TestCase
         $objCar = $this->carService->add($arrCar);
 
         $arrCarUPdate = [
-            'automaker' => 'Honda',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '2.0',
             'year_factory' => '2018',
             'year' => '2018',
@@ -154,15 +149,14 @@ class CarServiceTest extends TestCase
         ];
         $objCar = $this->carService->update($arrCarUPdate);
 
-        $this->assertEquals($arrCarUPdate['automaker'], $objCar->automaker);
+        $this->assertEquals($arrCarUPdate['power'], $objCar->power);
     }
 
     public function testAll()
     {
         $this->company();
         $arrCar = [
-            'automaker' => 'Honda Civic',
-            'model' => 'Civic',
+            'model' => 703,
             'power' => '1.8',
             'year_factory' => '2007',
             'year' => '2007',
@@ -175,6 +169,6 @@ class CarServiceTest extends TestCase
         ];
         $objCar = $this->carService->add($arrCar);
         $arrCar = $this->carService->all(['user_id' => 2]);
-        $this->assertArrayHasKey('automaker', $arrCar[0]);
+        $this->assertArrayHasKey('power', $arrCar[0]);
     }
 }

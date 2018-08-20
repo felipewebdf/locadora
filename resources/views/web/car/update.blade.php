@@ -7,18 +7,30 @@
 <hr>
 <form method="PUT" action="javascript:void(0)" id='form-car'>
     <div class="row">
-<!--        <div class="form-group col-md-3">
-            <label for="automaker">Montadora</label>
-            <input type="text" name="automaker" class="form-control"
-                   maxlength="100"
-                   value="<?php //echo isset($car->automaker)?$car->automaker:'' ?>"
-                   />
-        </div>-->
+        <div class="form-group col-md-3">
+            <label for="brand">Montadora</label>
+            <select id="brand" name="brand" class="form-control"
+                   >
+                <option value="">Selecione</option>
+                @foreach ($brands as $brand)
+                <option value="{{ $brand->id }}"
+                        {{ $brand->id == $car->model->brand->id ? 'selected' : ''}}>
+                    {{ $brand->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
         <div class="form-group col-md-3">
             <label for="model">Modelo</label>
-            <input type="text" name="model" class="form-control"
-                   maxlength="200"
-                   value="<?php echo isset($car->model)?$car->model:'' ?>">
+            <select id="model" name="model" class="form-control">
+                <option value="">Selecione</option>
+                @foreach ($models as $model)
+                <option value="{{ $model->id }}"
+                        {{ $model->id == $car->model->id ? 'selected' : ''}}>
+                    {{ $model->name }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-2">
             <label for="power">Potência</label>
@@ -79,5 +91,6 @@
 @endsection
 @section('page-js-files')
 <script type="text/javascript" src="{{ asset('js/car/car-service.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/car/model-service.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/car/car-controller.js') }}"></script>
 @stop

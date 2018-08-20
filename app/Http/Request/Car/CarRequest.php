@@ -24,7 +24,7 @@ class CarRequest extends FormRequest
     public function messages()
     {
         return [
-            'automaker.required' => 'Favor informar a montadora',
+            'brand.required' => 'Favor informar a montadora',
             'model.required' => 'Favor informar o modelo',
             'power.required' => 'Favor informar o potência',
             'year_factory.required' => 'Favor informar o ano de fabricação',
@@ -45,7 +45,7 @@ class CarRequest extends FormRequest
     public function rules()
     {
         $validator = [
-            'automaker' => 'required',
+            'brand' => 'required',
             'model' => 'required',
             'power' => 'required',
             'year_factory' => 'required',
