@@ -40,15 +40,27 @@
         </div>
         <div class="form-group col-md-2">
             <label for="year_factory">Fabricação</label>
-            <input type="text" name="year_factory" class="form-control"
-                   maxlength="4"
-                   value="<?php echo isset($car->year_factory)?$car->year_factory:'' ?>">
+            <select id="year_factory" name="year_factory" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($years as $year)
+                <option value="{{ $year }}" <?php echo $car->year_factory==$year ? 'selected':'' ?>>
+                    {{ $year }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-2">
             <label for="year">Ano</label>
-            <input type="text" name="year" class="form-control"
-                   maxlength="4"
-                   value="<?php echo isset($car->year)?$car->year:'' ?>">
+            <select id="year" name="year" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($years as $year)
+                <option value="{{ $year }}" <?php echo $car->year==$year ? 'selected':'' ?>>
+                    {{ $year }}
+                </option>
+                @endforeach
+            </select>
         </div>
     </div>
     <hr>

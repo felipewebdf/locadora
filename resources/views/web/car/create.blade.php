@@ -30,15 +30,27 @@
         </div>
         <div class="form-group col-md-2">
             <label for="year_factory">Fabricação</label>
-            <input type="number" name="year_factory" class="form-control"
-                   maxlength="4"
-                   required />
+            <select id="year_factory" name="year_factory" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($years as $year)
+                <option value="{{ $year }}">
+                    {{ $year }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-2">
             <label for="year">Ano</label>
-            <input type="number" name="year" class="form-control"
-                   maxlength="4"
-                   required />
+            <select id="year"  name="year" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($years as $year)
+                <option value="{{ $year }}">
+                    {{ $year }}
+                </option>
+                @endforeach
+            </select>
         </div>
     </div>
     <hr>

@@ -1,8 +1,9 @@
 $().ready(function() {
     $('#form-car').submit(function(e) {
         e.preventDefault();
-        carService.post($(this).serialize());
-        $(this)[0].reset();
+        carService.post($(this).serialize(), function() {
+            $('#form-car')[0].reset();
+        });
     });
 
     $('.form_update').click(function() {
@@ -14,7 +15,7 @@ $().ready(function() {
     });
 
     $('#brand').change(function() {
-        var option = '<option value="">Selecione</option>';
+        var option = '<option value="">Selecione um modelo</option>';
         if (this.value == '') {
             $('#model').html(option);
             return;
@@ -25,5 +26,5 @@ $().ready(function() {
             });
             $('#model').html(option);
         });
-    })
+    });
 });

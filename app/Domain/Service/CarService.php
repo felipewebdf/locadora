@@ -41,6 +41,7 @@ class CarService
         }
 
         $arrCar['model_id'] = $model->id;
+        $arrCar['tag'] = strtoupper($arrCar['tag']);
 
         $car = new Car();
         $car->fill($arrCar);
@@ -66,6 +67,7 @@ class CarService
         }
 
         $arrCar['updated_at'] = new \DateTime();
+        $arrCar['tag'] = strtoupper($arrCar['tag']);
         $car->fill($arrCar);
         $car->save();
         return $car;
@@ -83,5 +85,10 @@ class CarService
         $exists = Car::where('tag', $arrCar['tag'])
                 ->where('company_id', $company->id)->first();
         return $exists;
+    }
+
+    static public function years()
+    {
+        return range(2009, (new \DateTime())->format("Y"));
     }
 }

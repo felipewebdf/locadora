@@ -21,7 +21,10 @@ class CarController extends Controller
     public function create()
     {
         $brands = \App\Domain\Brand::all()->sortBy('name');
-        return view('web.car.create', ['brands' => $brands]);
+        return view('web.car.create', [
+            'brands' => $brands,
+            'years' => CarService::years()
+        ]);
     }
 
     public function update($tag)
@@ -34,7 +37,12 @@ class CarController extends Controller
         $brands = \App\Domain\Brand::all()->sortBy('name');
         $models = \App\Domain\ModelCar::where('brand_id', '=', $car->model->brand->id)->orderBy('name')->get();
         //dd($models);
-        return view('web.car.update', ['car' => $car, 'brands' => $brands, 'models' => $models]);
+        return view('web.car.update', [
+            'car' => $car,
+            'brands' => $brands,
+            'models' => $models,
+            'years' => CarService::years()
+        ]);
     }
 
 }
