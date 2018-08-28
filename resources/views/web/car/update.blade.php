@@ -1,10 +1,6 @@
-@extends('layouts.appadmin')
+@extends('layouts.theme')
 
 @section('content')
-<div class="header">
-    <h1>Alterar carro</h1>
-</div>
-<hr>
 <form method="PUT" action="javascript:void(0)" id='form-car'>
     <div class="row">
         <div class="form-group col-md-3">

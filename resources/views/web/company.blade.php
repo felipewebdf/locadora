@@ -1,10 +1,7 @@
-@extends('layouts.appadmin')
+@extends('layouts.theme')
 
 @section('content')
-<div class="header">
-    <h1>Dados da empresa</h1>
-</div>
-<hr>
+
 <form method="POST" action="javascript:void(0)" id='form-company'>
     <div class="row">
         <div class="form-group col-md-4">

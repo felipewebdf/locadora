@@ -1,12 +1,13 @@
-@extends('layouts.appadmin')
+@extends('layouts.theme')
 
 @section('content')
-<div class="header">
-    <h1>Lista de carros</h1>
-    <a href="{{url('web/car/create')}}"
-            name="add_car"
-            title="Adicionar carro"
-            class="btn btn-primary right">Adicionar carro</a>
+<div class="row">
+    <div class="col-md-12 text-right">
+        <a href="{{url('web/car/create')}}"
+        name="add_car"
+        title="Adicionar carro"
+        class="btn btn-primary right">Adicionar carro</a>
+    </div>
 </div>
 <table class="table table-hover">
     <thead>
@@ -19,7 +20,9 @@
     </thead>
     <tbody>
         @foreach ($cars as $car)
-        <tr style='cursor: pointer' itemref="{{ url('/web/car/update/' . $car->tag) }}" class='form_update'>
+        <tr title="Clique na linha para editar esse veículo"
+            style='cursor: pointer' itemref="{{ url('/web/car/update/' . $car->tag) }}"
+            class='form_update'>
             <td>{{ $car->model->brand->name }}</td>
             <td>{{ $car->model->name }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>

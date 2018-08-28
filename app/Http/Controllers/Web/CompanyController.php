@@ -14,6 +14,6 @@ class CompanyController extends Controller
     {
         $user_id = Auth::id();
         $company = $this->container->make(CompanyService::class)->forUser($user_id);
-        return view('web.company', ['company' => $company]);
+        return view('web.company', ['company' => $company, 'title' => 'Dados da empresa']);
     }
 }

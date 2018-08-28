@@ -15,7 +15,7 @@ class CarController extends Controller
     {
         $user_id = Auth::id();
         $cars = $this->container->make(CarService::class)->all(['user_id' => $user_id]);
-        return view('web.car.list', ['cars' => $cars]);
+        return view('web.car.list', ['cars' => $cars, 'title' => 'Lista de veículos']);
     }
 
     public function create()
@@ -23,7 +23,8 @@ class CarController extends Controller
         $brands = \App\Domain\Brand::all()->sortBy('name');
         return view('web.car.create', [
             'brands' => $brands,
-            'years' => CarService::years()
+            'years' => CarService::years(),
+            'title' => 'Cadastrar veículo'
         ]);
     }
 
@@ -41,7 +42,8 @@ class CarController extends Controller
             'car' => $car,
             'brands' => $brands,
             'models' => $models,
-            'years' => CarService::years()
+            'years' => CarService::years(),
+            'title' => 'Alterar veículo'
         ]);
     }
 

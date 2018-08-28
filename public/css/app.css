@@ -1,3 +1,12 @@
 @-ms-viewport     { width: device-width; }
 @-o-viewport      { width: device-width; }
 @viewport         { width: device-width; }
+
+.sidebar {
+    background-color: #2125298c;
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar .nav-item .nav-link {
+    color: #fff;
+}
