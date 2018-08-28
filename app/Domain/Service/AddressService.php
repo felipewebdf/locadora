@@ -2,6 +2,7 @@
 namespace App\Domain\Service;
 
 use Illuminate\Container\Container;
+use App\Domain\Address;
 
 class AddressService
 {
@@ -44,7 +45,7 @@ class AddressService
         return $address;
     }
 
-    public function update($address, $arrAddress)
+    public function update(Address $address, $arrAddress)
     {
         $address->description = $arrAddress['description'];
         $address->district = $arrAddress['district'];

@@ -20,8 +20,13 @@ Route::post('password/reset', 'Auth\ResetPasswordController@postReset')->name('p
 Route::group(['prefix' => 'web'], function() {
     Route::get('/', '\App\Http\Controllers\Web\IndexController@index');
     Route::get('company', '\App\Http\Controllers\Web\CompanyController@index');
+
     Route::get('car', '\App\Http\Controllers\Web\CarController@index');
     Route::get('car/create', '\App\Http\Controllers\Web\CarController@create');
     Route::get('car/update/{tag}', '\App\Http\Controllers\Web\CarController@update');
+
+    Route::get('client', '\App\Http\Controllers\Web\ClientController@index');
+    Route::get('client/create', '\App\Http\Controllers\Web\ClientController@create');
+    Route::get('client/update/{id}', '\App\Http\Controllers\Web\ClientController@update');
 });
 

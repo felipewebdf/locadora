@@ -90,12 +90,6 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-<!--        <li class="nav-item active">
-          <a class="nav-link" href="{{ url('/web/company') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Empresa</span>
-          </a>
-        </li>-->
 <!--        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
@@ -116,6 +110,12 @@
           <a class="nav-link" href="{{ url('/web/car') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Veículos</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/web/client') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Clientes</span>
+          </a>
         </li>
 <!--        <li class="nav-item">
           <a class="nav-link" href="tables.html">
