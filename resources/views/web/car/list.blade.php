@@ -12,8 +12,8 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Montadora</th>
             <th>Modelo</th>
+            <th>Montadora</th>
             <th>Fabricação/Ano</th>
             <th>Placa</th>
         </tr>
@@ -23,8 +23,8 @@
         <tr title="Clique na linha para editar esse veículo"
             style='cursor: pointer' itemref="{{ url('/web/car/update/' . $car->tag) }}"
             class='form_update'>
-            <td>{{ $car->model->brand->name }}</td>
             <td>{{ $car->model->name }}</td>
+            <td>{{ $car->model->brand->name }}</td>
             <td>{{ $car->year_factory }} / {{ $car->year }}</td>
             <td>{{ $car->tag }}</td>
         </tr>
