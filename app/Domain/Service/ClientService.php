@@ -2,16 +2,18 @@
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
+use App\Traits\CompanyTrait;
 use App\Domain\Client;
 use App\Exceptions\RulesException;
 
 class ClientService
 {
     use ContainerTrait;
+    use CompanyTrait;
 
     public function all($params)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
+        $company = $this->getCompanyUser($params['user_id']);
         return Client::where('company_id', $company->id)->get();
     }
 
@@ -23,7 +25,7 @@ class ClientService
      */
     public function add($arrClient)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($arrClient['user_id']);
+        $company = $this->getCompanyUser($arrClient['user_id']);
         $arrClient['company_id'] = $company->id;
 
         $exists = Client::where('cnh', $arrClient['cnh'])
@@ -49,19 +51,12 @@ class ClientService
      * @return type
      * @throws RulesException
      */
-    public function update($arrClient)
+    public function update($id, $arrClient)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($arrClient['user_id']);
-        $arrClient['company_id'] = $company->id;
-
-        $client = Client::find($arrClient['id']);
-
-        if (!$client) {
-            throw new RulesException('Cliente não encontrado');
-        }
+        $client = $this->get($id, $arrClient['user_id']);
 
         $exists = Client::where('cnh', $arrClient['cnh'])
-                ->where('company_id', $company->id)->first();
+                ->where('company_id', $client->company->id)->first();
 
         if ($exists && $exists->id != $client->id) {
             throw new RulesException('Cliente já existente');
@@ -72,11 +67,32 @@ class ClientService
 
         unset($arrClient['user_id']);
         unset($arrClient['company_id']);
-        unset($arrClient['id']);
+        unset($arrClient['address_id']);
 
         $arrClient['updated_at'] = new \DateTime();
         $client->fill($arrClient);
         $client->save();
+        return $client;
+    }
+
+    /**
+     *
+     * @param int $id
+     * @param int $userId
+     * @return Client
+     * @throws RulesException
+     */
+    public function get($id, $userId)
+    {
+        $company = $this->getCompanyUser($userId);
+
+        $client = Client::where('id', $id)
+                ->where('company_id', $company->id)->first();
+
+        if (!$client) {
+            throw new RulesException('Cliente não encontrado');
+        }
+
         return $client;
     }
 

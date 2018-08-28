@@ -100,6 +100,27 @@ class CarServiceTest extends TestCase
     /**
      * @expectedException \App\Exceptions\RulesException
      */
+    public function testAddCarNotExistsModelLaunchException()
+    {
+        $this->company();
+        $arrCar = [
+            'model' => 23443,
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'PAT-5006',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $this->carService->add($arrCar);
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
     public function testUpdateVerifyExists()
     {
         $this->company();

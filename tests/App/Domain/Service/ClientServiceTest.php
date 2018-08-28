@@ -115,9 +115,8 @@ class ClientServiceTest extends TestCase
         $arrClient['cnh'] = '123';
         $clientNew = $this->clientService->add($arrClient);
 
-        $arrClient['id'] = $clientNew->id;
         $arrClient['cnh'] = '1.8';
-        $this->clientService->update($arrClient);
+        $this->clientService->update($clientNew->id, $arrClient);
     }
 
     /**
@@ -139,7 +138,6 @@ class ClientServiceTest extends TestCase
         $client = $this->clientService->add($arrClient);
 
         $arrClientUPdate = [
-            'id' => $client->id,
             'name' => 'Novo cliente asd',
             'cnh' => '2123123',
             'description' => 'federal asdf',
@@ -149,7 +147,7 @@ class ClientServiceTest extends TestCase
             'uf' => 'GO',
             'user_id' => 2
         ];
-        $objClient = $this->clientService->update($arrClientUPdate);
+        $objClient = $this->clientService->update($client->id, $arrClientUPdate);
 
         $this->assertEquals($arrClientUPdate['cnh'], $objClient->cnh);
     }
@@ -173,5 +171,14 @@ class ClientServiceTest extends TestCase
         $arrClients = $this->clientService->all(['user_id' => 2]);
         $this->assertArrayHasKey('name', $arrClients[0]);
         $this->assertArrayHasKey('cnh', $arrClients[0]);
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
+    public function testGetClientNotExistsException()
+    {
+        $this->company();
+        $this->clientService->get(4, 2);
     }
 }

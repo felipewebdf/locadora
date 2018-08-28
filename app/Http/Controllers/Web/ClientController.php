@@ -25,23 +25,13 @@ class ClientController extends Controller
         ]);
     }
 
-    public function update($tag)
+    public function update($id)
     {
-//        $arrClient = [
-//            'tag' => $tag,
-//            'user_id' => Auth::id()
-//        ];
-//        $client = $this->container->make(ClientService::class)->getForTag($arrClient);
-//        $brands = \App\Domain\Brand::all()->sortBy('name');
-//        $models = \App\Domain\ModelClient::where('brand_id', '=', $client->model->brand->id)->orderBy('name')->get();
-//        //dd($models);
-//        return view('web.client.update', [
-//            'client' => $client,
-//            'brands' => $brands,
-//            'models' => $models,
-//            'years' => ClientService::years(),
-//            'title' => 'Alterar veículo'
-//        ]);
+        $client = $this->container->make(ClientService::class)->get($id, Auth::id());
+        return view('web.client.update', [
+            'client' => $client,
+            'title' => 'Alterar veículo'
+        ]);
     }
 
 }
