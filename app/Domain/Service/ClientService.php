@@ -19,7 +19,7 @@ class ClientService
     public function all($params)
     {
         $company = $this->getCompanyUser($params['user_id']);
-        return Client::where('company_id', $company->id)->get();
+        return Client::where('company_id', $company->id)->orderBy('name')->get();
     }
 
     /**
@@ -28,7 +28,7 @@ class ClientService
      * @return Client
      * @throws RulesException
      */
-    public function register($arrClient)
+    public function add($arrClient)
     {
         $company = $this->getCompanyUser($arrClient['user_id']);
         $arrClient['company_id'] = $company->id;

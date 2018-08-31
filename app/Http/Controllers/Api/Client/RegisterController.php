@@ -32,7 +32,7 @@ class RegisterController extends Controller
             $arrClients['user_id'] = $id;
             $client = $this->container
                     ->make(ClientService::class)
-                    ->register($arrClients);
+                    ->add($arrClients);
             return response()->json($client->toArray(), StatusCode::HTTP_CREATED);
         } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());
