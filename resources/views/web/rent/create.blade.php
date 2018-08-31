@@ -44,8 +44,8 @@
             <label for="end">Fim</label>
             <input type="date" name="end" class="form-control" />
         </div>
-        <div class="form-group col-md-3">
-            <label for="comment">Fim</label>
+        <div class="form-group col-md-6">
+            <label for="comment">Observação</label>
             <textarea name="comment" class="form-control"></textarea>
         </div>
     </div>
