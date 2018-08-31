@@ -2,6 +2,7 @@
 namespace App\Traits;
 
 use App\Domain\Service\CompanyService;
+use App\Exceptions\RulesException;
 
 trait CompanyTrait
 {

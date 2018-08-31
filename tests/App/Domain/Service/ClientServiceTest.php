@@ -41,7 +41,7 @@ class ClientServiceTest extends TestCase
 
     protected function company()
     {
-        $arrClient = [
+        $arrCompany = [
             'name' => 'federal',
             'cnpj' => '54256465465465',
             'description' => 'federal',
@@ -51,7 +51,7 @@ class ClientServiceTest extends TestCase
             'uf' => 'DF',
             'user_id' => 2
         ];
-        return $this->companyService->register($arrClient);
+        return $this->companyService->register($arrCompany);
     }
 
     public function testAddReturnEntity()

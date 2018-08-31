@@ -192,4 +192,36 @@ class CarServiceTest extends TestCase
         $arrCar = $this->carService->all(['user_id' => 2]);
         $this->assertArrayHasKey('power', $arrCar[0]);
     }
+
+    public function testGetForTag()
+    {
+        $this->company();
+
+        $arrCar = [
+            'model' => 703,
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'Honda',
+            'renavan' => '546546545',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->add($arrCar);
+        //dd($objCar);
+        $carTag = $this->carService->getForTag($arrCar);
+        //dd($carTag);
+
+        $this->assertEquals($objCar->tag, $carTag->tag);
+
+    }
+
+    public function testYearsReturnArray()
+    {
+        $years = CarService::years();
+        $this->assertEquals(2009, $years[0]);
+        $this->assertEquals((new \DateTime)->format('Y'), end($years));
+    }
 }

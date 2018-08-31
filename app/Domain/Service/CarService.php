@@ -82,7 +82,7 @@ class CarService
     {
         $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
 
-        $exists = Car::where('tag', $arrCar['tag'])
+        $exists = Car::where('tag', strtoupper($arrCar['tag']))
                 ->where('company_id', $company->id)->first();
         return $exists;
     }

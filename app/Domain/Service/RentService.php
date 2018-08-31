@@ -3,8 +3,12 @@ namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
 use App\Traits\CompanyTrait;
-use App\Domain\Rent;
 use App\Exceptions\RulesException;
+use App\Domain\Rent;
+use App\Domain\Client;
+use App\Domain\Car;
+use App\Domain\TypeRent;
+
 
 class RentService
 {
@@ -19,30 +23,28 @@ class RentService
     public function all($params)
     {
         $company = $this->getCompanyUser($params['user_id']);
-        return Rent::where('company_id', $company->id)->orderBy('name')->get();
+        return Rent::where('company_id', $company->id)->orderBy('init')->get();
     }
 
     /**
      *
-     * @param array $arrRent
+     * @param array $arrParams
      * @return Rent
      * @throws RulesException
      */
-    public function add($arrRent)
+    public function add($arrParams)
     {
-        $company = $this->getCompanyUser($arrRent['user_id']);
-        $arrRent['company_id'] = $company->id;
+        $arrRent = $this->verifyParams($arrParams);
 
-        $exists = Rent::where('cnh', $arrRent['cnh'])
-                ->where('company_id', $company->id)->first();
+        $exists = Rent::where('car_id', $arrRent['car_id'])
+                ->where('company_id', $arrRent['company_id'])
+                ->where('client_id', $arrRent['client_id'])
+                ->where('type_rent_id', $arrRent['type_rent_id'])
+                ->where('init', $arrRent['init'])->first();
 
         if ($exists) {
-            throw new RulesException('Cnh já cadastrada');
+            throw new RulesException('Locação já existe');
         }
-
-        $arrRent['address_id'] = $this->container
-                ->make(AddressService::class)
-                ->register($arrRent)->id;
 
         $rent = new Rent();
         $rent->fill($arrRent);
@@ -52,29 +54,25 @@ class RentService
 
     /**
      *
-     * @param array $arrRent
-     * @return type
+     * @param array $arrParams
+     * @return Rent
      * @throws RulesException
      */
-    public function update($id, $arrRent)
+    public function update($id, $arrParams)
     {
-        $rent = $this->get($id, $arrRent['user_id']);
+        $arrRent = $this->verifyParams($arrParams);
 
-        $exists = Rent::where('cnh', $arrRent['cnh'])
-                ->where('company_id', $rent->company->id)->first();
+        $rent = Rent::where('car_id', $arrRent['car_id'])
+                ->where('company_id', $arrRent['company_id'])
+                ->where('client_id', $arrRent['client_id'])
+                ->where('type_rent_id', $arrRent['type_rent_id'])
+                ->where('id', $id)
+                ->where('init', $arrRent['init'])->first();
 
-        if ($exists && $exists->id != $rent->id) {
-            throw new RulesException('Rente já existente');
+        if (!$rent) {
+            throw new RulesException('Locação não existe');
         }
 
-        $arrRent['address_id'] = $rent->address->id;
-        $this->container->make(AddressService::class)->register($arrRent);
-
-        unset($arrRent['user_id']);
-        unset($arrRent['company_id']);
-        unset($arrRent['address_id']);
-
-        $arrRent['updated_at'] = new \DateTime();
         $rent->fill($arrRent);
         $rent->save();
         return $rent;
@@ -95,10 +93,37 @@ class RentService
                 ->where('company_id', $company->id)->first();
 
         if (!$rent) {
-            throw new RulesException('Rente não encontrado');
+            throw new RulesException('Locação não encontrada');
         }
 
         return $rent;
+    }
+
+    protected function verifyParams($arrRent)
+    {
+        $company = $this->getCompanyUser($arrRent['user_id']);
+        $arrRent['company_id'] = $company->id;
+
+        $client = Client::where('id', $arrRent['client_id'])
+                ->where('company_id', $company->id)->first();
+
+        if (!$client) {
+            throw new RulesException('Cliente não encontrado');
+        }
+
+        $car = Car::where('id', $arrRent['car_id'])
+                ->where('company_id', $company->id)->first();
+
+        if (!$car) {
+            throw new RulesException('Veículo não encontrado');
+        }
+
+        $typeRent = TypeRent::where('id', $arrRent['type_rent_id'])->first();
+
+        if (!$typeRent) {
+            throw new RulesException('Tipo de locação não encontrada');
+        }
+        return $arrRent;
     }
 
 }
