@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-md-12">
             <a href="{{ url('/web/client') }}" class="btn btn-default">
-                voltar
+                Voltar
             </a>
             <input type="submit" name="client_submit"
                    class="btn btn-primary"

@@ -78,6 +78,9 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ url('/web/car') }}" class="btn btn-default">
+                Voltar
+            </a>
             <input type="submit" name="car_submit"
                    class="btn btn-primary"
                    title="Enviar dados do veículo"

@@ -32,7 +32,7 @@
             <label for="power">Potência</label>
             <input type="text" name="power" class="form-control"
                    maxlength="4"
-                   value="<?php echo isset($car->power)?$car->power:'' ?>">
+                   value="<?php echo $car->power?>">
         </div>
         <div class="form-group col-md-2">
             <label for="year_factory">Fabricação</label>
@@ -65,30 +65,33 @@
             <label for="tag">Placa</label>
             <input type="text" name="tag" class="form-control"
                    maxlength="9"
-                   value="<?php echo isset($car->tag)?$car->tag:'' ?>"
+                   value="<?php echo $car->tag ?>"
                    />
         </div>
         <div class="form-group col-md-3">
             <label for="renavan">Renavan</label>
             <input type="text" name="renavan" class="form-control"
                    maxlength="60"
-                   value="<?php echo isset($car->renavan)?$car->renavan:'' ?>">
+                   value="<?php echo $car->renavan ?>">
         </div>
         <div class="form-group col-md-3">
             <label for="door">Portas</label>
             <input type="number" name="door" class="form-control"
                    maxlength="2"
-                   value="<?php echo isset($car->door)?$car->door:'' ?>">
+                   value="<?php echo $car->door ?>">
         </div>
         <div class="form-group col-md-3">
             <label for="capacity">Capacidade</label>
             <input type="number" name="capacity" class="form-control"
                    maxlength="4"
-                   value="<?php echo isset($car->capacity)?$car->capacity:'' ?>">
+                   value="<?php echo $car->capacity ?>">
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ url('/web/car') }}" class="btn btn-default">
+                Voltar
+            </a>
             <input type="button" id="car_update"
                    class="btn btn-primary"
                    title="Enviar dados do veículo"
