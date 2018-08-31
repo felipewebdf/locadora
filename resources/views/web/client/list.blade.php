@@ -5,7 +5,7 @@
     <div class="col-md-12 text-right">
         <a href="{{url('web/client/create')}}"
         name="add_client"
-        title="Adicionar client"
+        title="Adicionar cliente"
         class="btn btn-primary right">Adicionar cliente</a>
     </div>
 </div>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         @foreach ($clients as $client)
-        <tr title="Clique na linha para editar esse veículo"
+        <tr title="Clique na linha para editar esse cliente"
             style='cursor: pointer' itemref="{{ url('/web/client/update/' . $client->id) }}"
             class='form_update'>
             <td>{{ $client->name }}</td>

@@ -3,102 +3,102 @@ namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
 use App\Traits\CompanyTrait;
-use App\Domain\Client;
+use App\Domain\Rent;
 use App\Exceptions\RulesException;
 
-class ClientService
+class RentService
 {
     use ContainerTrait;
     use CompanyTrait;
 
     /**
-     * List all clients for params
+     * List all rents for params
      * @param array $params
      * @return array
      */
     public function all($params)
     {
         $company = $this->getCompanyUser($params['user_id']);
-        return Client::where('company_id', $company->id)->orderBy('name')->get();
+        return Rent::where('company_id', $company->id)->orderBy('name')->get();
     }
 
     /**
      *
-     * @param array $arrClient
-     * @return Client
+     * @param array $arrRent
+     * @return Rent
      * @throws RulesException
      */
-    public function add($arrClient)
+    public function add($arrRent)
     {
-        $company = $this->getCompanyUser($arrClient['user_id']);
-        $arrClient['company_id'] = $company->id;
+        $company = $this->getCompanyUser($arrRent['user_id']);
+        $arrRent['company_id'] = $company->id;
 
-        $exists = Client::where('cnh', $arrClient['cnh'])
+        $exists = Rent::where('cnh', $arrRent['cnh'])
                 ->where('company_id', $company->id)->first();
 
         if ($exists) {
             throw new RulesException('Cnh já cadastrada');
         }
 
-        $arrClient['address_id'] = $this->container
+        $arrRent['address_id'] = $this->container
                 ->make(AddressService::class)
-                ->register($arrClient)->id;
+                ->register($arrRent)->id;
 
-        $client = new Client();
-        $client->fill($arrClient);
-        $client->save();
-        return $client;
+        $rent = new Rent();
+        $rent->fill($arrRent);
+        $rent->save();
+        return $rent;
     }
 
     /**
      *
-     * @param array $arrClient
+     * @param array $arrRent
      * @return type
      * @throws RulesException
      */
-    public function update($id, $arrClient)
+    public function update($id, $arrRent)
     {
-        $client = $this->get($id, $arrClient['user_id']);
+        $rent = $this->get($id, $arrRent['user_id']);
 
-        $exists = Client::where('cnh', $arrClient['cnh'])
-                ->where('company_id', $client->company->id)->first();
+        $exists = Rent::where('cnh', $arrRent['cnh'])
+                ->where('company_id', $rent->company->id)->first();
 
-        if ($exists && $exists->id != $client->id) {
-            throw new RulesException('Cliente já existente');
+        if ($exists && $exists->id != $rent->id) {
+            throw new RulesException('Rente já existente');
         }
 
-        $arrClient['address_id'] = $client->address->id;
-        $this->container->make(AddressService::class)->register($arrClient);
+        $arrRent['address_id'] = $rent->address->id;
+        $this->container->make(AddressService::class)->register($arrRent);
 
-        unset($arrClient['user_id']);
-        unset($arrClient['company_id']);
-        unset($arrClient['address_id']);
+        unset($arrRent['user_id']);
+        unset($arrRent['company_id']);
+        unset($arrRent['address_id']);
 
-        $arrClient['updated_at'] = new \DateTime();
-        $client->fill($arrClient);
-        $client->save();
-        return $client;
+        $arrRent['updated_at'] = new \DateTime();
+        $rent->fill($arrRent);
+        $rent->save();
+        return $rent;
     }
 
     /**
      *
      * @param int $id
      * @param int $userId
-     * @return Client
+     * @return Rent
      * @throws RulesException
      */
     public function get($id, $userId)
     {
         $company = $this->getCompanyUser($userId);
 
-        $client = Client::where('id', $id)
+        $rent = Rent::where('id', $id)
                 ->where('company_id', $company->id)->first();
 
-        if (!$client) {
-            throw new RulesException('Cliente não encontrado');
+        if (!$rent) {
+            throw new RulesException('Rente não encontrado');
         }
 
-        return $client;
+        return $rent;
     }
 
 }
