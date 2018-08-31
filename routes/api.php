@@ -32,4 +32,7 @@ Route::group(['middleware' => ['jwt.auth']], function() {
 
     Route::post('client', 'Api\Client\RegisterController@store');
     Route::put('client/{id}', 'Api\Client\RegisterController@update');
+
+    Route::post('rent', 'Api\Rent\RegisterController@store');
+    Route::put('rent/{id}', 'Api\Rent\RegisterController@update');
 });

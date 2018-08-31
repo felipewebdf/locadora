@@ -28,5 +28,9 @@ Route::group(['prefix' => 'web'], function() {
     Route::get('client', '\App\Http\Controllers\Web\ClientController@index');
     Route::get('client/create', '\App\Http\Controllers\Web\ClientController@create');
     Route::get('client/update/{id}', '\App\Http\Controllers\Web\ClientController@update');
+
+    Route::get('rent', '\App\Http\Controllers\Web\RentController@index');
+    Route::get('rent/create', '\App\Http\Controllers\Web\RentController@create');
+    Route::get('rent/update/{id}', '\App\Http\Controllers\Web\RentController@update');
 });
 
