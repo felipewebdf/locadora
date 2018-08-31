@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Domain\Service\CompanyService;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ContainerTrait;
+use \App\Domain\Address;
 
 class CompanyController extends Controller
 {
@@ -14,6 +15,10 @@ class CompanyController extends Controller
     {
         $user_id = Auth::id();
         $company = $this->container->make(CompanyService::class)->forUser($user_id);
-        return view('web.company', ['company' => $company, 'title' => 'Dados da empresa']);
+        return view('web.company', [
+            'company' => $company,
+            'title' => 'Dados da empresa',
+            'ufs' => Address::$UFS
+        ]);
     }
 }

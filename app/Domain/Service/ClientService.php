@@ -11,6 +11,11 @@ class ClientService
     use ContainerTrait;
     use CompanyTrait;
 
+    /**
+     * List all clients for params
+     * @param array $params
+     * @return array
+     */
     public function all($params)
     {
         $company = $this->getCompanyUser($params['user_id']);
@@ -23,7 +28,7 @@ class ClientService
      * @return Client
      * @throws RulesException
      */
-    public function add($arrClient)
+    public function register($arrClient)
     {
         $company = $this->getCompanyUser($arrClient['user_id']);
         $arrClient['company_id'] = $company->id;

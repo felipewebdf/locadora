@@ -45,38 +45,17 @@
                    id="defaultUF">
             <select name="uf" class="form-control">
                 <option value="">UF</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
+                @foreach($ufs as $uf=>$name)
+                <option value="{{ $uf }}">{{ $name }}</option>
+                @endforeach
             </select>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ url('/web/client') }}" class="btn btn-default">
+                voltar
+            </a>
             <input type="submit" name="client_submit"
                    class="btn btn-primary"
                    title="Enviar dados do cliente"
@@ -86,6 +65,6 @@
 </form>
 @endsection
 @section('page-js-files')
-<script type="text/javascript" src="{{ asset('js/car/car-service.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/car/car-controller.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/client-service.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/client-controller.js') }}"></script>
 @stop

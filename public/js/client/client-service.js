@@ -3,18 +3,18 @@ var clientService = {
         $('.errors-app').remove();
         try {
             $.post('/api/client', params, function (response, data, headers) {
-                if (headers.status == 201) {
+                if (headers.status == app.http.status.created) {
                     $('.errors-app').remove();
                     callbackSuccess();
                     app.alert('Cliente cadastrado com sucesso', 'success');
                     return;
                 }
             }).fail(function (data) {
-                if (data.status == 422) {
-                    app.alert('Favor as informações', 'warning');
+                if (data.status == app.http.status.validation) {
+                    app.alert('Favor verificar as informações', 'warning');
                     return app.inputErros(data);
                 }
-                if (data.status == 412) {
+                if (data.status == app.http.status.rules) {
                     return app.alert(data.responseJSON[0], 'warning');
                 }
                 app.alert('Falha ao realizar cadastro', 'danger');

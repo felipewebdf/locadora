@@ -8,26 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Exceptions\RulesException;
 use App\Domain\Service\CarService;
 use App\Http\Request\Car\CarRequest;
-use Illuminate\Container\Container;
+use App\Traits\ContainerTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Domain\Car;
 
 class CarController extends Controller
 {
-    /**
-     *
-     * @var Container
-     */
-    protected $container;
-
-    /**
-     *
-     * @param Container $container
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
+    use ContainerTrait;
 
     /**
      * Display a listing of the resource.

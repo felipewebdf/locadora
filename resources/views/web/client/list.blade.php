@@ -29,6 +29,6 @@
 </table>
 @endsection
 @section('page-js-files')
-<!--<script type="text/javascript" src="{{ asset('js/client/client-service.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/client/client-controller.js') }}"></script>-->
+<script type="text/javascript" src="{{ asset('js/client/client-service.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/client-controller.js') }}"></script>
 @stop

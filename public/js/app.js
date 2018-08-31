@@ -25,8 +25,13 @@ $().ready(function() {
             document.cookie = c_name + "=" + c_value;
         },
         alert: function(message, type) {
-            $('#alert-app').removeClass('alert-warning').removeClass('alert-success');
-            $('#alert-app').removeClass('hide').addClass('show').addClass('alert-' + type);
+            $('#alert-app').removeClass('alert-warning')
+                    .removeClass('alert-danger')
+                    .removeClass('alert-success');
+            $('#alert-app')
+                    .removeClass('hide')
+                    .addClass('show')
+                    .addClass('alert-' + type);
             $('#alert-message').html(message);
         },
         login: {
@@ -35,6 +40,15 @@ $().ready(function() {
                     app.setCookie('Authorization','', -1);
                     window.location.href='/';
                 });
+            }
+        },
+        http: {
+            status: {
+                created: 201,
+                ok: 200,
+                error: 500,
+                rules: 412,
+                validation: 422
             }
         }
     };

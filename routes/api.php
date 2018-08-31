@@ -30,6 +30,6 @@ Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('car/model', 'Api\Car\ModelController@index');
 
 
-    Route::post('client', 'Api\Client\ClientController@store');
-    Route::put('client/{id}', 'Api\Client\ClientController@update');
+    Route::post('client', 'Api\Client\RegisterController@store');
+    Route::put('client/{id}', 'Api\Client\RegisterController@update');
 });

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Domain\Service\ClientService;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ContainerTrait;
+use \App\Domain\Address;
 
 
 class ClientController extends Controller
@@ -21,7 +22,8 @@ class ClientController extends Controller
     public function create()
     {
         return view('web.client.create', [
-            'title' => 'Cadastrar cliente'
+            'title' => 'Cadastrar cliente',
+            'ufs' => Address::$UFS
         ]);
     }
 
@@ -30,7 +32,8 @@ class ClientController extends Controller
         $client = $this->container->make(ClientService::class)->get($id, Auth::id());
         return view('web.client.update', [
             'client' => $client,
-            'title' => 'Alterar veículo'
+            'title' => 'Alterar veículo',
+            'ufs' => Address::$UFS
         ]);
     }
 
