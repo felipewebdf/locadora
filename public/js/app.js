@@ -5,10 +5,10 @@ $().ready(function() {
             $.each(data.responseJSON.errors, function(k, v) {
                 var errors = v;
 
-                if (v.length > 1) {
+                if (v.length > 0) {
                     errors = v.join(',');
                 }
-
+console.log(errors);
                 $('<span class="text-danger errors-app" id="erro_'+k+'">'+ errors +'</span>')
                         .insertAfter('*[name='+k+']');
             });

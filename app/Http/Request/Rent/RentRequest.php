@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Request\Client;
+namespace App\Http\Request\Rent;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +26,8 @@ class RentRequest extends FormRequest
         return [
             'client_id.required' => 'Favor informar o cliente',
             'car_id.required' => 'Favor informar o veículo',
-            'type_rent_id.numeric' => 'Favor informar o tipo de locação',
+            'type_rent_id.required' => 'Favor informar o tipo de locação',
+//            'type_rent_id.numeric' => 'Favor informar o tipo de locação válido',
             'daily.required' => 'Favor informar o valor da diária',
             'init.required' => 'Favor informar a data de início da locação',
             'end.required' => 'Favor informar a data de término da locação'
@@ -44,11 +45,10 @@ class RentRequest extends FormRequest
         $validator = [
             'client_id' => 'required|integer',
             'car_id' => 'required|integer',
-            'type_rent_id' => 'required|integer',
+            'type_rent_id' => 'required',
             'daily' => 'required',
             'init' => 'required|date',
             'end' => 'required|date'
-
         ];
 
         return $validator;

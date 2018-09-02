@@ -16,7 +16,9 @@ class RentController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $rents = $this->container->make(RentService::class)->all(['user_id' => $user_id]);
+        $rents = $this->container
+                ->make(RentService::class)
+                ->all(['user_id' => $user_id]);
         return view('web.rent.list', ['rents' => $rents, 'title' => 'Lista de locações']);
     }
 
@@ -36,9 +38,15 @@ class RentController extends Controller
     public function update($id)
     {
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
+        $arrParams = ['user_id' => Auth::id()];
+        $clients = $this->container->make(ClientService::class)->all($arrParams);
+        $cars = $this->container->make(CarService::class)->all($arrParams);
         return view('web.rent.update', [
             'rent' => $rent,
-            'title' => 'Alterar locação'
+            'title' => 'Alterar locação',
+            'clients' => $clients,
+            'cars' => $cars,
+            'types_rents' => TypeRent::all()
         ]);
     }
 

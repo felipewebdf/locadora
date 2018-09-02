@@ -27,7 +27,7 @@
             class='form_update'>
             <td>{{ $rent->client->name }}</td>
             <td>{{ $rent->car->model->name }}</td>
-            <td>{{ $rent->type_rent->name }}</td>
+            <td>{{ $rent->type->name }}</td>
             <td>{{ $rent->daily }}</td>
             <td>{{ $rent->init }}</td>
             <td>{{ $rent->end }}</td>
@@ -37,6 +37,6 @@
 </table>
 @endsection
 @section('page-js-files')
-<!--<script type="text/javascript" src="{{ asset('js/rent/rent-service.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/rent/rent-controller.js') }}"></script>-->
+<script type="text/javascript" src="{{ asset('js/rent/rent-service.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/rent/rent-controller.js') }}"></script>
 @stop

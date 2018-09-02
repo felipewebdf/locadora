@@ -32,7 +32,7 @@ class ClientController extends Controller
         $client = $this->container->make(ClientService::class)->get($id, Auth::id());
         return view('web.client.update', [
             'client' => $client,
-            'title' => 'Alterar veículo',
+            'title' => 'Alterar cliente',
             'ufs' => Address::$UFS
         ]);
     }

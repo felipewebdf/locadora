@@ -1,8 +1,8 @@
 $().ready(function() {
-    $('#form-client').submit(function(e) {
+    $('#form-rent').submit(function(e) {
         e.preventDefault();
-        clientService.post($(this).serialize(), function() {
-            $('#form-client')[0].reset();
+        rentService.post($(this).serialize(), function() {
+            $('#form-rent')[0].reset();
         });
     });
 
@@ -10,7 +10,8 @@ $().ready(function() {
         window.location.href = $(this).attr('itemref');
     });
 
-    $('#client_update').click(function() {
-        clientService.put($('input[name=id]').val(), $('#form-client').serialize());
+    $('#rent_update').click(function() {
+        console.log(this);
+        rentService.put($('input[name=id]').val(), $('#form-rent').serialize());
     });
 });
