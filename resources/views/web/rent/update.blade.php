@@ -8,23 +8,13 @@
         <div class="form-group col-md-3">
             <label for="client_id">Cliente</label>
             <select name="client_id" class="form-control" required>
-                <option value="">Selecione</option>
-                @foreach($clients as $client)
-                <option value="{{ $client->id }}"
-                    <?php echo $rent->client->id == $client->id?'selected':''; ?> >
-                    {{ $client->name }}</option>
-                @endforeach
+                <option value="{{ $rent->client->id }}">{{ $rent->client->name }}</option>
             </select>
         </div>
         <div class="form-group col-md-3">
             <label for="car_id">Veículo</label>
             <select name="car_id" class="form-control" required>
-                <option value="">Selecione</option>
-                @foreach($cars as $car)
-                <option value="{{ $car->id }}"
-                    <?php echo $rent->car->id == $car->id?'selected':''; ?>>
-                    {{ $car->model->name }}</option>
-                @endforeach
+                <option value="{{ $rent->car->id }}">{{ $rent->car->model->name }}</option>
             </select>
         </div>
         <div class="form-group col-md-3">
@@ -74,13 +64,34 @@
                    class="btn btn-primary"
                    title="Enviar dados da locação"
                    value="Enviar"/>
+            @if(!isset($inspection))
             <a href="{{ url('/web/rent/'.$rent->id.'/inspection') }}"
                    class="btn btn-secondary"
                    title="Adicionar vistoria do veículo"
                    value="Vistoria">Adicionar vistoria</a>
+            @endif
         </div>
     </div>
 </form>
+<hr>
+@if(isset($inspection))
+<div class="card">
+    <div class="card-header">
+        Dados da vistoria
+        <a href="{{ url('/web/rent/'.$rent->id.'/inspection/' . $inspection->id) }}"
+                   class="btn btn-secondary"
+                   title="Adicionar vistoria do veículo"
+                   value="Vistoria">Alterar vistoria</a>
+    </div>
+    <div class="card-body">
+        Km inicial: {{ $inspection->init_km }} <br />
+        Combustível: {{ $inspection->gasoline }} <br />
+        Estado do veículo: {{ $inspection->bodywork }} <br />
+        Observações: {{ $inspection->note }}
+    </div>
+</div>
+<hr>
+@endif
 @endsection
 @section('page-js-files')
 <script type="text/javascript" src="{{ asset('js/rent/rent-service.js') }}"></script>

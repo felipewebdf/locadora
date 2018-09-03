@@ -8,6 +8,7 @@ use App\Traits\ContainerTrait;
 use \App\Domain\Service\ClientService;
 use \App\Domain\Service\CarService;
 use App\Domain\TypeRent;
+use \App\Domain\Service\InspectionService;
 
 class RentController extends Controller
 {
@@ -38,15 +39,13 @@ class RentController extends Controller
     public function update($id)
     {
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
-        $arrParams = ['user_id' => Auth::id()];
-        $clients = $this->container->make(ClientService::class)->all($arrParams);
-        $cars = $this->container->make(CarService::class)->all($arrParams);
+        $inspection = $this->container->make(InspectionService::class)->getForRent($id);
+
         return view('web.rent.update', [
             'rent' => $rent,
             'title' => 'Alterar locação',
-            'clients' => $clients,
-            'cars' => $cars,
-            'types_rents' => TypeRent::all()
+            'types_rents' => TypeRent::all(),
+            'inspection' => $inspection
         ]);
     }
 

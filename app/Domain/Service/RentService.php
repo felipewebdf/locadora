@@ -73,6 +73,9 @@ class RentService
             throw new RulesException('Locação não existe');
         }
 
+        unset($arrRent['client_id']);
+        unset($arrRent['car_id']);
+
         $rent->fill($arrRent);
         $rent->save();
         return $rent;

@@ -35,4 +35,7 @@ Route::group(['middleware' => ['jwt.auth']], function() {
 
     Route::post('rent', 'Api\Rent\RegisterController@store');
     Route::put('rent/{id}', 'Api\Rent\RegisterController@update');
+
+    Route::post('rent/{rent_id}/inspection', 'Api\Rent\InspectionController@store');
+    Route::put('rent/{rent_id}/inspection/{id}', 'Api\Rent\InspectionController@update');
 });

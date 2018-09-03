@@ -31,6 +31,9 @@ class AuthCookieMiddleware
             return redirect('/');
         }
         try {
+            if (!isset($token[1])) {
+                throw new TokenBlacklistedException('Token não existente');
+            }
             $auth->setToken($token[1]);
             $auth->authenticate();
         } catch(TokenBlacklistedException $ex) {

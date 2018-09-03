@@ -2,7 +2,7 @@ var inspectionService = {
     post: function (params, callbackSuccess) {
         $('.errors-app').remove();
         try {
-            $.post('/api/inspection', params, function (response, data, headers) {
+            $.post('/api/rent/'+params.rent_id+'/inspection', params, function (response, data, headers) {
                 if (headers.status == app.http.status.created) {
                     $('.errors-app').remove();
                     callbackSuccess();
@@ -24,10 +24,10 @@ var inspectionService = {
         }
     },
 
-    put: function (id, params) {
+    put: function (id, rent_id, params) {
         try {
             var request = $.ajax({
-                url: "/api/inspection/" + id,
+                url: '/api/rent/'+rent_id+'/inspection/' + id,
                 method: "PUT",
                 data: params
             });

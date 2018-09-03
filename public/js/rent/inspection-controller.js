@@ -2,7 +2,7 @@ $().ready(function() {
     $('#form-inspection').submit(function(e) {
         e.preventDefault();
         inspectionService.post($(this).serialize(), function() {
-            $('#form-inspection')[0].reset();
+            window.location.href = '/web/rent/' + $('input[name=rent_id]').val();
         });
     });
 
@@ -11,6 +11,10 @@ $().ready(function() {
     });
 
     $('#inspection_update').click(function() {
-        inspectionService.put($('input[name=id]').val(), $('#form-inspection').serialize());
+        inspectionService.put(
+            $('input[name=id]').val(),
+            $('input[name=rent_id]').val(),
+            $('#form-inspection').serializeArray()
+        );
     });
 });

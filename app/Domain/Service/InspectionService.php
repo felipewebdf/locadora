@@ -28,9 +28,11 @@ class InspectionService
     public function register($arrInspection)
     {
         $inpectionRentExists = $this->getForRent($arrInspection['rent_id']);
+
         if ($inpectionRentExists) {
             throw new RulesException('Vistoria já existente para esta locação');
         }
+        
         $inspection = new Inspection();
         $inspection->fill($arrInspection);
         $inspection->save();
