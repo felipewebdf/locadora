@@ -11,6 +11,7 @@ class Rent extends Model
         'client_id',
         'company_id',
         'type_rent_id',
+        'km_day',
         'daily',
         'init',
         'end',

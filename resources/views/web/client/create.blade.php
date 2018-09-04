@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-right">
             <a href="{{ url('/web/client') }}" class="btn btn-default">
                 Voltar
             </a>

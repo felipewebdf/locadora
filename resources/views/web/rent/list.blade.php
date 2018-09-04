@@ -9,6 +9,7 @@
         class="btn btn-primary right">Adicionar locação</a>
     </div>
 </div>
+<br />
 <table class="table table-hover">
     <thead>
         <tr>
@@ -26,11 +27,11 @@
             style='cursor: pointer' itemref="{{ url('/web/rent/update/' . $rent->id) }}"
             class='form_update'>
             <td>{{ $rent->client->name }}</td>
-            <td>{{ $rent->car->model->name }}</td>
+            <td>{{ $rent->car->model->name }} ({{ $rent->car->tag }})</td>
             <td>{{ $rent->type->name }}</td>
             <td>{{ $rent->daily }}</td>
-            <td>{{ $rent->init }}</td>
-            <td>{{ $rent->end }}</td>
+            <td>{{ \Carbon\Carbon::parse($rent->init)->format('d/m/Y') }}</td>
+            <td>{{ \Carbon\Carbon::parse($rent->end)->format('d/m/Y') }}</td>
         </tr>
         @endforeach
     </tbody>

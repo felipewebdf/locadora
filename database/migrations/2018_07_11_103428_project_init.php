@@ -170,7 +170,7 @@ class ProjectInit extends Migration
             $table->integer('client_id')->unsigned();
 
             $table->integer('type_rent_id')->unsigned();
-
+            $table->integer('km_day');
             $table->timestamp('init');
             $table->timestamp('end');
             $table->string('comment');
@@ -225,7 +225,7 @@ class ProjectInit extends Migration
             $table->integer('client_id')->unsigned();
 
             $table->integer('type_rent_id')->unsigned();
-
+            $table->integer('km_day');
             $table->string('daily')->index();
             $table->timestamp('init');
             $table->timestamp('end');

@@ -37,20 +37,30 @@
     </div>
     <div class="row">
         <div class="form-group col-md-3">
+            <label for="km_day">Km por dia</label>
+            <input type="numeric" name="km_day" class="form-control" required />
+        </div>
+        <div class="form-group col-md-3">
             <label for="init">Início</label>
-            <input type="date" name="init" class="form-control" required />
+            <input type="datetime-local" name="init" class="form-control" required />
         </div>
         <div class="form-group col-md-3">
             <label for="end">Fim</label>
-            <input type="date" name="end" class="form-control" />
+            <input type="datetime-local" name="end" class="form-control" />
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
+            <label for="total_km">Total km</label>
+            <input type="numeric" id="total_km" class="form-control" readonly="readonly" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-12">
             <label for="comment">Observação</label>
             <textarea name="comment" class="form-control"></textarea>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-right">
             <a href="{{ url('/web/rent') }}" class="btn btn-default">
                 Voltar
             </a>

@@ -51,5 +51,13 @@ var rentService = {
         } catch (e) {
             app.alert(e, 'danger');
         }
+    },
+
+    totalKm: function(km_day, init, end) {
+        var dtInit = new Date(init);
+        var dtEnd = new Date(end);
+        var timeDiff = Math.abs(dtEnd.getTime() - dtInit.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        return diffDays * km_day;
     }
 };

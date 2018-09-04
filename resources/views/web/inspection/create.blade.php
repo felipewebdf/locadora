@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-right">
             <a href="{{ url('/web/rent/update/' . $rent->id) }}" class="btn btn-default">
                 Voltar
             </a>

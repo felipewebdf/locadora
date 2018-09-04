@@ -138,12 +138,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item active">{{ $title }}</li>
           </ol>
-          <div id="alert-app" class="alert alert-dismissible fade hide" role="alert">
-            <span id="alert-message"></span>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+          <div id="alert-content"></div>
         @yield('content')
         </div>
         <!-- /.container-fluid -->
@@ -186,7 +181,14 @@
         </div>
       </div>
     </div>
-
+    <div id="alert-model" class="hide">
+        <div id="alert-app" class="alert alert-dismissible fade hide" role="alert">
+            <span id="alert-message"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
     <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"
         type="text/javascript"></script>
     <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"

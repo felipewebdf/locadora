@@ -29,7 +29,7 @@ class CompanyService
         }
 
         $company = new Company();
-        $company->name = $arrCompany['name'];
+        $company->name = mb_strtoupper($arrCompany['name']);
         $company->cnpj = $arrCompany['cnpj'];
         $company->created_at = new \DateTime();
         $company->user_id = $user->id;
@@ -49,7 +49,7 @@ class CompanyService
     public function update($company, $arrCompany)
     {
 
-        $company->name = $arrCompany['name'];
+        $company->name = mb_strtoupper($arrCompany['name']);
         $company->cnpj = $arrCompany['cnpj'];
 
         $arrCompany['address_id'] = $company->address_id;

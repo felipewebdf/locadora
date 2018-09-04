@@ -43,7 +43,7 @@ class ClientService
         $arrClient['address_id'] = $this->container
                 ->make(AddressService::class)
                 ->register($arrClient)->id;
-
+        mb_strtoupper($arrClient['name']);
         $client = new Client();
         $client->fill($arrClient);
         $client->save();

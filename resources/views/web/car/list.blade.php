@@ -9,6 +9,7 @@
         class="btn btn-primary right">Adicionar carro</a>
     </div>
 </div>
+<br />
 <table class="table table-hover">
     <thead>
         <tr>

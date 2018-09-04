@@ -8,7 +8,7 @@ $().ready(function() {
                 if (v.length > 0) {
                     errors = v.join(',');
                 }
-console.log(errors);
+
                 $('<span class="text-danger errors-app" id="erro_'+k+'">'+ errors +'</span>')
                         .insertAfter('*[name='+k+']');
             });
@@ -25,6 +25,7 @@ console.log(errors);
             document.cookie = c_name + "=" + c_value;
         },
         alert: function(message, type) {
+            $('#alert-content').empty().html($('#alert-model').html());
             $('#alert-app').removeClass('alert-warning')
                     .removeClass('alert-danger')
                     .removeClass('alert-success');

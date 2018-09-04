@@ -14,7 +14,9 @@
         <div class="form-group col-md-3">
             <label for="car_id">Veículo</label>
             <select name="car_id" class="form-control" required>
-                <option value="{{ $rent->car->id }}">{{ $rent->car->model->name }}</option>
+                <option value="{{ $rent->car->id }}">
+                    {{ $rent->car->model->name }} ({{$rent->car->tag}})
+                </option>
             </select>
         </div>
         <div class="form-group col-md-3">
@@ -37,6 +39,13 @@
     </div>
     <div class="row">
         <div class="form-group col-md-3">
+            <label for="km_day">Km por dia</label>
+            <input type="numeric" name="km_day"
+                   class="form-control"
+                   value="<?php echo $rent->km_day ?>"
+                   required />
+        </div>
+        <div class="form-group col-md-3">
             <label for="init">Início</label>
             <input type="date" name="init"
                    value="<?php echo (new \DateTime($rent->init))->format('Y-m-d'); ?>"
@@ -48,14 +57,20 @@
                    value="<?php echo (new \DateTime($rent->end))->format('Y-m-d'); ?>"
                    class="form-control" />
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
+            <label for="total_km">Total km</label>
+            <input type="numeric" id="total_km" class="form-control" readonly="readonly" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-12">
             <label for="comment">Observação</label>
             <textarea name="comment"
                 class="form-control"><?php echo $rent->comment; ?></textarea>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-right">
             <a href="{{ url('/web/rent') }}" class="btn btn-default">
                 Voltar
             </a>
@@ -77,17 +92,27 @@
 @if(isset($inspection))
 <div class="card">
     <div class="card-header">
-        Dados da vistoria
+        Dados da vistoria /
         <a href="{{ url('/web/rent/'.$rent->id.'/inspection/' . $inspection->id) }}"
-                   class="btn btn-secondary"
-                   title="Adicionar vistoria do veículo"
+                   class="links"
+                   title="Alterar vistoria do veículo"
                    value="Vistoria">Alterar vistoria</a>
     </div>
     <div class="card-body">
-        Km inicial: {{ $inspection->init_km }} <br />
-        Combustível: {{ $inspection->gasoline }} <br />
-        Estado do veículo: {{ $inspection->bodywork }} <br />
-        Observações: {{ $inspection->note }}
+        <ul>
+            <li>
+                Km inicial: {{ $inspection->init_km }}
+            </li>
+            <li>
+                Combustível: {{ $inspection->gasoline }}
+            </li>
+            <li>
+                Estado do veículo: {{ $inspection->bodywork }} <br />
+            </li>
+            <li>
+                Observações: {{ $inspection->note }}
+            </li>
+        </ul>
     </div>
 </div>
 <hr>
