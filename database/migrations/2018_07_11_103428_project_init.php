@@ -216,6 +216,17 @@ class ProjectInit extends Migration
                 ->on('schedule')->onDelete('cascade');
         });
 
+        Schema::create('contract', function (Blueprint $table) {
+            $table->increments('id')->index()->unsigned();
+            $table->string('name');
+            $table->longText('template');
+            $table->integer('company_id')->unsigned();
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+        });
+
         Schema::create('rent', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
             $table->integer('car_id')->unsigned();
@@ -223,6 +234,8 @@ class ProjectInit extends Migration
             $table->integer('company_id')->unsigned();
 
             $table->integer('client_id')->unsigned();
+
+            $table->integer('contract_id')->unsigned();
 
             $table->integer('type_rent_id')->unsigned();
             $table->integer('total_km');
@@ -272,8 +285,6 @@ class ProjectInit extends Migration
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
-
-
         });
 
         Schema::table('inspection', function(Blueprint $table) {

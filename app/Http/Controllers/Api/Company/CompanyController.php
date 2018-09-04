@@ -8,27 +8,14 @@ use App\Http\Controllers\Controller;
 use App\Exceptions\RulesException;
 use App\Domain\Service\CompanyService;
 use App\Http\Request\Company\CompanyRequest;
-use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Auth;
 use App\Domain\Company;
 use App\Http\StatusCode;
+use \App\Traits\ContainerTrait;
 
 class CompanyController extends Controller
 {
-    /**
-     *
-     * @var Container
-     */
-    protected $container;
-
-    /**
-     *
-     * @param Container $container
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
+    use ContainerTrait;
 
     /**
      * Display a listing of the resource.
