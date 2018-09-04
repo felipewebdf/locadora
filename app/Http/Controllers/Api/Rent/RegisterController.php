@@ -28,11 +28,11 @@ class RegisterController extends Controller
     {
         try {
             $id = Auth::id();
-            $arrRents = $request->all();
-            $arrRents['user_id'] = $id;
+            $arrRent = $request->all();
+            $arrRent['user_id'] = $id;
             $rent = $this->container
                     ->make(RentService::class)
-                    ->add($arrRents);
+                    ->add($arrRent);
             return response()->json($rent->toArray(), StatusCode::HTTP_CREATED);
         } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());

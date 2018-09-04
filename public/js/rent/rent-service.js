@@ -5,7 +5,7 @@ var rentService = {
             $.post('/api/rent', params, function (response, data, headers) {
                 if (headers.status == app.http.status.created) {
                     $('.errors-app').remove();
-                    callbackSuccess(data.id);
+                    callbackSuccess(response.id);
                     app.alert('Locação cadastrada com sucesso', 'success');
                     return;
                 }

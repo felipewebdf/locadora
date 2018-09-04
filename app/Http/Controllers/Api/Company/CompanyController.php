@@ -11,6 +11,7 @@ use App\Http\Request\Company\CompanyRequest;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Auth;
 use App\Domain\Company;
+use App\Http\StatusCode;
 
 class CompanyController extends Controller
 {
@@ -64,7 +65,7 @@ class CompanyController extends Controller
             $company = $this->container
                     ->make(CompanyService::class)
                     ->register($arrCompany);
-            return response()->json($company->toArray(), 201);
+            return response()->json($company->toArray(), StatusCode::HTTP_CREATED);
         } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
