@@ -1,8 +1,8 @@
 $().ready(function() {
     $('#form-rent').submit(function(e) {
         e.preventDefault();
-        rentService.post($(this).serialize(), function() {
-            $('#form-rent')[0].reset();
+        rentService.post($(this).serialize(), function(rent_id) {
+            window.location.href = '/web/rent/update/'+rent_id;
         });
     });
 

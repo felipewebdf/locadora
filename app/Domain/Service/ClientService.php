@@ -43,7 +43,7 @@ class ClientService
         $arrClient['address_id'] = $this->container
                 ->make(AddressService::class)
                 ->register($arrClient)->id;
-        mb_strtoupper($arrClient['name']);
+        $arrClient['name'] = mb_strtoupper($arrClient['name']);
         $client = new Client();
         $client->fill($arrClient);
         $client->save();
@@ -73,7 +73,8 @@ class ClientService
         unset($arrClient['user_id']);
         unset($arrClient['company_id']);
         unset($arrClient['address_id']);
-
+        
+        $arrClient['name'] = mb_strtoupper($arrClient['name']);
         $arrClient['updated_at'] = new \DateTime();
         $client->fill($arrClient);
         $client->save();
