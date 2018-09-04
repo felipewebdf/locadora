@@ -127,7 +127,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
         $this->assertInstanceOf(Rent::class, $rent);
@@ -153,7 +155,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $this->rentService->add($arrRent);
         $this->rentService->add($arrRent);
@@ -178,7 +182,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
 
@@ -191,7 +197,9 @@ class RentServiceTest extends TestCase
             'daily' => '90,00',
             'init' => '2018-08-10',
             'end' => '2018-10-20',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $objRent = $this->rentService->update($rent->id, $arrRentUpdate);
 
@@ -210,19 +218,6 @@ class RentServiceTest extends TestCase
         $client = $this->client();
         $typeRend = $this->typeRent();
 
-        $arrRent = [
-            'company_id' => $company->id,
-            'car_id' => $car->id,
-            'client_id' => $client->id,
-            'type_rent_id' => $typeRend->id,
-            'user_id' => 2,
-            'daily' => '80,00',
-            'init' => '2018-08-10',
-            'end' => '2018-10-10',
-            'comment' => 'teste'
-        ];
-        $rent = $this->rentService->add($arrRent);
-
         $arrRentUpdate = [
             'company_id' => $company->id,
             'car_id' => $car->id,
@@ -232,9 +227,11 @@ class RentServiceTest extends TestCase
             'daily' => '90,00',
             'init' => '2018-08-20',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
-        $objRent = $this->rentService->update($rent->id, $arrRentUpdate);
+        $this->rentService->update(0, $arrRentUpdate);
     }
 
     /**
@@ -256,7 +253,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
     }
@@ -280,7 +279,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
     }
@@ -304,7 +305,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
     }
@@ -325,7 +328,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $this->rentService->add($arrRent);
 
@@ -362,7 +367,9 @@ class RentServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'total_km' => '1000',
+            'value_km_extra' => '0,50'
         ];
         $rent = $this->rentService->add($arrRent);
         $rentExists = $this->rentService->get($rent->id, 2);

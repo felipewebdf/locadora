@@ -127,7 +127,9 @@ class InspectionServiceTest extends TestCase
             'daily' => '80,00',
             'init' => '2018-08-10',
             'end' => '2018-10-10',
-            'comment' => 'teste'
+            'comment' => 'teste',
+            'value_km_extra' => '0,50',
+            'total_km' => '1000'
         ];
         return $this->rentService->add($rentService);
     }
