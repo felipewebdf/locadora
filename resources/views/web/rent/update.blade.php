@@ -101,18 +101,30 @@
                    value="Vistoria">Alterar vistoria</a>
     </div>
     <div class="card-body">
-        <ul>
-            <li>
-                Km inicial: {{ $inspection->init_km }}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Km inicial</h5>
+                </div>
+                <p class="mb-1">{{ $inspection->init_km }}</p>
             </li>
-            <li>
-                Combustível: {{ $inspection->gasoline }}
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Combustível</h5>
+                </div>
+                <p class="mb-1">{{ $inspection->gasoline }} </p>
             </li>
-            <li>
-                Estado do veículo: {{ $inspection->bodywork }} <br />
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Estado do veículo</h5>
+                </div>
+                <p class="mb-1">{{ $inspection->bodywork }} </p>
             </li>
-            <li>
-                Observações: {{ $inspection->note }}
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Observações</h5>
+                </div>
+                <p class="mb-1">{{ $inspection->note }} </p>
             </li>
         </ul>
     </div>
