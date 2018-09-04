@@ -173,7 +173,7 @@ class ProjectInit extends Migration
             $table->integer('km_day');
             $table->timestamp('init');
             $table->timestamp('end');
-            $table->string('comment');
+            $table->string('comment')->nullable(true);
             $table->integer('user_id')->unsigned();
 
             $table->timestamp('created_at')->nullable();
@@ -230,7 +230,7 @@ class ProjectInit extends Migration
             $table->string('daily')->index();
             $table->timestamp('init');
             $table->timestamp('end');
-            $table->string('comment');
+            $table->string('comment')->nullable(true);
             $table->integer('user_id')->unsigned();
 
             $table->timestamp('created_at')->nullable();
@@ -268,7 +268,7 @@ class ProjectInit extends Migration
             $table->string('gasoline', 10);
             $table->string('bodywork', 200); //lataria
             $table->string('washed_out', 200); //lavagem
-            $table->string('note', 500);
+            $table->string('note', 500)->nullable(true);
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();

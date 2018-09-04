@@ -2,7 +2,7 @@ $().ready(function() {
     $('#form-inspection').submit(function(e) {
         e.preventDefault();
         inspectionService.post($(this).serialize(), function() {
-            window.location.href = '/web/rent/' + $('input[name=rent_id]').val();
+            window.location.href = '/web/rent/update/' + $('input[name=rent_id]').val();
         });
     });
 
