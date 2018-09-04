@@ -39,27 +39,29 @@
     </div>
     <div class="row">
         <div class="form-group col-md-3">
-            <label for="km_day">Km por dia</label>
-            <input type="numeric" name="km_day"
-                   class="form-control"
-                   value="<?php echo $rent->km_day ?>"
-                   required />
-        </div>
-        <div class="form-group col-md-3">
             <label for="init">Início</label>
-            <input type="date" name="init"
-                   value="<?php echo (new \DateTime($rent->init))->format('Y-m-d'); ?>"
+            <input type="datetime-local" name="init"
+                   value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s',$rent->init)->format('Y-m-d\TH:i')?>"
                    class="form-control" required />
         </div>
         <div class="form-group col-md-3">
             <label for="end">Fim</label>
-            <input type="date" name="end"
-                   value="<?php echo (new \DateTime($rent->end))->format('Y-m-d'); ?>"
+            <input type="datetime-local" name="end"
+                   value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s',$rent->end)->format('Y-m-d\TH:i')?>"
                    class="form-control" />
         </div>
         <div class="form-group col-md-3">
             <label for="total_km">Total km</label>
-            <input type="numeric" id="total_km" class="form-control" readonly="readonly" />
+            <input type="number"
+                   name="total_km"
+                   value="<?php echo $rent->total_km?>"
+                   class="form-control" required />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="value_km_extra">Valor km extra</label>
+            <input type="text" name="value_km_extra"
+                   value="{{$rent->value_km_extra}}"
+                   class="form-control" required />
         </div>
     </div>
     <div class="row">

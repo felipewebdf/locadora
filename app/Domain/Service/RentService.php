@@ -68,7 +68,7 @@ class RentService
                 ->where('type_rent_id', $arrRent['type_rent_id'])
                 ->where('id', $id)
                 ->where('init', $arrRent['init'])->first();
-
+var_dump($arrRent['init']);exit;
         if (!$rent) {
             throw new RulesException('Locação não existe');
         }
