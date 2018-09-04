@@ -136,7 +136,7 @@ class ProjectInit extends Migration
             $table->integer('capacity');
             $table->integer('company_id')->unsigned();
 
-            $table->integer('provider_id')->unsigned()->nullable(true);
+            $table->integer('provider_id')->unsigned()->nullable();
 
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
@@ -173,7 +173,7 @@ class ProjectInit extends Migration
             $table->integer('km_day');
             $table->timestamp('init');
             $table->timestamp('end');
-            $table->string('comment')->nullable(true);
+            $table->string('comment')->nullable();
             $table->integer('user_id')->unsigned();
 
             $table->timestamp('created_at')->nullable();
@@ -227,10 +227,10 @@ class ProjectInit extends Migration
             $table->integer('type_rent_id')->unsigned();
             $table->integer('total_km');
             $table->string('value_km_extra');
-            $table->string('daily')->index();
+            $table->string('daily');
             $table->timestamp('init');
             $table->timestamp('end');
-            $table->string('comment')->nullable(true);
+            $table->string('comment')->nullable();
             $table->integer('user_id')->unsigned();
 
             $table->timestamp('created_at')->nullable();
@@ -268,7 +268,7 @@ class ProjectInit extends Migration
             $table->string('gasoline', 10);
             $table->string('bodywork', 200); //lataria
             $table->string('washed_out', 200); //lavagem
-            $table->string('note', 500)->nullable(true);
+            $table->string('note', 500)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
@@ -297,7 +297,7 @@ class ProjectInit extends Migration
             $table->string('gasoline', 10);
             $table->string('bodywork', 200); //lataria
             $table->string('washed_out', 200); //lavagem
-            $table->string('note', 500);
+            $table->string('note', 500)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
