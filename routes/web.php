@@ -38,5 +38,8 @@ Route::group(['prefix' => 'web'], function() {
 
     Route::get('rent/{rent_id}/inspection', '\App\Http\Controllers\Web\InspectionController@create');
     Route::get('rent/{rent_id}/inspection/{id}', '\App\Http\Controllers\Web\InspectionController@update');
+
+    Route::get('rent/{rent_id}/devolution', '\App\Http\Controllers\Web\DevolutionController@create');
+    Route::get('rent/{rent_id}/devolution/{id}', '\App\Http\Controllers\Web\DevolutionController@update');
 });
 

@@ -10,6 +10,7 @@ use \App\Domain\Service\CarService;
 use App\Domain\TypeRent;
 use \App\Domain\Service\InspectionService;
 use App\Domain\Service\ContractService;
+use App\Domain\Service\DevolutionService;
 
 class RentController extends Controller
 {
@@ -44,13 +45,15 @@ class RentController extends Controller
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
         $inspection = $this->container->make(InspectionService::class)->getForRent($id);
         $contracts = $this->container->make(ContractService::class)->all(['user_id' => Auth::id()]);
+        $devolution = $this->container->make(DevolutionService::class)->getForRent($id);
 
         return view('web.rent.update', [
             'rent' => $rent,
             'title' => 'Alterar locação',
             'types_rents' => TypeRent::all(),
             'inspection' => $inspection,
-            'contracts' => $contracts
+            'contracts' => $contracts,
+            'devolution' => $devolution
         ]);
     }
 

@@ -108,24 +108,24 @@
         </li>-->
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/web/company/contract') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-file"></i>
             <span>Modelo de contrato</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/web/car') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-car"></i>
             <span>Veículos</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/web/client') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-users"></i>
             <span>Clientes</span>
           </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/web/rent') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-list-alt"></i>
             <span>Locações</span>
           </a>
         </li>
