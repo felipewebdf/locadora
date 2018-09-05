@@ -2,6 +2,7 @@
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
+use App\Traits\CompanyTrait;
 use App\Domain\Car;
 use App\Exceptions\RulesException;
 use App\Domain\ModelCar;
@@ -9,10 +10,11 @@ use App\Domain\ModelCar;
 class CarService
 {
     use ContainerTrait;
+    use CompanyTrait;
 
     public function all($params)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
+        $company = $this->getCompanyUser($params['user_id']);
         return Car::where('company_id', $company->id)->get();
     }
 
@@ -24,7 +26,7 @@ class CarService
      */
     public function add($arrCar)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
+        $company = $this->getCompanyUser($arrCar['user_id']);
         $arrCar['company_id'] = $company->id;
 
         $exists = Car::where('tag', $arrCar['tag'])
@@ -57,7 +59,7 @@ class CarService
      */
     public function update($arrCar)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
+        $company = $this->getCompanyUser($arrCar['user_id']);
         $arrCar['company_id'] = $company->id;
         $car = Car::where('tag', $arrCar['tag'])
                 ->where('company_id', $company->id)->first();
@@ -80,7 +82,7 @@ class CarService
      */
     public function getForTag($arrCar)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($arrCar['user_id']);
+        $company = $this->getCompanyUser($arrCar['user_id']);
 
         $exists = Car::where('tag', strtoupper($arrCar['tag']))
                 ->where('company_id', $company->id)->first();

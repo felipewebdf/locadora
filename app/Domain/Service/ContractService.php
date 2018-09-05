@@ -4,11 +4,12 @@ namespace App\Domain\Service;
 use App\Traits\ContainerTrait;
 use App\Domain\Contract;
 use App\Exceptions\RulesException;
-
+use App\Traits\CompanyTrait;
 
 class ContractService
 {
     use ContainerTrait;
+    use CompanyTrait;
 
     /**
      *
@@ -17,7 +18,7 @@ class ContractService
      */
     public function all($params)
     {
-        $company = $this->container->make(CompanyService::class)->forUser($params['user_id']);
+        $company = $this->getCompanyUser($params['user_id']);
         return Contract::where('company_id', $company->id)->orderBy('name')->get();
     }
 
@@ -29,9 +30,7 @@ class ContractService
      */
     public function add($arrContract)
     {
-        $company = $this->container
-                ->make(CompanyService::class)
-                ->forUser($arrContract['user_id']);
+        $company = $this->getCompanyUser($arrContract['user_id']);
         $arrContract['company_id'] = $company->id;
         $arrContract['name'] = mb_strtoupper($arrContract['name']);
 
@@ -49,9 +48,7 @@ class ContractService
      */
     public function update($id, $arrContract)
     {
-        $company = $this->container
-                ->make(CompanyService::class)
-                ->forUser($arrContract['user_id']);
+        $company = $this->getCompanyUser($arrContract['user_id']);
 
         $contract = Contract::find($id);
 
@@ -74,9 +71,7 @@ class ContractService
      */
     public function get($id, $user_id)
     {
-        $company = $this->container
-                ->make(CompanyService::class)
-                ->forUser($user_id);
+        $company = $this->getCompanyUser($user_id);
 
         $contract = Contract::where('id', $id)->where('company_id', $company->id)->first();
 
