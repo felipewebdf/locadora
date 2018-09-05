@@ -68,4 +68,83 @@ class ContractServiceTest extends TestCase
         $this->assertInstanceOf(Contract::class, $contract);
         $this->assertNotEmpty($contract->id);
     }
+
+    public function testUpdateReturnEntityAltered()
+    {
+        $company = $this->company();
+
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        $contract = $this->contractService->add($arrContract);
+
+        $arrContractUpdate = [
+            'name' => 'contract 2',
+            'company_id' => $company->id,
+            'template' => 'ALterado [[tag]]',
+            'user_id' => 2
+        ];
+
+        $contractUpdate = $this->contractService->update($contract->id, $arrContractUpdate);
+
+        $this->assertInstanceOf(Contract::class, $contractUpdate);
+        $this->assertNotEquals($arrContract['name'], $contractUpdate->name);
+        $this->assertNotEquals($arrContract['template'], $contractUpdate->template);
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     * @expectedExceptionMessage Contrato não pertence a sua empresa, portanto não pode ser alterado
+     */
+    public function testUpdateOtherCompanyException()
+    {
+        $company = $this->company();
+
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        $contract = $this->contractService->add($arrContract);
+
+        $company2 = $this->company();
+
+        $arrContractUpdate = [
+            'name' => 'contract 2',
+            'company_id' => $company2->id,
+            'template' => 'ALterado [[tag]]',
+            'user_id' => 1
+        ];
+
+        $this->contractService->update($contract->id, $arrContractUpdate);
+    }
+
+    public function testGetContractReturnEntity()
+    {
+        $company = $this->company();
+
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        $contract = $this->contractService->add($arrContract);
+
+        $contractGet = $this->contractService->get($contract->id, 2);
+        $this->assertEquals($contract->id, $contractGet->id);
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
+    public function testGetNotExistsException()
+    {
+        $company = $this->company();
+        $this->contractService->get(1, 2);
+    }
 }

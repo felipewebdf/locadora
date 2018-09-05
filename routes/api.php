@@ -22,13 +22,16 @@ Route::post('login', 'AuthController@login');
 Route::post('recover', 'AuthController@recover');
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('logout', 'AuthController@logout');
+
     Route::get('company', 'Api\Company\CompanyController@index');
     Route::post('company', 'Api\Company\CompanyController@store');
+
+    Route::post('company/contract', 'Api\Company\ContractController@store');
+    Route::put('company/contract/{id}', 'Api\Company\ContractController@update');
 
     Route::post('car', 'Api\Car\CarController@store');
     Route::put('car/{tag}', 'Api\Car\CarController@update');
     Route::get('car/model', 'Api\Car\ModelController@index');
-
 
     Route::post('client', 'Api\Client\RegisterController@store');
     Route::put('client/{id}', 'Api\Client\RegisterController@update');

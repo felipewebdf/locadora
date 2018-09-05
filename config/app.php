@@ -165,6 +165,9 @@ return [
 
         //PERMISSION
         Spatie\Permission\PermissionServiceProvider::class,
+
+        //editor
+        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*

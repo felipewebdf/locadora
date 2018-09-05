@@ -31,11 +31,17 @@
             </select>
         </div>
         <div class="form-group col-md-3">
-            <label for="daily">Valor Diária</label>
-            <input type="text" name="daily"
-                   value="<?php echo $rent->daily; ?>"
-                   class="form-control" required />
+            <label for="contract_id">Contrato</label>
+            <select name="contract_id" class="form-control" required>
+                <option value="">Selecione</option>
+                @foreach($contracts as $contract)
+                <option value="{{ $contract->id }}"
+                    <?php echo $rent->contract->id == $contract->id?'selected':''; ?>>
+                    {{ $contract->name }}</option>
+                @endforeach
+            </select>
         </div>
+
     </div>
     <div class="row">
         <div class="form-group col-md-3">
@@ -50,17 +56,23 @@
                    value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s',$rent->end)->format('Y-m-d\TH:i')?>"
                    class="form-control" />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="total_km">Total km</label>
             <input type="number"
                    name="total_km"
                    value="<?php echo $rent->total_km?>"
                    class="form-control" required />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="value_km_extra">Valor km extra</label>
             <input type="text" name="value_km_extra"
                    value="{{$rent->value_km_extra}}"
+                   class="form-control" required />
+        </div>
+        <div class="form-group col-md-2">
+            <label for="daily">Valor Diária</label>
+            <input type="text" name="daily"
+                   value="<?php echo $rent->daily; ?>"
                    class="form-control" required />
         </div>
     </div>

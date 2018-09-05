@@ -9,6 +9,7 @@ use \App\Traits\ContainerTrait;
 use App\Http\StatusCode;
 use \App\Domain\Contract;
 use App\Domain\Service\ContractService;
+use \Illuminate\Support\Facades\Auth;
 
 class ContractController extends Controller
 {
@@ -35,11 +36,30 @@ class ContractController extends Controller
         try {
             $arrContract = $request->all();
             $arrContract['user_id'] = Auth::id();
-            $arrContract['company_id'] = $request->route('company_id');
             $contract = $this->container
                     ->make(ContractService::class)
                     ->add($arrContract);
             return response()->json($contract->toArray(), StatusCode::HTTP_CREATED);
+        } catch (RulesException $ex) {
+            return response()->json([$ex->getMessage()], $ex->getCode());
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  ContractRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id, ContractRequest $request)
+    {
+        try {
+            $arrContract = $request->all();
+            $arrContract['user_id'] = Auth::id();
+            $contract = $this->container
+                    ->make(ContractService::class)
+                    ->update($id, $arrContract);
+            return response()->json($contract->toArray(), StatusCode::HTTP_OK);
         } catch (RulesException $ex) {
             return response()->json([$ex->getMessage()], $ex->getCode());
         }

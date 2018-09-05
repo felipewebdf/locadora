@@ -27,7 +27,7 @@ class RentRequest extends FormRequest
             'client_id.required' => 'Favor informar o cliente',
             'car_id.required' => 'Favor informar o veículo',
             'type_rent_id.required' => 'Favor informar o tipo de locação',
-//            'type_rent_id.numeric' => 'Favor informar o tipo de locação válido',
+            'contract_id.required' => 'Favor informar o contrato de locação',
             'daily.required' => 'Favor informar o valor da diária',
             'total_km.required' => 'Favor informar a km por dia',
             'value_km_extra.required' => 'Favor informar o valor da km extra',
@@ -47,7 +47,8 @@ class RentRequest extends FormRequest
         $validator = [
             'client_id' => 'required|integer',
             'car_id' => 'required|integer',
-            'type_rent_id' => 'required',
+            'type_rent_id' => 'required|integer',
+            'contract_id' => 'required|integer',
             'daily' => 'required',
             'total_km' => 'required|integer',
             'value_km_extra' => 'required',

@@ -9,6 +9,7 @@ use \App\Domain\Service\ClientService;
 use \App\Domain\Service\CarService;
 use App\Domain\TypeRent;
 use \App\Domain\Service\InspectionService;
+use App\Domain\Service\ContractService;
 
 class RentController extends Controller
 {
@@ -28,11 +29,13 @@ class RentController extends Controller
         $arrParams = ['user_id' => Auth::id()];
         $clients = $this->container->make(ClientService::class)->all($arrParams);
         $cars = $this->container->make(CarService::class)->all($arrParams);
+        $contracts = $this->container->make(ContractService::class)->all($arrParams);
         return view('web.rent.create', [
             'title' => 'Cadastrar locação',
             'clients' => $clients,
             'cars' => $cars,
-            'types_rents' => TypeRent::all()
+            'types_rents' => TypeRent::all(),
+            'contracts' => $contracts
         ]);
     }
 
@@ -40,12 +43,14 @@ class RentController extends Controller
     {
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
         $inspection = $this->container->make(InspectionService::class)->getForRent($id);
+        $contracts = $this->container->make(ContractService::class)->all(['user_id' => Auth::id()]);
 
         return view('web.rent.update', [
             'rent' => $rent,
             'title' => 'Alterar locação',
             'types_rents' => TypeRent::all(),
-            'inspection' => $inspection
+            'inspection' => $inspection,
+            'contracts' => $contracts
         ]);
     }
 

@@ -11,6 +11,7 @@ class Rent extends Model
         'client_id',
         'company_id',
         'type_rent_id',
+        'contract_id',
         'total_km',
         'daily',
         'value_km_extra',
@@ -52,5 +53,10 @@ class Rent extends Model
     public function user()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
+    }
+
+    public function contract()
+    {
+        return $this->hasOne('App\Domain\Contract', 'id', 'contract_id');
     }
 }

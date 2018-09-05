@@ -7,6 +7,7 @@ use App\Domain\Rent;
 use App\Domain\Service\CompanyService;
 use App\Domain\Service\ClientService;
 use \App\Domain\Service\CarService;
+use App\Domain\Service\ContractService;
 
 /**
  * @group rent
@@ -48,6 +49,7 @@ class RentServiceTest extends TestCase
         $this->companyService = $this->app->make(CompanyService::class);
         $this->clientService = $this->app->make(ClientService::class);
         $this->carService = $this->app->make(CarService::class);
+        $this->contractService = $this->app->make(ContractService::class);
     }
 
     public function tearDown()
@@ -111,18 +113,32 @@ class RentServiceTest extends TestCase
         return $type;
     }
 
+    protected function contract($company)
+    {
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        return $this->contractService->add($arrContract);
+    }
+
+
     public function testAddReturnEntity()
     {
         $company = $this->company();
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -145,12 +161,14 @@ class RentServiceTest extends TestCase
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -172,12 +190,14 @@ class RentServiceTest extends TestCase
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -193,6 +213,7 @@ class RentServiceTest extends TestCase
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '90,00',
             'init' => '2018-08-10',
@@ -217,12 +238,14 @@ class RentServiceTest extends TestCase
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRentUpdate = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '90,00',
             'init' => '2018-08-20',
@@ -243,12 +266,14 @@ class RentServiceTest extends TestCase
         $company = $this->company();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => 345,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -269,12 +294,14 @@ class RentServiceTest extends TestCase
         $company = $this->company();
         $car = $this->car();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => 345345,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -295,12 +322,14 @@ class RentServiceTest extends TestCase
         $company = $this->company();
         $car = $this->car();
         $client = $this->client();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => 12321312,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -318,12 +347,14 @@ class RentServiceTest extends TestCase
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -357,12 +388,14 @@ class RentServiceTest extends TestCase
         $car = $this->car();
         $client = $this->client();
         $typeRend = $this->typeRent();
+        $contract = $this->contract($company);
 
         $arrRent = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRend->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',

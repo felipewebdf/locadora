@@ -8,6 +8,7 @@ use App\Domain\Service\ClientService;
 use \App\Domain\Service\CarService;
 use \App\Domain\Service\RentService;
 use \App\Domain\Service\InspectionService;
+use App\Domain\Service\ContractService;
 
 /**
  * @group inspection
@@ -56,6 +57,7 @@ class InspectionServiceTest extends TestCase
         $this->clientService = $this->app->make(ClientService::class);
         $this->carService = $this->app->make(CarService::class);
         $this->rentService = $this->app->make(RentService::class);
+        $this->contractService = $this->app->make(ContractService::class);
     }
 
     public function tearDown()
@@ -118,11 +120,20 @@ class InspectionServiceTest extends TestCase
         $client = $this->client();
         $typeRent = $this->typeRent();
 
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        $contract = $this->contractService->add($arrContract);
+
         $rentService = [
             'company_id' => $company->id,
             'car_id' => $car->id,
             'client_id' => $client->id,
             'type_rent_id' => $typeRent->id,
+            'contract_id' => $contract->id,
             'user_id' => 2,
             'daily' => '80,00',
             'init' => '2018-08-10',
@@ -137,6 +148,7 @@ class InspectionServiceTest extends TestCase
     protected function typeRent()
     {
         $type = new \App\Domain\TypeRent();
+        $type->id = 20;
         $type->name = 'teste';
         $type->save();
         return $type;

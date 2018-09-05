@@ -31,8 +31,13 @@
             </select>
         </div>
         <div class="form-group col-md-3">
-            <label for="daily">Valor Diária</label>
-            <input type="text" name="daily" class="form-control" required />
+            <label for="contract_id">Contrato</label>
+            <select name="contract_id" class="form-control" required>
+                <option value="">Selecione</option>
+                @foreach($contracts as $contract)
+                <option value="{{ $contract->id }}">{{ $contract->name }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="row">
@@ -44,13 +49,17 @@
             <label for="end">Fim</label>
             <input type="datetime-local" name="end" class="form-control" />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="total_km">Total km</label>
             <input type="number" name="total_km" class="form-control" required />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="value_km_extra">Valor km extra</label>
             <input type="text" name="value_km_extra" class="form-control" required />
+        </div>
+        <div class="form-group col-md-2">
+            <label for="daily">Valor Diária</label>
+            <input type="text" name="daily" class="form-control" required />
         </div>
     </div>
     <div class="row">

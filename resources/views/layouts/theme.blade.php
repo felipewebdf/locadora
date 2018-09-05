@@ -106,6 +106,12 @@
             <a class="dropdown-item" href="blank.html">Blank Page</a>
           </div>
         </li>-->
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/web/company/contract') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Modelo de contrato</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/web/car') }}">
             <i class="fas fa-fw fa-chart-area"></i>
@@ -123,11 +129,6 @@
             <span>Locações</span>
           </a>
         </li>
-<!--        <li class="nav-item">
-          <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-        </li>-->
       </ul>
 
       <div id="content-wrapper">
