@@ -99,7 +99,7 @@
                title="Adicionar vistoria do veículo"
                value="Vistoria">Adicionar vistoria</a>
             @endif
-            @if(isset($inspection))
+            @if(isset($inspection) && !isset($devolution))
             <a href="{{ url('/web/rent/'.$rent->id.'/devolution') }}"
                class="btn btn-secondary"
                title="Adicionar devolução do veículo"
@@ -110,17 +110,18 @@
 </form>
 <hr>
 @if(isset($inspection))
-<div class="card">
-    <div class="card-header">
-        Dados da vistória
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-6">
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Dados da vistória
+            </div>
+            <div class="card-body">
                 <a href="{{ url('/web/rent/'.$rent->id.'/inspection/' . $inspection->id) }}"
-                class="links"
-                title="Alterar vistoria do veículo"
-                value="Vistoria">Alterar vistoria</a>
+                   class="links"
+                   title="Alterar vistoria do veículo"
+                   value="Vistoria">Alterar vistoria</a>
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
@@ -148,44 +149,84 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                @if(isset($devolution->id))
-                    <a href="{{ url('/web/rent/'.$rent->id.'/devolution/' . $devolution->id) }}"
-                    class="links"
-                    title="Alterar devolução do veículo"
-                    value="Devolução">Alterar devolução</a>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Km final</h5>
-                            </div>
-                            <p class="mb-1">{{ $devolution->end_km }}</p>
-                        </li>
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Combustível</h5>
-                            </div>
-                            <p class="mb-1">{{ $devolution->gasoline }} </p>
-                        </li>
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Estado do veículo</h5>
-                            </div>
-                            <p class="mb-1">{{ $devolution->bodywork }} </p>
-                        </li>
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Observações</h5>
-                            </div>
-                            <p class="mb-1">{{ $devolution->note }} </p>
-                        </li>
-                    </ul>
-                @endif
+        </div>
+    </div>
+    <div class="col-md-6">
+        @if(isset($devolution->id))
+        <div class="card">
+            <div class="card-header">
+                Dados da devolução
+            </div>
+            <div class="card-body">
+                <a href="{{ url('/web/rent/'.$rent->id.'/devolution/' . $devolution->id) }}"
+                   class="links"
+                   title="Alterar devolução do veículo"
+                   value="Devolução">Alterar devolução</a>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Km final</h5>
+                        </div>
+                        <p class="mb-1">{{ $devolution->end_km }}</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Combustível</h5>
+                        </div>
+                        <p class="mb-1">{{ $devolution->gasoline }} </p>
+                    </li>
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Estado do veículo</h5>
+                        </div>
+                        <p class="mb-1">{{ $devolution->bodywork }} </p>
+                    </li>
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Observações</h5>
+                        </div>
+                        <p class="mb-1">{{ $devolution->note }} </p>
+                    </li>
+                </ul>
+
             </div>
         </div>
+         @endif
     </div>
 </div>
 <hr>
+@if(isset($devolution))
+<div class="card">
+    <div class="card-header">
+        Fechamento
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            @if($inspection->gasoline != $devolution->gasoline)
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Combustível inicial / Combustível final</h5>
+                </div>
+                <p class="mb-1">{{ $inspection->gasoline }} / {{ $devolution->gasoline }}</p>
+            </li>
+            @endif
+            @if(($devolution->end_km - $inspection->init_km) > $rent->total_km)
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">KM Excedido</h5>
+                </div>
+                <p class="mb-1">
+                    {{ ($devolution->end_km - $inspection->init_km) - $rent->total_km }} km<br />
+                    valor da diferença:
+                    R$ <?php echo number_format(((($devolution->end_km - $inspection->init_km) - $rent->total_km)
+                    * ((float) str_replace(',', '.',$rent->value_km_extra))), 2, ',', '.')?>
+                </p>
+            </li>
+            @endif
+        </ul>
+    </div>
+</div>
+@endif
 @endif
 @endsection
 @section('page-js-files')
