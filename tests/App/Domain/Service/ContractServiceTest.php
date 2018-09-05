@@ -147,4 +147,21 @@ class ContractServiceTest extends TestCase
         $company = $this->company();
         $this->contractService->get(1, 2);
     }
+
+    public function testAll()
+    {
+        $company = $this->company();
+
+        $arrContract = [
+            'name' => 'contrato 1',
+            'company_id' => $company->id,
+            'template' => 'ajçls djfçlak dsfçlkajs fkjasd [[tag]]',
+            'user_id' => 2
+        ];
+        $this->contractService->add($arrContract);
+
+        $arrContracts = $this->contractService->all(['user_id' => 2]);
+        $this->assertArrayHasKey('name', $arrContracts[0]);
+        $this->assertArrayHasKey('template', $arrContracts[0]);
+    }
 }
