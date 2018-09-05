@@ -24,7 +24,11 @@
         </div>
         <div class="form-group col-md-4">
             <label for="gasoline">Combustível</label>
-            <input type="text" name="gasoline" class="form-control" required />
+            <select name="gasoline" class="form-control" required >
+                @foreach($gasolines as $key=>$gasoline)
+                <option value="{{$key}}">{{$gasoline}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-4">
             <label for="washed_out">Lavagem</label>

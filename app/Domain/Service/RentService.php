@@ -128,4 +128,15 @@ class RentService
         return $arrRent;
     }
 
+    static public function gasoline()
+    {
+        return [
+            '1/8' => '1/8',
+            '2/8' => '2/8',
+            '4/8' => '4/8',
+            '6/8' => '6/8',
+            '8/8' => '8/8'
+        ];
+    }
+
 }

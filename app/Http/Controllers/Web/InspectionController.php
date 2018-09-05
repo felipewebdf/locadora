@@ -24,7 +24,8 @@ class InspectionController extends Controller
                 ->get($request->route('rent_id'), Auth::id());
         return view('web.inspection.create', [
             'title' => 'Cadastrar vistoria',
-            'rent' => $rent
+            'rent' => $rent,
+            'gasolines' => RentService::gasoline()
         ]);
     }
 
@@ -46,7 +47,8 @@ class InspectionController extends Controller
         return view('web.inspection.update', [
             'title' => 'Alterar vistoria',
             'rent' => $rent,
-            'inspection' => $inspection
+            'inspection' => $inspection,
+            'gasolines' => RentService::gasoline()
         ]);
     }
 }

@@ -28,9 +28,12 @@
         </div>
         <div class="form-group col-md-4">
             <label for="gasoline">Combustível</label>
-            <input type="text" name="gasoline"
-                value="{{$devolution->gasoline}}"
-                class="form-control" required />
+            <select name="gasoline" class="form-control" required >
+                @foreach($gasolines as $key=>$gasoline)
+                <option value="{{$key}}"
+                        {{$devolution->gasoline == $gasoline?'selected':''}}>{{$gasoline}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-4">
             <label for="washed_out">Lavagem</label>
@@ -47,7 +50,7 @@
         </div>
         <div class="form-group col-md-12">
             <label for="note">Observações</label>
-            <textarea name="note" class="form-control" >{{$devolution->bodywork}}</textarea>
+            <textarea name="note" class="form-control" >{{$devolution->note}}</textarea>
         </div>
     </div>
     <div class="row">

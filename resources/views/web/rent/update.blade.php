@@ -205,22 +205,30 @@
             @if($inspection->gasoline != $devolution->gasoline)
             <li class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Combustível inicial / Combustível final</h5>
+                    <h5 class="mb-1 text-danger">Combustível inicial - Combustível final</h5>
                 </div>
-                <p class="mb-1">{{ $inspection->gasoline }} / {{ $devolution->gasoline }}</p>
+                <p class="mb-1">{{ $inspection->gasoline }} - {{ $devolution->gasoline }}</p>
             </li>
             @endif
             @if(($devolution->end_km - $inspection->init_km) > $rent->total_km)
             <li class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">KM Excedido</h5>
+                    <h5 class="mb-1 text-danger">KM Excedido</h5>
                 </div>
                 <p class="mb-1">
                     {{ ($devolution->end_km - $inspection->init_km) - $rent->total_km }} km<br />
-                    valor da diferença:
+                    Valor total km excedido:
                     R$ <?php echo number_format(((($devolution->end_km - $inspection->init_km) - $rent->total_km)
                     * ((float) str_replace(',', '.',$rent->value_km_extra))), 2, ',', '.')?>
                 </p>
+            </li>
+            @endif
+            @if($inspection->bodywork != $devolution->bodywork)
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-danger">Estado do veículo</h5>
+                </div>
+                <p class="mb-1">{{ $devolution->bodywork }}</p>
             </li>
             @endif
         </ul>

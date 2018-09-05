@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Traits\ContainerTrait;
 use App\Domain\Service\DevolutionService;
 use Illuminate\Http\Request;
+use App\Domain\Service\InspectionService;
 
 class DevolutionController extends Controller
 {
@@ -22,9 +23,14 @@ class DevolutionController extends Controller
         $rent = $this->container
                 ->make(RentService::class)
                 ->get($request->route('rent_id'), Auth::id());
+        $inspection = $this->container
+                ->make(InspectionService::class)
+                ->getForRent($request->route('rent_id'));
         return view('web.devolution.create', [
             'title' => 'Cadastrar devolução',
-            'rent' => $rent
+            'rent' => $rent,
+            'gasolines' => RentService::gasoline(),
+            'inspection' => $inspection
         ]);
     }
 
@@ -46,7 +52,8 @@ class DevolutionController extends Controller
         return view('web.devolution.update', [
             'title' => 'Alterar devolução',
             'rent' => $rent,
-            'devolution' => $devolution
+            'devolution' => $devolution,
+            'gasolines' => RentService::gasoline()
         ]);
     }
 }
