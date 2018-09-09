@@ -24,7 +24,7 @@ var devolutionService = {
         }
     },
 
-    put: function (id, rent_id, params) {
+    put: function (id, rent_id, params, callbackSuccess) {
         try {
             var request = $.ajax({
                 url: '/api/rent/'+rent_id+'/devolution/' + id,
@@ -35,6 +35,7 @@ var devolutionService = {
             request.done(function (msg) {
                 $('.errors-app').remove();
                 app.alert('Devolução alterada com sucesso', 'success');
+                callbackSuccess();
             });
 
             request.fail(function (jqXHR, textStatus) {

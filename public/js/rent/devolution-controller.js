@@ -15,6 +15,8 @@ $().ready(function() {
             $('input[name=id]').val(),
             $('input[name=rent_id]').val(),
             $('#form-devolution').serializeArray()
-        );
+        , function() {
+            window.location.href = '/web/rent/update/' + $('input[name=rent_id]').val();
+        });
     });
 });
