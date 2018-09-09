@@ -11,6 +11,10 @@ $().ready(function() {
     });
 
     $('#rent_update').click(function() {
-        rentService.put($('input[name=id]').val(), $('#form-rent').serialize());
+        rentService.put($('input[name=id]').val(), $('#form-rent').serialize(), function() {
+            if ($('#devolution')) {
+                window.location.reload();
+            }
+        });
     });
 });

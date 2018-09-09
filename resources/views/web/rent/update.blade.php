@@ -126,7 +126,7 @@
 
 @if(isset($inspection))
 <hr>
-<div class="row">
+<div class="row" id='inspection'>
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -168,7 +168,7 @@
     </div>
     <div class="col-md-6">
         @if(isset($devolution->id))
-        <div class="card">
+        <div class="card" id='devolution'>
             <div class="card-header">
                 Dados da devolução
             </div>
@@ -212,7 +212,7 @@
 
 @if(isset($devolution))
 <hr>
-<div class="card">
+<div class="card" id='rent_calc'>
     <div class="card-header">
         Fechamento
     </div>

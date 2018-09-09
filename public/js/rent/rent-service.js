@@ -24,7 +24,7 @@ var rentService = {
         }
     },
 
-    put: function (id, params) {
+    put: function (id, params, callbackSuccess) {
         try {
             var request = $.ajax({
                 url: "/api/rent/" + id,
@@ -35,6 +35,7 @@ var rentService = {
             request.done(function (msg) {
                 $('.errors-app').remove();
                 app.alert('Locação alterada com sucesso', 'success');
+                callbackSuccess();
             });
 
             request.fail(function (jqXHR, textStatus) {
