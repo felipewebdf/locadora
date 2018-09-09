@@ -15,6 +15,7 @@ $().ready(function() {
     });
 
     $('#contract_update').click(function() {
+        $('#template').val(CKEDITOR.instances.template.getData());
         contractService.put($('input[name=id]').val(), $('#form-contract').serialize());
     });
 });
