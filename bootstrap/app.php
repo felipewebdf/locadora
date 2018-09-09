@@ -52,6 +52,6 @@ $app->singleton(
 |
 */
 
-$app->useEnvironmentPath(getenv('APP_ENV'));
+//$app->useEnvironmentPath(getenv('APP_ENV'));
 
 return $app;

@@ -6,6 +6,10 @@
 
 > cd locadora
 
+> create .env
+
+> php artisan key:generate
+
 > composer install
 
 > php artisan jwt:secret
