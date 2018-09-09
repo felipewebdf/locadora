@@ -2,11 +2,12 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-client'>
+    <hr>
      <input type="hidden" name="id"
                    value="<?php echo $client->id ?>"
                    required />
     <div class="row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
             <label for="name">Nome</label>
             <input type="text" name="name" class="form-control"
                    maxlength="300"
@@ -21,8 +22,40 @@
                    required
                    />
         </div>
+        <div class="form-group col-md-3">
+            <label for="document">CPF/CNPJ</label>
+            <input type="text" name="document" class="form-control"
+                   value="<?php echo $client->document ?>"
+                   maxlength="14"
+                   required
+                   />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="phone">Telefones</label>
+            <input type="text" name="phone" class="form-control"
+                   value="<?php echo $client->phone ?>"
+                   maxlength="50"
+                   required
+                   />
+        </div>
     </div>
-    <hr>
+     <div class="row">
+        <div class="form-group col-md-3">
+            <label for="credcard">Cartão de crédito</label>
+            <input type="text" name="credcard" class="form-control"
+                   value="<?php echo $client->credcard ?>"
+                   maxlength="150"
+                   required />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="credcard_at">Validade</label>
+            <input type="text" name="credcard_at" class="form-control"
+                   value="<?php echo $client->credcard_at ?>"
+                   maxlength="5"
+                   required
+                   />
+        </div>
+    </div>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="cep">CEP</label>
@@ -48,7 +81,7 @@
                    value="<?php echo $client->address->city ?>"
                    maxlength="100">
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
             <label for="uf">UF</label>
             <input type="hidden"
                    id="defaultUF">
@@ -62,6 +95,7 @@
             </select>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-md-12 text-right">
             <a href="{{ url('/web/client') }}" class="btn btn-default">

@@ -2,6 +2,7 @@
 
 @section('content')
 <form method="POST" action="javascript:void(0)" id='form-car'>
+    <hr>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="automaker">Montadora</label>
@@ -49,12 +50,18 @@
             </select>
         </div>
     </div>
-    <hr>
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="tag">Placa</label>
             <input type="text" name="tag" class="form-control"
                    maxlength="9"
+                   required
+                   />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="chassi">Chassi</label>
+            <input type="text" name="chassi" class="form-control"
+                   maxlength="150"
                    required
                    />
         </div>
@@ -63,19 +70,20 @@
             <input type="text" name="renavan" class="form-control"
                    maxlength="60">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="door">Portas</label>
             <input type="number" name="door" class="form-control"
                    maxlength="2"
                    required />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="capacity">Capacidade</label>
             <input type="number" name="capacity" class="form-control"
                    maxlength="4"
                    required />
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-md-12 text-right">
             <a href="{{ url('/web/car') }}" class="btn btn-default">

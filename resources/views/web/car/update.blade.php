@@ -2,6 +2,7 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-car'>
+   <hr>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="brand">Montadora</label>
@@ -59,13 +60,20 @@
             </select>
         </div>
     </div>
-    <hr>
+
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="tag">Placa</label>
             <input type="text" name="tag" class="form-control"
                    maxlength="9"
                    value="<?php echo $car->tag ?>"
+                   />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="chassi">Chassi</label>
+            <input type="text" name="chassi" class="form-control"
+                   maxlength="150"
+                   value="<?php echo $car->chassi ?>"
                    />
         </div>
         <div class="form-group col-md-3">
@@ -74,19 +82,20 @@
                    maxlength="60"
                    value="<?php echo $car->renavan ?>">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="door">Portas</label>
             <input type="number" name="door" class="form-control"
                    maxlength="2"
                    value="<?php echo $car->door ?>">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="capacity">Capacidade</label>
             <input type="number" name="capacity" class="form-control"
                    maxlength="4"
                    value="<?php echo $car->capacity ?>">
         </div>
     </div>
+   <hr>
     <div class="row">
         <div class="col-md-12 text-right">
             <a href="{{ url('/web/car') }}" class="btn btn-default">
