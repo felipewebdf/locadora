@@ -96,8 +96,12 @@ class ProjectInit extends Migration
 
         Schema::create('client', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
-            $table->string('name', 300)->nullable(false);
-            $table->string('cnh', 50)->nullable(false);
+            $table->string('name', 300)->nullable();
+            $table->string('cnh', 50)->nullable();
+            $table->string('document', 14)->nullable();
+            $table->string('phone', 50)->nullable();
+            $table->string('credcard', 150)->nullable(true);
+            $table->string('credcard_at', 5)->nullable(true);
             $table->integer('address_id')->unsigned();
 
             $table->integer('user_id')->unsigned();
@@ -132,6 +136,7 @@ class ProjectInit extends Migration
             $table->string('year', 4);
             $table->string('tag', 8);
             $table->string('renavan');
+            $table->string('chassi');
             $table->integer('door');
             $table->integer('capacity');
             $table->integer('company_id')->unsigned();
@@ -234,6 +239,7 @@ class ProjectInit extends Migration
             $table->integer('company_id')->unsigned();
 
             $table->integer('client_id')->unsigned();
+            $table->integer('driver_id')->unsigned();
 
             $table->integer('contract_id')->unsigned();
 

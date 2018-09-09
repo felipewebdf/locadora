@@ -26,7 +26,11 @@ class ClientRequest extends FormRequest
         return [
             'name.required' => 'Favor informar o nome do cliente',
             'cnh.required' => 'Favor informar a cnh do cliente',
-            'cnh.numeric' => 'Favor informar a cnh válida',
+            'document.numeric' => 'Favor informar o documento válido',
+            'phone.required' => 'Favor informar o telefone válido',
+            'credcard.required' => 'Favor informar o cartão',
+            'credcard.numeric' => 'Favor informar o cartão válido',
+            'credcard_at.required' => 'Favor informar a validade do cartão',
             'description.required' => 'Favor informar o endereço do cliente',
             'district.required' => 'Favor informar o bairro do cliente',
             'city.required' => 'Favor informar a cidade do cliente',
@@ -46,6 +50,10 @@ class ClientRequest extends FormRequest
         $validator = [
             'name' => 'required',
             'cnh' => 'required|numeric',
+            'document' => 'required|numeric',
+            'phone' => 'required|numeric',
+            'credcard' => 'required|numeric',
+            'credcard_at' => 'required',
             'description' => 'required',
             'district' => 'required',
             'city' => 'required',

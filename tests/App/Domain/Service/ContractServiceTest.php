@@ -39,7 +39,7 @@ class ContractServiceTest extends TestCase
         $this->db->connection()->rollback();
     }
 
-    protected function company()
+    protected function company($user_id=2)
     {
         $arrContract = [
             'name' => 'federal',
@@ -49,7 +49,7 @@ class ContractServiceTest extends TestCase
             'cep' => '12123456',
             'city' => 'nome da cidade',
             'uf' => 'DF',
-            'user_id' => 2
+            'user_id' => $user_id
         ];
         return $this->companyService->register($arrContract);
     }
@@ -111,7 +111,7 @@ class ContractServiceTest extends TestCase
         ];
         $contract = $this->contractService->add($arrContract);
 
-        $company2 = $this->company();
+        $company2 = $this->company(1);
 
         $arrContractUpdate = [
             'name' => 'contract 2',

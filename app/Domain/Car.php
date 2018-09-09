@@ -13,6 +13,7 @@ class Car extends Model
         'year',
         'tag',
         'renavan',
+        'chassi',
         'door',
         'capacity',
         'company_id',

@@ -39,6 +39,7 @@ class RentService
         $exists = Rent::where('car_id', $arrRent['car_id'])
                 ->where('company_id', $arrRent['company_id'])
                 ->where('client_id', $arrRent['client_id'])
+                ->where('driver_id', $arrRent['driver_id'])
                 ->where('type_rent_id', $arrRent['type_rent_id'])
                 ->where('contract_id', $arrRent['contract_id'])
                 ->where('init', $arrRent['init'])->first();
@@ -66,6 +67,7 @@ class RentService
         $rent = Rent::where('car_id', $arrRent['car_id'])
                 ->where('company_id', $arrRent['company_id'])
                 ->where('client_id', $arrRent['client_id'])
+                ->where('driver_id', $arrRent['driver_id'])
                 ->where('id', $id)->first();
 
         if (!$rent) {

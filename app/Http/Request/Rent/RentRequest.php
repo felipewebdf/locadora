@@ -25,6 +25,7 @@ class RentRequest extends FormRequest
     {
         return [
             'client_id.required' => 'Favor informar o cliente',
+            'driver_id.required' => 'Favor informar o condutor principal',
             'car_id.required' => 'Favor informar o veículo',
             'type_rent_id.required' => 'Favor informar o tipo de locação',
             'contract_id.required' => 'Favor informar o contrato de locação',
@@ -46,6 +47,7 @@ class RentRequest extends FormRequest
     {
         $validator = [
             'client_id' => 'required|integer',
+            'driver_id' => 'required|integer',
             'car_id' => 'required|integer',
             'type_rent_id' => 'required|integer',
             'contract_id' => 'required|integer',

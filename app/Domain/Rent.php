@@ -9,6 +9,7 @@ class Rent extends Model
     protected $fillable = [
         'car_id',
         'client_id',
+        'driver_id',
         'company_id',
         'type_rent_id',
         'contract_id',
@@ -38,6 +39,11 @@ class Rent extends Model
     public function client()
     {
         return $this->hasOne('App\Domain\Client', 'id', 'client_id');
+    }
+
+    public function driver()
+    {
+        return $this->hasOne('App\Domain\Client', 'id', 'driver_id');
     }
 
     public function company()

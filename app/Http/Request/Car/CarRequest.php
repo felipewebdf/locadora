@@ -31,6 +31,7 @@ class CarRequest extends FormRequest
             'year.required' => 'Favor informar a o ano',
             'tag.required' => 'Favor informar a placa',
             'renavan.required' => 'Favor informar o renavan',
+            'chassi.required' => 'Favor informar o chassi',
             'door.required' => 'Favor informar a quantidade de portas',
             'capacity.required' => 'Favor informar a capacidade',
         ];
@@ -52,6 +53,7 @@ class CarRequest extends FormRequest
             'year' => 'required',
             'tag' => 'required',
             'renavan' => 'required',
+            'chassi' => 'required',
             'door' => 'required',
             'capacity' => 'required',
         ];
