@@ -16,7 +16,7 @@
             <th>Cliente</th>
             <th>Veículo</th>
             <th>Tipo</th>
-            <th>Diária</th>
+            <th>Valor Diária</th>
             <th>Início</th>
             <th>Fim</th>
         </tr>
@@ -29,7 +29,7 @@
             <td>{{ $rent->client->name }}</td>
             <td>{{ $rent->car->model->name }} ({{ $rent->car->tag }})</td>
             <td>{{ $rent->type->name }}</td>
-            <td>{{ $rent->daily }}</td>
+            <td>R$ {{ $rent->daily }}</td>
             <td>{{ \Carbon\Carbon::parse($rent->init)->format('d/m/Y') }}</td>
             <td>{{ \Carbon\Carbon::parse($rent->end)->format('d/m/Y') }}</td>
         </tr>

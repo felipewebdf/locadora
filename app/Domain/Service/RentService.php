@@ -76,6 +76,7 @@ class RentService
 
         unset($arrRent['client_id']);
         unset($arrRent['car_id']);
+        unset($arrRent['user_id']);
 
         $rent->fill($arrRent);
         $rent->save();

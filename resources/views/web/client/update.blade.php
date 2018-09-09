@@ -81,7 +81,7 @@
                    value="<?php echo $client->address->city ?>"
                    maxlength="100">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="uf">UF</label>
             <input type="hidden"
                    id="defaultUF">
