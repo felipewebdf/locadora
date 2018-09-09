@@ -46,6 +46,7 @@ class RentController extends Controller
         $inspection = $this->container->make(InspectionService::class)->getForRent($id);
         $contracts = $this->container->make(ContractService::class)->all(['user_id' => Auth::id()]);
         $devolution = $this->container->make(DevolutionService::class)->getForRent($id);
+        $clients = $this->container->make(ClientService::class)->all(['user_id' => Auth::id()]);
 
         return view('web.rent.update', [
             'rent' => $rent,
@@ -53,7 +54,8 @@ class RentController extends Controller
             'types_rents' => TypeRent::all(),
             'inspection' => $inspection,
             'contracts' => $contracts,
-            'devolution' => $devolution
+            'devolution' => $devolution,
+            'clients' => $clients
         ]);
     }
 

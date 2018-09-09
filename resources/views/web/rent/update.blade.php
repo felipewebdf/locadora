@@ -2,6 +2,7 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-rent'>
+    <hr>
     <input type="hidden" name="id"
            value="<?php echo $rent->id ?>" required />
     <div class="row">
@@ -9,6 +10,17 @@
             <label for="client_id">Cliente</label>
             <select name="client_id" class="form-control" required>
                 <option value="{{ $rent->client->id }}">{{ $rent->client->name }}</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="driver_id">Condutor</label>
+            <select name="driver_id" class="form-control" required>
+                <option value="">Selecione</option>
+                @foreach($clients as $client)
+                <option value="{{ $client->id }}"
+                        {{$rent->driver->id == $client->id ? 'selected' : ''}}
+                        >{{ $client->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group col-md-3">
@@ -30,7 +42,10 @@
                 @endforeach
             </select>
         </div>
-        <div class="form-group col-md-3">
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
             <label for="contract_id">Contrato</label>
             <select name="contract_id" class="form-control" required>
                 <option value="">Selecione</option>
@@ -41,35 +56,34 @@
                 @endforeach
             </select>
         </div>
-
-    </div>
-    <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="init">Início</label>
             <input type="datetime-local" name="init"
                    value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s', $rent->init)->format('Y-m-d\TH:i') ?>"
                    class="form-control" required />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="end">Fim</label>
             <input type="datetime-local" name="end"
                    value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s', $rent->end)->format('Y-m-d\TH:i') ?>"
                    class="form-control" />
         </div>
-        <div class="form-group col-md-2">
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
             <label for="total_km">Total km</label>
             <input type="number"
                    name="total_km"
                    value="<?php echo $rent->total_km ?>"
                    class="form-control" required />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="value_km_extra">Valor km extra</label>
             <input type="text" name="value_km_extra"
                    value="{{$rent->value_km_extra}}"
                    class="form-control" required />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="daily">Valor Diária</label>
             <input type="text" name="daily"
                    value="<?php echo $rent->daily; ?>"
@@ -83,6 +97,7 @@
                       class="form-control"><?php echo $rent->comment; ?></textarea>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-md-12 text-right">
             <a href="{{ url('/web/rent') }}" class="btn btn-default">
@@ -103,14 +118,14 @@
             <a href="{{ url('/web/rent/'.$rent->id.'/devolution') }}"
                class="btn btn-secondary"
                title="Adicionar devolução do veículo"
-               value="devolução">Adicionar devolução</a>
+               value="devolução">Informar devolução</a>
             @endif
         </div>
     </div>
 </form>
-<hr>
-@if(isset($inspection))
 
+@if(isset($inspection))
+<hr>
 <div class="row">
     <div class="col-md-6">
         <div class="card">
@@ -194,8 +209,9 @@
          @endif
     </div>
 </div>
-<hr>
+
 @if(isset($devolution))
+<hr>
 <div class="card">
     <div class="card-header">
         Fechamento
