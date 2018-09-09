@@ -2,7 +2,7 @@
 
 ##Install locadora
 
-> git clone
+> git clone projetc locadora
 
 > cd locadora
 
