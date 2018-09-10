@@ -420,4 +420,14 @@ class RentServiceTest extends TestCase
 
         $this->assertEquals($rent->id, $rentExists->id);
     }
+
+    public function testGasoline()
+    {
+        $arrGasoline = RentService::gasoline();
+        $this->assertEquals('1/8', $arrGasoline['1/8']);
+        $this->assertEquals('2/8', $arrGasoline['2/8']);
+        $this->assertEquals('4/8', $arrGasoline['4/8']);
+        $this->assertEquals('6/8', $arrGasoline['6/8']);
+        $this->assertEquals('8/8', $arrGasoline['8/8']);
+    }
 }
