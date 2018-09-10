@@ -62,6 +62,8 @@ class RentController extends Controller
     public function pdf($id)
     {
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
+        $inspection = $this->container->make(InspectionService::class)->getForRent($rent->id);
+        
     }
 
 }

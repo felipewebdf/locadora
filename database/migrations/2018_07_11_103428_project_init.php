@@ -16,7 +16,7 @@ class ProjectInit extends Migration
         Schema::create('brand', function (Blueprint $table)
         {
             $table->increments('id')->index()->unsigned();
-            $table->string('name',500)->nullable(false);
+            $table->string('name',500)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
@@ -25,7 +25,7 @@ class ProjectInit extends Migration
         Schema::create('model', function (Blueprint $table)
         {
             $table->increments('id')->index()->unsigned();
-            $table->string('name',500)->nullable(false);
+            $table->string('name',500)->nullable();
             $table->integer('brand_id')->unsigned();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
@@ -42,11 +42,11 @@ class ProjectInit extends Migration
         Schema::create('address', function (Blueprint $table)
         {
             $table->increments('id')->index()->unsigned();
-            $table->string('description',500)->nullable(false);
-            $table->string('district', 200)->nullable(false);
+            $table->string('description',500)->nullable();
+            $table->string('district', 200)->nullable();
             $table->string('cep', 10);
             $table->string('city', 100);
-            $table->string('uf', 2)->nullable(false);
+            $table->string('uf', 2)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
@@ -55,8 +55,9 @@ class ProjectInit extends Migration
         Schema::create('company', function (Blueprint $table)
         {
             $table->increments('id')->index()->unsigned();
-            $table->string('name',300)->nullable(false);
-            $table->string('cnpj',14)->nullable(false);
+            $table->string('name',300)->nullable();
+            $table->string('cnpj',14)->nullable();
+            $table->string('logo',300)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
@@ -75,8 +76,8 @@ class ProjectInit extends Migration
 
         Schema::create('provider', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
-            $table->string('name',300)->nullable(false);
-            $table->string('document',14)->nullable(false);
+            $table->string('name',300)->nullable();
+            $table->string('document',14)->nullable();
             $table->integer('address_id')->unsigned();
             $table->integer('company_id')->unsigned();
             $table->timestamp('created_at')->nullable();

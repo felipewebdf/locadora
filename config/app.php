@@ -168,6 +168,9 @@ return [
 
         //editor
         Unisharp\Ckeditor\ServiceProvider::class,
+
+        //PDF
+//        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -218,7 +221,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //JWT
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        //PDF
+//        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
