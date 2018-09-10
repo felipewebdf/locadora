@@ -15,7 +15,7 @@ class CarService
     public function all($params)
     {
         $company = $this->getCompanyUser($params['user_id']);
-        return Car::where('company_id', $company->id)->get();
+        return Car::where('company_id', $company->id)->orderBy('model_id')->get();
     }
 
     /**

@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
+
+    static public $arrFuel = [
+        'Diesel',
+        'Etanol',
+        'Flex',
+        'Gás',
+        'Gasolina'
+    ];
+
     protected $fillable = [
         'model_id',
         'power',
@@ -15,6 +24,7 @@ class Car extends Model
         'renavan',
         'chassi',
         'door',
+        'type_fuel',
         'capacity',
         'company_id',
         'provider_id'

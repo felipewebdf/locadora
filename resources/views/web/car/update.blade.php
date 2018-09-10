@@ -62,7 +62,7 @@
     </div>
 
     <div class="row">
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="tag">Placa</label>
             <input type="text" name="tag" class="form-control"
                    maxlength="9"
@@ -77,12 +77,25 @@
                    />
         </div>
         <div class="form-group col-md-3">
+            <label for="type_fuel">Tipo de combustível</label>
+            <select name="type_fuel" class="form-control"
+                   required
+                   >
+                @foreach($arrFuel as $keyFuel=>$fuel)
+                <option value="{{$keyFuel}}"
+                        {{$car->type_fuel == $keyFuel ? 'selected' : ''}}>{{$fuel}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-md-3">
             <label for="renavan">Renavan</label>
-            <input type="text" name="renavan" class="form-control"
+            <input type="number" name="renavan" class="form-control"
                    maxlength="60"
                    value="<?php echo $car->renavan ?>">
         </div>
-        <div class="form-group col-md-2">
+    </div>
+   <div class='row'>
+       <div class="form-group col-md-2">
             <label for="door">Portas</label>
             <input type="number" name="door" class="form-control"
                    maxlength="2"
@@ -94,7 +107,7 @@
                    maxlength="4"
                    value="<?php echo $car->capacity ?>">
         </div>
-    </div>
+   </div>
    <hr>
     <div class="row">
         <div class="col-md-12 text-right">

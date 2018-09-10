@@ -7,6 +7,7 @@
 > cd locadora
 
 > create .env
+ configure db connection
 
 > php artisan key:generate
 

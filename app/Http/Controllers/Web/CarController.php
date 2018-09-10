@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Domain\Service\CarService;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ContainerTrait;
+use App\Domain\Car;
 
 
 class CarController extends Controller
@@ -24,7 +25,8 @@ class CarController extends Controller
         return view('web.car.create', [
             'brands' => $brands,
             'years' => CarService::years(),
-            'title' => 'Cadastrar veículo'
+            'title' => 'Cadastrar veículo',
+            'arrFuel' => Car::$arrFuel
         ]);
     }
 
@@ -43,6 +45,7 @@ class CarController extends Controller
             'brands' => $brands,
             'models' => $models,
             'years' => CarService::years(),
+            'arrFuel' => Car::$arrFuel,
             'title' => 'Alterar veículo'
         ]);
     }
