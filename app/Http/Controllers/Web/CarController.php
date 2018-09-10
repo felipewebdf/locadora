@@ -26,7 +26,8 @@ class CarController extends Controller
             'brands' => $brands,
             'years' => CarService::years(),
             'title' => 'Cadastrar veículo',
-            'arrFuel' => Car::$arrFuel
+            'arrFuel' => Car::$arrFuel,
+            'colors' => Car::$arrColor
         ]);
     }
 
@@ -46,7 +47,8 @@ class CarController extends Controller
             'models' => $models,
             'years' => CarService::years(),
             'arrFuel' => Car::$arrFuel,
-            'title' => 'Alterar veículo'
+            'title' => 'Alterar veículo',
+            'colors' => Car::$arrColor
         ]);
     }
 

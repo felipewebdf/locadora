@@ -26,6 +26,7 @@ class CarRequest extends FormRequest
         return [
             'brand.required' => 'Favor informar a montadora',
             'model.required' => 'Favor informar o modelo',
+            'color.required' => 'Favor informar o cor',
             'power.required' => 'Favor informar o potência',
             'year_factory.required' => 'Favor informar o ano de fabricação',
             'year.required' => 'Favor informar a o ano',
@@ -48,6 +49,7 @@ class CarRequest extends FormRequest
         $validator = [
             'brand' => 'required',
             'model' => 'required',
+            'color' => 'required',
             'power' => 'required',
             'year_factory' => 'required',
             'year' => 'required',

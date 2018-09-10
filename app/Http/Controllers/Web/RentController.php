@@ -59,4 +59,9 @@ class RentController extends Controller
         ]);
     }
 
+    public function pdf($id)
+    {
+        $rent = $this->container->make(RentService::class)->get($id, Auth::id());
+    }
+
 }

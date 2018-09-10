@@ -137,7 +137,8 @@ class ProjectInit extends Migration
             $table->string('tag', 8);
             $table->string('renavan');
             $table->string('chassi');
-            $table->integer('type_fuel');
+            $table->integer('type_fuel')->default(1);
+            $table->integer('color')->default(1);
             $table->integer('door');
             $table->integer('capacity');
             $table->integer('company_id')->unsigned();

@@ -94,6 +94,14 @@
                    maxlength="4"
                    required />
         </div>
+        <div class="form-group col-md-2">
+            <label for="color">Cor</label>
+            <select name='color' class='form-control' required>
+                @foreach($colors as $keyColor=>$color)
+                <option value='{{$keyColor}}'>{{$color}}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
     <hr>
     <div class="row">

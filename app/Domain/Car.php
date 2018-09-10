@@ -8,11 +8,26 @@ class Car extends Model
 {
 
     static public $arrFuel = [
-        'Diesel',
-        'Etanol',
-        'Flex',
-        'Gás',
-        'Gasolina'
+        1 => 'Diesel',
+        2 => 'Etanol',
+        3 => 'Flex',
+        4 => 'Gás',
+        5 => 'Gasolina'
+    ];
+
+    static public $arrColor = [
+        1 => 'Amarelo',
+        2 => 'Azul',
+        3 => 'Branco',
+        4 => 'Cinza',
+        5 => 'Grafite',
+        6 => 'Marrom',
+        7 => 'Ouro',
+        8 => 'Prata',
+        9 => 'Preta',
+        10 => 'Rosa',
+        11 => 'Verde',
+        12 => 'Vermelho'
     ];
 
     protected $fillable = [
@@ -26,6 +41,7 @@ class Car extends Model
         'door',
         'type_fuel',
         'capacity',
+        'color',
         'company_id',
         'provider_id'
     ];

@@ -107,6 +107,15 @@
                    maxlength="4"
                    value="<?php echo $car->capacity ?>">
         </div>
+       <div class="form-group col-md-2">
+            <label for="color">Cor</label>
+            <select name='color' class='form-control' required>
+                @foreach($colors as $keyColor=>$color)
+                <option value='{{$keyColor}}'
+                        {{$car->color == $keyColor ? 'selected' : ''}}>{{$color}}</option>
+                @endforeach
+            </select>
+        </div>
    </div>
    <hr>
     <div class="row">
