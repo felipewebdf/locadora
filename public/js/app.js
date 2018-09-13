@@ -1,6 +1,11 @@
 $().ready(function() {
 
     app = {
+        erroAuthentication: function(status) {
+            if (status == 401) {
+                window.location.href = '/';
+            }
+        },
         inputErros: function(data) {
             $.each(data.responseJSON.errors, function(k, v) {
                 var errors = v;

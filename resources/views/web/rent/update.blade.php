@@ -100,7 +100,7 @@
     <hr>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="{{ url('/web/rent') }}" class="btn btn-default">
+            <a href="{{ url('/web/rent') }}" class="btn btn-secondary">
                 Voltar
             </a>
             <input type="button" name="rent_update"
@@ -109,7 +109,7 @@
                    title="Enviar dados da locação"
                    value="Enviar"/>
             <a href="{{ url('/web/rent/'.$rent->id.'/pdf') }}"
-               class="btn btn-secondary"
+               class="btn btn-info"
                title="Visualizar contrato"
                target="_blank"
                >Visualizar contrato</a>
@@ -121,7 +121,7 @@
             @endif
             @if(isset($inspection) && !isset($devolution))
             <a href="{{ url('/web/rent/'.$rent->id.'/devolution') }}"
-               class="btn btn-secondary"
+               class="btn btn-danger"
                title="Adicionar devolução do veículo"
                >Informar devolução</a>
             @endif

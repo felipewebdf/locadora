@@ -20,7 +20,7 @@
     <hr>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="{{ url('/web/company/contract') }}" class="btn btn-default">
+            <a href="{{ url('/web/company/contract') }}" class="btn btn-secondary">
                 Voltar
             </a>
             <input type="submit" name="contract_submit"

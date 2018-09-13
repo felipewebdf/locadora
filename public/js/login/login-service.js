@@ -5,6 +5,7 @@ var loginService = {
             window.location.href='/web/company';
         })
         .fail(function(data) {
+            app.erroAuthentication(data.status);
             app.inputErros(data);
         });
     }

@@ -55,7 +55,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="{{ url('/web/rent/update/' . $rent->id) }}" class="btn btn-default">
+            <a href="{{ url('/web/rent/update/' . $rent->id) }}" class="btn btn-secondary">
                 Voltar
             </a>
             <input type="button" name="devolution_update"

@@ -24,7 +24,7 @@
     <hr>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="{{ url('/web/company/contract') }}" class="btn btn-default">
+            <a href="{{ url('/web/company/contract') }}" class="btn btn-secondary">
                 Voltar
             </a>
             <input type="button" id="contract_update"
@@ -37,10 +37,11 @@
 @endsection
 @section('page-js-files')
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/plugins/justify/plugin.js"></script>
 <script>
     CKEDITOR.replace( 'template', {
-    customConfig: '/js/ckeditor/custom_config.js'
-});
+        customConfig: '/js/ckeditor/custom_config.js'
+    });
 </script>
 <script type="text/javascript" src="{{ asset('js/company/contract-service.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/company/contract-controller.js') }}"></script>

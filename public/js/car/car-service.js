@@ -28,6 +28,7 @@ var carService = {
                     return;
                 }
             }).fail(function (data) {
+                app.erroAuthentication(data.status);
                 if (data.status == 422) {
                     app.alert('Favor verificar as informações', 'warning');
                     return app.inputErros(data);
@@ -59,6 +60,7 @@ var carService = {
             });
 
             request.fail(function (jqXHR, textStatus) {
+                app.erroAuthentication(textStatus);
                 $('.errors-app').remove();
                 if (textStatus == 422) {
                     app.alert('Favor verificar as informações', 'warning');

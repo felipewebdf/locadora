@@ -83,7 +83,7 @@
        <hr>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="{{ url('/web/client') }}" class="btn btn-default">
+            <a href="{{ url('/web/client') }}" class="btn btn-secondary">
                 Voltar
             </a>
             <input type="submit" name="client_submit"

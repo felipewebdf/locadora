@@ -10,6 +10,7 @@ var devolutionService = {
                     return;
                 }
             }).fail(function (data) {
+                app.erroAuthentication(data.status);
                 if (data.status == app.http.status.validation) {
                     app.alert('Favor verificar as informações', 'warning');
                     return app.inputErros(data);
@@ -39,6 +40,7 @@ var devolutionService = {
             });
 
             request.fail(function (jqXHR, textStatus) {
+                app.erroAuthentication(textStatus);
                 $('.errors-app').remove();
                 if (textStatus == 422) {
                     app.alert('Favor verificar as informações', 'warning');

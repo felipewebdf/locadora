@@ -6,6 +6,7 @@ var companyService = {
                 app.alert('Dados da empresa salvos com sucesso', 'success');
             }
         }).fail(function(data) {
+            app.erroAuthentication(data.status);
             if (data.status == 422) {
                 app.alert('Favor verificar as informações', 'warning');
                 app.inputErros(data);

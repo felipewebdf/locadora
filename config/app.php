@@ -166,11 +166,10 @@ return [
         //PERMISSION
         Spatie\Permission\PermissionServiceProvider::class,
 
-        //editor
-        Unisharp\Ckeditor\ServiceProvider::class,
-
         //PDF
         Barryvdh\DomPDF\ServiceProvider::class,
+
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class
     ],
 
     /*
@@ -223,7 +222,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         //PDF
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
     ],
 
 ];

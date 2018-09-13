@@ -4,6 +4,7 @@ var contractService = {
         $.post('/api/company/contract', params, function(response, data, headers) {
             callback(response, headers);
         }).fail(function(data) {
+            app.erroAuthentication(data.status);
             if (data.status == 422) {
                 app.alert('Favor verificar as informações', 'warning');
                 app.inputErros(data);
@@ -24,6 +25,7 @@ var contractService = {
             });
 
             request.fail(function (jqXHR, textStatus) {
+                app.erroAuthentication(textStatus);
                 $('.errors-app').remove();
                 if (textStatus == 422) {
                     app.alert('Favor as informações', 'warning');
