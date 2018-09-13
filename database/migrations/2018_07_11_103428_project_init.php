@@ -249,6 +249,7 @@ class ProjectInit extends Migration
             $table->integer('type_rent_id')->unsigned();
             $table->integer('total_km');
             $table->string('value_km_extra');
+            $table->string('value_hr_extra');
             $table->string('daily');
             $table->timestamp('init');
             $table->timestamp('end');
