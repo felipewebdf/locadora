@@ -11,6 +11,7 @@ use App\Domain\TypeRent;
 use \App\Domain\Service\InspectionService;
 use App\Domain\Service\ContractService;
 use App\Domain\Service\DevolutionService;
+use App\Domain\Car;
 
 class RentController extends Controller
 {
@@ -64,10 +65,15 @@ class RentController extends Controller
         $rent = $this->container->make(RentService::class)->get($id, Auth::id());
         $htmlContract = str_replace('{{client_name}}', $rent->client->name, $rent->contract->template);
         $htmlContract = str_replace('{{client_document}}', $rent->client->document, $htmlContract);
+        $htmlContract = str_replace('{{car_model_brand_name}}', $rent->car->model->brand->name, $htmlContract);
+        $htmlContract = str_replace('{{car_model_name}}', $rent->car->model->name, $htmlContract);
+        $htmlContract = str_replace('{{car_power}}', $rent->car->power, $htmlContract);
+        $htmlContract = str_replace('{{car_door}}', $rent->car->door, $htmlContract);
+        $htmlContract = str_replace('{{car_capacity}}',  $rent->car->capacity, $htmlContract);
+        $htmlContract = str_replace('{{car_year}}', $rent->car->year, $htmlContract);
+        $htmlContract = str_replace('{{car_type_fuel}}', Car::$arrFuel[$rent->car->type_fuel], $htmlContract);
+        $htmlContract = str_replace('{{car_tag}}', $rent->car->tag, $htmlContract);
 
-        $data = [
-            'foo' => 'bar'
-        ];
         $pdf = new \niklasravnsborg\LaravelPdf\Pdf($htmlContract);
         return $pdf->download('contrato.pdf');
     }
