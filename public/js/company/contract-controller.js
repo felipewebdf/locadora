@@ -16,6 +16,7 @@ $().ready(function() {
 
     $('#contract_update').click(function() {
         $('#template').val(CKEDITOR.instances.template.getData());
+        console.log($('#form-contract').serialize());
         contractService.put($('input[name=id]').val(), $('#form-contract').serialize());
     });
 });
