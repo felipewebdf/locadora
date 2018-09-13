@@ -38,7 +38,9 @@
 @section('page-js-files')
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'template' );
+    CKEDITOR.replace( 'template', {
+    customConfig: '/js/ckeditor/custom_config.js'
+});
 </script>
 <script type="text/javascript" src="{{ asset('js/company/contract-service.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/company/contract-controller.js') }}"></script>

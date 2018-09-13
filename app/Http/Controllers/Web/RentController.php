@@ -65,6 +65,7 @@ class RentController extends Controller
         $htmlContract = str_replace('{{client_name}}', $rent->client->name, $rent->contract->template);
         $htmlContract = str_replace('{{client_document}}', $rent->client->document, $htmlContract);
 
+        
         $pdf = $this->container->make('dompdf.wrapper');
         $pdf->loadHTML($htmlContract);
         return $pdf->stream();

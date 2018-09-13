@@ -170,7 +170,7 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
 
         //PDF
-//        Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -223,7 +223,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         //PDF
-//        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
