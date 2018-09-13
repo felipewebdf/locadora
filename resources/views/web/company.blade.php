@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-right">
             <input type="submit" name="company_submit"
                    class="btn btn-primary"
                    title="Enviar dados da empresa"

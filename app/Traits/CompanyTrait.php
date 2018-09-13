@@ -17,7 +17,7 @@ trait CompanyTrait
         $company = $this->container->make(CompanyService::class)->forUser($userId);
 
         if (!$company) {
-            throw new RulesException('Usuário não esta vinculado a uma empresa');
+            throw new RulesException('Usuário não esta vinculado a uma empresa', 410);
         }
 
         return $company;

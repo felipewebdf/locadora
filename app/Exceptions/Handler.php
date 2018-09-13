@@ -46,6 +46,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof RulesException && $exception->getCode() == 410) {
+            return redirect('/web/company');
+        }
         return parent::render($request, $exception);
     }
 }
