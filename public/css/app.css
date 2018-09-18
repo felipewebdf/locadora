@@ -3,7 +3,7 @@
 @viewport         { width: device-width; }
 
 .sidebar {
-    background-color: #2125298c;
+    background-color: #343a40;
     min-height: calc(100vh - 56px);
 }
 

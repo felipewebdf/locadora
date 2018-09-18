@@ -19,7 +19,8 @@ class Rent extends Model
         'init',
         'end',
         'comment',
-        'user_id'
+        'user_id',
+        'value_hr_extra'
     ];
 
     protected $dates = [

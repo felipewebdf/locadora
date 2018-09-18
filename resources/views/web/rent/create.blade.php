@@ -43,27 +43,31 @@
     </div>
     <div class="row">
         <div class="form-group col-md-3">
-            <label for="init">Início</label>
-            <input type="datetime-local" name="init" class="form-control" required />
-        </div>
-        <div class="form-group col-md-3">
-            <label for="end">Fim</label>
-            <input type="datetime-local" name="end" class="form-control" />
-        </div>
-        <div class="form-group col-md-2">
             <label for="total_km">Total km</label>
             <input type="number" name="total_km" class="form-control" required />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="value_km_extra">Valor km extra</label>
             <input type="text" name="value_km_extra" class="form-control" required />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="daily">Valor Diária</label>
             <input type="text" name="daily" class="form-control" required />
         </div>
+        <div class="form-group col-md-3">
+            <label for="value_hr_extra">Valor hora extra</label>
+            <input type="text" name="value_hr_extra" class="form-control" required />
+        </div>
     </div>
     <div class="row">
+        <div class="form-group col-md-4">
+            <label for="init">Início</label>
+            <input type="datetime-local" name="init" class="form-control" required />
+        </div>
+        <div class="form-group col-md-4">
+            <label for="end">Fim</label>
+            <input type="datetime-local" name="end" class="form-control" />
+        </div>
         <div class="form-group col-md-4">
             <label for="contract_id">Contrato</label>
             <select name="contract_id" class="form-control" required>

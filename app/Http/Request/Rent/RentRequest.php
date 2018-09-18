@@ -32,6 +32,7 @@ class RentRequest extends FormRequest
             'daily.required' => 'Favor informar o valor da diária',
             'total_km.required' => 'Favor informar a km por dia',
             'value_km_extra.required' => 'Favor informar o valor da km extra',
+            'value_hr_extra.required' => 'Favor informar o valor da hora extra',
             'init.required' => 'Favor informar a data de início da locação',
             'end.required' => 'Favor informar a data de término da locação'
         ];
@@ -54,6 +55,7 @@ class RentRequest extends FormRequest
             'daily' => 'required',
             'total_km' => 'required|integer',
             'value_km_extra' => 'required',
+            'value_hr_extra' => 'required',
             'init' => 'required|date',
             'end' => 'required|date'
         ];
