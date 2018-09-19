@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -7,6 +8,7 @@ use App\User;
 
 class UserService
 {
+
     use ContainerTrait;
 
     /**
@@ -25,4 +27,5 @@ class UserService
 
         return $user;
     }
+
 }

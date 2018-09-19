@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Car;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Request\Model\ModelRequest;
@@ -11,6 +10,7 @@ use App\Domain\ModelCar;
 
 class ModelController extends Controller
 {
+
     /**
      *
      * @var Container
@@ -100,4 +100,5 @@ class ModelController extends Controller
     {
         //
     }
+
 }

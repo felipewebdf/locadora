@@ -142,7 +142,8 @@ class InspectionServiceTest extends TestCase
             'end' => '2018-10-10',
             'comment' => 'teste',
             'value_km_extra' => '0,50',
-            'total_km' => '1000'
+            'total_km' => '1000',
+            'value_hr_extra' => '0,20'
         ];
         return $this->rentService->add($rentService);
     }

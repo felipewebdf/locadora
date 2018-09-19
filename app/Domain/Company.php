@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    protected $fillable = ['name', 'cnpj'];
 
+    protected $fillable = ['name', 'cnpj'];
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'company';
     protected $primaryKey = 'id';
 

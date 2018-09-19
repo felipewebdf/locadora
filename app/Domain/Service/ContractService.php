@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -8,6 +9,7 @@ use App\Traits\CompanyTrait;
 
 class ContractService
 {
+
     use ContainerTrait;
     use CompanyTrait;
 
@@ -81,4 +83,5 @@ class ContractService
 
         return $contract;
     }
+
 }

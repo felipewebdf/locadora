@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inspection extends Model
 {
+
     protected $fillable = [
         'rent_id',
         'user_id',
@@ -15,13 +16,11 @@ class Inspection extends Model
         'washed_out',
         'note'
     ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'inspection';
     protected $primaryKey = 'id';
 

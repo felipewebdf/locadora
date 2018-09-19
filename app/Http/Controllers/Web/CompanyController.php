@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -9,6 +10,7 @@ use \App\Domain\Address;
 
 class CompanyController extends Controller
 {
+
     use ContainerTrait;
 
     public function index()
@@ -21,4 +23,5 @@ class CompanyController extends Controller
             'ufs' => Address::$UFS
         ]);
     }
+
 }

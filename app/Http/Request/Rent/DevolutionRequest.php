@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DevolutionRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -30,7 +31,6 @@ class DevolutionRequest extends FormRequest
             'bodywork.required' => 'Favor informar as condições do veículo',
             'washed_out.required' => 'Favor informar a condição de lavagem'
         ];
-
     }
 
     /**
@@ -50,6 +50,5 @@ class DevolutionRequest extends FormRequest
 
         return $validator;
     }
-
 
 }

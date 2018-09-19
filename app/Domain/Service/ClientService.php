@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -8,6 +9,7 @@ use App\Exceptions\RulesException;
 
 class ClientService
 {
+
     use ContainerTrait;
     use CompanyTrait;
 
@@ -34,15 +36,15 @@ class ClientService
         $arrClient['company_id'] = $company->id;
 
         $exists = Client::where('cnh', $arrClient['cnh'])
-                ->where('company_id', $company->id)->first();
+                        ->where('company_id', $company->id)->first();
 
         if ($exists) {
             throw new RulesException('Cnh já cadastrada');
         }
 
         $arrClient['address_id'] = $this->container
-                ->make(AddressService::class)
-                ->register($arrClient)->id;
+                        ->make(AddressService::class)
+                        ->register($arrClient)->id;
         $arrClient['name'] = mb_strtoupper($arrClient['name']);
         $client = new Client();
         $client->fill($arrClient);
@@ -61,7 +63,7 @@ class ClientService
         $client = $this->get($id, $arrClient['user_id']);
 
         $exists = Client::where('cnh', $arrClient['cnh'])
-                ->where('company_id', $client->company->id)->first();
+                        ->where('company_id', $client->company->id)->first();
 
         if ($exists && $exists->id != $client->id) {
             throw new RulesException('Cliente já existente');
@@ -73,7 +75,7 @@ class ClientService
         unset($arrClient['user_id']);
         unset($arrClient['company_id']);
         unset($arrClient['address_id']);
-        
+
         $arrClient['name'] = mb_strtoupper($arrClient['name']);
         $arrClient['updated_at'] = new \DateTime();
         $client->fill($arrClient);
@@ -93,7 +95,7 @@ class ClientService
         $company = $this->getCompanyUser($userId);
 
         $client = Client::where('id', $id)
-                ->where('company_id', $company->id)->first();
+                        ->where('company_id', $company->id)->first();
 
         if (!$client) {
             throw new RulesException('Cliente não encontrado');

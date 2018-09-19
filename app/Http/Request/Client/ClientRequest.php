@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ClientRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -37,7 +38,6 @@ class ClientRequest extends FormRequest
             'uf.required' => 'Favor informar a UF do cliente',
             'cep.required' => 'Favor informar o cep do cliente'
         ];
-
     }
 
     /**
@@ -59,11 +59,9 @@ class ClientRequest extends FormRequest
             'city' => 'required',
             'uf' => 'required',
             'cep' => 'required'
-
         ];
 
         return $validator;
     }
-
 
 }

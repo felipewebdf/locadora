@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api\Rent;
 
 use \App\Http\Controllers\Controller;
@@ -11,6 +12,7 @@ use App\Http\Request\Rent\InspectionRequest;
 
 class InspectionController extends Controller
 {
+
     use ContainerTrait;
 
     public function store(InspectionRequest $request)
@@ -47,4 +49,5 @@ class InspectionController extends Controller
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
     }
+
 }

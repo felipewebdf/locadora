@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -37,7 +38,6 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\AuthCookieMiddleware::class
         ],
-
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -66,4 +66,5 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'auth.web' => \App\Http\Middleware\AuthCookieMiddleware::class
     ];
+
 }

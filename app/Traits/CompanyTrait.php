@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use App\Domain\Service\CompanyService;
@@ -6,6 +7,7 @@ use App\Exceptions\RulesException;
 
 trait CompanyTrait
 {
+
     /**
      *
      * @param type $userId
@@ -22,4 +24,5 @@ trait CompanyTrait
 
         return $company;
     }
+
 }

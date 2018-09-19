@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -11,6 +12,7 @@ use App\Domain\Service\InspectionService;
 
 class DevolutionController extends Controller
 {
+
     use ContainerTrait;
 
     /**
@@ -56,4 +58,5 @@ class DevolutionController extends Controller
             'gasolines' => RentService::gasoline()
         ]);
     }
+
 }

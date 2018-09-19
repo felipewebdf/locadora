@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ContractRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,7 +28,6 @@ class ContractRequest extends FormRequest
             'name.required' => 'Favor informar o nome do contrato',
             'template.required' => 'Favor informar template do contrato'
         ];
-
     }
 
     /**
@@ -40,11 +40,9 @@ class ContractRequest extends FormRequest
         $validator = [
             'name' => 'required',
             'template' => 'required'
-
         ];
 
         return $validator;
     }
-
 
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 
 class InspectionController extends Controller
 {
+
     use ContainerTrait;
 
     /**
@@ -51,4 +53,5 @@ class InspectionController extends Controller
             'gasolines' => RentService::gasoline()
         ]);
     }
+
 }

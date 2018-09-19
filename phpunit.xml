@@ -28,8 +28,8 @@
         <env name="MAIL_DRIVER" value="array"/>
     </php>
     <logging>
-        <log type="coverage-html" target="/tmp/report" lowUpperBound="35"
+        <log type="coverage-clover" target="/tmp/report/tests-clover.xml" lowUpperBound="35"
              highLowerBound="70"/>
-        <log type="testdox-html" target="/tmp/testdox.html"/>
+        <log type="junit" target="/tmp/report/tests-phpunit.xml"/>
     </logging>
 </phpunit>

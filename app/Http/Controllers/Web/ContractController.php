@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -8,6 +9,7 @@ use App\Traits\ContainerTrait;
 
 class ContractController extends Controller
 {
+
     use ContainerTrait;
 
     public function index()
@@ -35,4 +37,5 @@ class ContractController extends Controller
             'contract' => $contract
         ]);
     }
+
 }

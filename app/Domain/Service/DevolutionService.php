@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -7,6 +8,7 @@ use App\Domain\Devolution;
 
 class DevolutionService
 {
+
     use ContainerTrait;
 
     /**

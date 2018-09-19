@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Devolution extends Model
 {
+
     protected $fillable = [
         'rent_id',
         'user_id',
@@ -15,13 +16,11 @@ class Devolution extends Model
         'washed_out',
         'note'
     ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'devolution';
     protected $primaryKey = 'id';
 
@@ -34,4 +33,5 @@ class Devolution extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+
 }

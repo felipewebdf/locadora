@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RentRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -36,7 +37,6 @@ class RentRequest extends FormRequest
             'init.required' => 'Favor informar a data de início da locação',
             'end.required' => 'Favor informar a data de término da locação'
         ];
-
     }
 
     /**
@@ -62,6 +62,5 @@ class RentRequest extends FormRequest
 
         return $validator;
     }
-
 
 }

@@ -13,6 +13,7 @@ use \Illuminate\Support\Facades\Auth;
 
 class ContractController extends Controller
 {
+
     use ContainerTrait;
 
     /**
@@ -64,4 +65,5 @@ class ContractController extends Controller
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
     }
+
 }

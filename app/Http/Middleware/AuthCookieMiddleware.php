@@ -36,11 +36,12 @@ class AuthCookieMiddleware
             }
             $auth->setToken($token[1]);
             $auth->authenticate();
-        } catch(TokenBlacklistedException $ex) {
+        } catch (TokenBlacklistedException $ex) {
             return redirect('/');
-        } catch(TokenExpiredException $e) {
+        } catch (TokenExpiredException $e) {
             return redirect('/');
         }
         return $next($request);
     }
+
 }

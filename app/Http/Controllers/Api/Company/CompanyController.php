@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Company;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exceptions\RulesException;
@@ -15,6 +14,7 @@ use \App\Traits\ContainerTrait;
 
 class CompanyController extends Controller
 {
+
     use ContainerTrait;
 
     /**
@@ -102,4 +102,5 @@ class CompanyController extends Controller
     {
         //
     }
+
 }

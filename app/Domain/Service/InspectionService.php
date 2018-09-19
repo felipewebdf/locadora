@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -7,6 +8,7 @@ use App\Domain\Inspection;
 
 class InspectionService
 {
+
     use ContainerTrait;
 
     /**
@@ -32,7 +34,7 @@ class InspectionService
         if ($inpectionRentExists) {
             throw new RulesException('Vistoria já existente para esta locação');
         }
-        
+
         $inspection = new Inspection();
         $inspection->fill($arrInspection);
         $inspection->save();

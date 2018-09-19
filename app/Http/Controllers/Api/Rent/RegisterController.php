@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api\Rent;
 
 use \App\Http\Controllers\Controller;
@@ -12,6 +13,7 @@ use \App\Exceptions\RulesException;
 
 class RegisterController extends Controller
 {
+
     use ContainerTrait;
 
     public function index(Request $request)
@@ -58,4 +60,5 @@ class RegisterController extends Controller
             return response()->json([$ex->getMessage()], $ex->getCode());
         }
     }
+
 }

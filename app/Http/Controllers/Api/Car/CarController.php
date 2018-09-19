@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Car;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exceptions\RulesException;
@@ -14,6 +13,7 @@ use App\Domain\Car;
 
 class CarController extends Controller
 {
+
     use ContainerTrait;
 
     /**
@@ -111,4 +111,5 @@ class CarController extends Controller
     {
         //
     }
+
 }

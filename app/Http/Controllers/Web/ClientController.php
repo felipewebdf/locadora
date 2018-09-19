@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -7,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Traits\ContainerTrait;
 use \App\Domain\Address;
 
-
 class ClientController extends Controller
 {
+
     use ContainerTrait;
 
     public function index()

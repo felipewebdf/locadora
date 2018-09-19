@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rent extends Model
 {
+
     protected $fillable = [
         'car_id',
         'client_id',
@@ -22,13 +23,11 @@ class Rent extends Model
         'user_id',
         'value_hr_extra'
     ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'rent';
     protected $primaryKey = 'id';
 
@@ -66,4 +65,5 @@ class Rent extends Model
     {
         return $this->hasOne('App\Domain\Contract', 'id', 'contract_id');
     }
+
 }

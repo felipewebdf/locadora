@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
 
-    static public $arrFuel = [
+    public static $arrFuel = [
         1 => 'Diesel',
         2 => 'Etanol',
         3 => 'Flex',
         4 => 'Gás',
         5 => 'Gasolina'
     ];
-
-    static public $arrColor = [
+    public static $arrColor = [
         1 => 'Amarelo',
         2 => 'Azul',
         3 => 'Branco',
@@ -29,7 +28,6 @@ class Car extends Model
         11 => 'Verde',
         12 => 'Vermelho'
     ];
-
     protected $fillable = [
         'model_id',
         'power',
@@ -45,13 +43,11 @@ class Car extends Model
         'company_id',
         'provider_id'
     ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'car';
     protected $primaryKey = 'id';
 
@@ -69,4 +65,5 @@ class Car extends Model
     {
         return $this->hasOne('App\Domain\ModelCar', 'id', 'model_id');
     }
+
 }

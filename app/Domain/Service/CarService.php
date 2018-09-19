@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
@@ -9,6 +10,7 @@ use App\Domain\ModelCar;
 
 class CarService
 {
+
     use ContainerTrait;
     use CompanyTrait;
 
@@ -30,7 +32,7 @@ class CarService
         $arrCar['company_id'] = $company->id;
 
         $exists = Car::where('tag', $arrCar['tag'])
-                ->where('company_id', $company->id)->first();
+                        ->where('company_id', $company->id)->first();
 
         if ($exists) {
             throw new RulesException('Veículo já cadastrado');
@@ -62,7 +64,7 @@ class CarService
         $company = $this->getCompanyUser($arrCar['user_id']);
         $arrCar['company_id'] = $company->id;
         $car = Car::where('tag', $arrCar['tag'])
-                ->where('company_id', $company->id)->first();
+                        ->where('company_id', $company->id)->first();
 
         if (!$car) {
             throw new RulesException('Veículo não encontrado');
@@ -85,12 +87,13 @@ class CarService
         $company = $this->getCompanyUser($arrCar['user_id']);
 
         $exists = Car::where('tag', strtoupper($arrCar['tag']))
-                ->where('company_id', $company->id)->first();
+                        ->where('company_id', $company->id)->first();
         return $exists;
     }
 
-    static public function years()
+    public static function years()
     {
         return range(2009, (new \DateTime())->format("Y"));
     }
+
 }

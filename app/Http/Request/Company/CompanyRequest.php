@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CompanyRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -32,7 +33,6 @@ class CompanyRequest extends FormRequest
             'uf.required' => 'Favor informar a UF da empresa',
             'cep.required' => 'Favor informar o cep da empresa'
         ];
-
     }
 
     /**
@@ -50,11 +50,9 @@ class CompanyRequest extends FormRequest
             'city' => 'required',
             'uf' => 'required',
             'cep' => 'required'
-
         ];
 
         return $validator;
     }
-
 
 }

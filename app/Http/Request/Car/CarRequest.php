@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CarRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -36,7 +37,6 @@ class CarRequest extends FormRequest
             'door.required' => 'Favor informar a quantidade de portas',
             'capacity.required' => 'Favor informar a capacidade',
         ];
-
     }
 
     /**
@@ -62,6 +62,5 @@ class CarRequest extends FormRequest
 
         return $validator;
     }
-
 
 }

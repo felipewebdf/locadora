@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+
     protected $fillable = [
         'name',
         'cnh',
@@ -17,13 +18,11 @@ class Client extends Model
         'user_id',
         'company_id'
     ];
-
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
     protected $table = 'client';
     protected $primaryKey = 'id';
 
@@ -41,4 +40,5 @@ class Client extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+
 }

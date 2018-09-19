@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\Service;
 
 use Illuminate\Container\Container;
@@ -6,6 +7,7 @@ use App\Domain\Address;
 
 class AddressService
 {
+
     /**
      *
      * @var \Illuminate\Container\Container
@@ -31,7 +33,6 @@ class AddressService
         if (isset($arrAddress['address_id'])) {
             $addressExists = \App\Domain\Address::where('id', $arrAddress['address_id'])->first();
             return $this->update($addressExists, $arrAddress);
-
         }
 
         $address = new \App\Domain\Address();
@@ -55,5 +56,5 @@ class AddressService
         $address->save();
         return $address;
     }
-}
 
+}

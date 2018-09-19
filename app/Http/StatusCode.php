@@ -1,9 +1,10 @@
 <?php
-namespace App\Http;
 
+namespace App\Http;
 
 class StatusCode
 {
+
     const HTTP_CONTINUE = 100;
     const HTTP_SWITCHING_PROTOCOLS = 101;
     const HTTP_PROCESSING = 102;            // RFC2518
@@ -66,4 +67,5 @@ class StatusCode
     const HTTP_LOOP_DETECTED = 508;                                               // RFC5842
     const HTTP_NOT_EXTENDED = 510;                                                // RFC2774
     const HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511;
+
 }

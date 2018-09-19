@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
@@ -15,6 +16,7 @@ use App\Domain\Car;
 
 class RentController extends Controller
 {
+
     use ContainerTrait;
 
     public function index()
@@ -69,7 +71,7 @@ class RentController extends Controller
         $htmlContract = str_replace('{{car_model_name}}', $rent->car->model->name, $htmlContract);
         $htmlContract = str_replace('{{car_power}}', $rent->car->power, $htmlContract);
         $htmlContract = str_replace('{{car_door}}', $rent->car->door, $htmlContract);
-        $htmlContract = str_replace('{{car_capacity}}',  $rent->car->capacity, $htmlContract);
+        $htmlContract = str_replace('{{car_capacity}}', $rent->car->capacity, $htmlContract);
         $htmlContract = str_replace('{{car_year}}', $rent->car->year, $htmlContract);
         $htmlContract = str_replace('{{car_type_fuel}}', Car::$arrFuel[$rent->car->type_fuel], $htmlContract);
         $htmlContract = str_replace('{{car_tag}}', $rent->car->tag, $htmlContract);
