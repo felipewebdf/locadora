@@ -18,3 +18,14 @@
 .navbar.navbar-expand.navbar-dark.bg-dark.static-top {
     /*background-color: blue !important*/
 }
+
+#wrapper #content-wrapper {
+    background-color: ghostwhite
+}
+
+#content-wrapper form {
+    background-color: #fff;
+    padding: 5px;
+    border: solid 1px #EDEFF2;
+    border-radius: .25rem
+}
