@@ -13,6 +13,8 @@ class Client extends Model
         'document',
         'credcard',
         'credcard_at',
+        'credcard_name',
+        'credcard_cod',
         'phone',
         'address_id',
         'user_id',

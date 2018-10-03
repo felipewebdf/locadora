@@ -2,6 +2,10 @@
 @-o-viewport      { width: device-width; }
 @viewport         { width: device-width; }
 
+.navbar.navbar-expand.navbar-dark.bg-dark.static-top {
+    background-color: #040505 !important;
+}
+
 .sidebar {
     background-color: #343a40;
     min-height: calc(100vh - 56px);
@@ -9,4 +13,8 @@
 
 .sidebar .nav-item .nav-link {
     color: #fff;
+}
+
+.navbar.navbar-expand.navbar-dark.bg-dark.static-top {
+    background-color: blue !important
 }

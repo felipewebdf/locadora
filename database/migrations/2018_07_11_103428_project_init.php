@@ -102,6 +102,8 @@ class ProjectInit extends Migration
             $table->string('document', 14)->nullable();
             $table->string('phone', 50)->nullable();
             $table->string('credcard', 150)->nullable(true);
+            $table->string('credcard_name', 150)->nullable(true);
+            $table->string('credcard_cod', 3)->nullable(true);
             $table->string('credcard_at', 5)->nullable(true);
             $table->integer('address_id')->unsigned();
 

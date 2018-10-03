@@ -26,11 +26,10 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="{{ url('/web') }}">Locadora</a>
-
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
       </button>
+        <a class="navbar-brand mr-1" href="{{ url('/web') }}">Locadora</a>
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -87,9 +86,12 @@
     </nav>
 
     <div id="wrapper">
-
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
+          <li class="nav-item text-center" >
+              <img src="..." alt="..." class="rounded-circle">
+              <hr style="background-color: #ccc">
+          </li>
 <!--        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
@@ -106,7 +108,7 @@
             <a class="dropdown-item" href="blank.html">Blank Page</a>
           </div>
         </li>-->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="{{ url('/web/company/contract') }}">
             <i class="fas fa-fw fa-file"></i>
             <span>Modelo de contrato</span>
@@ -115,18 +117,18 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/web/car') }}">
             <i class="fas fa-fw fa-car"></i>
-            <span>Veículos</span></a>
+            <span>Meus veículos</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/web/client') }}">
             <i class="fas fa-fw fa-users"></i>
-            <span>Clientes</span>
+            <span>Meus clientes</span>
           </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/web/rent') }}">
             <i class="fas fa-fw fa-list-alt"></i>
-            <span>Locações</span>
+            <span>Minhas locações</span>
           </a>
         </li>
       </ul>
