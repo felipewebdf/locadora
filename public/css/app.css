@@ -3,7 +3,7 @@
 @viewport         { width: device-width; }
 
 .navbar.navbar-expand.navbar-dark.bg-dark.static-top {
-    background-color: #040505 !important;
+    /*background-color: #040505 !important;*/
 }
 
 .sidebar {
@@ -16,5 +16,5 @@
 }
 
 .navbar.navbar-expand.navbar-dark.bg-dark.static-top {
-    background-color: blue !important
+    /*background-color: blue !important*/
 }
