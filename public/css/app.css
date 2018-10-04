@@ -49,3 +49,7 @@
     border-radius: .25rem;
     border-bottom-right-radius: 45px
 }
+
+label{
+    font-weight: bold
+}
