@@ -232,4 +232,54 @@ class CarServiceTest extends TestCase
         $this->assertEquals(2009, $years[0]);
         $this->assertEquals((new \DateTime)->format('Y'), end($years));
     }
+
+
+    public function testGetByCompany()
+    {
+        $objCompany = $this->company();
+
+        $arrCar = [
+            'model' => 703,
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'Honda',
+            'renavan' => '546546545',
+            'chassi' => '546546545123',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 2,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->add($arrCar);
+
+        $objCarCompany = $this->carService->getByCompany($objCar->id, $objCompany->id);
+        $this->assertEquals($objCar->year, $objCarCompany->year);
+        $this->assertEquals($objCar->tag, $objCarCompany->tag);
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
+    public function testGetNotByCompany()
+    {
+        $objCompany = $this->company();
+
+        $arrCar = [
+            'model' => 703,
+            'power' => '1.8',
+            'year_factory' => '2007',
+            'year' => '2007',
+            'tag' => 'Honda',
+            'renavan' => '546546545',
+            'chassi' => '546546545123',
+            'door' => '5',
+            'capacity' => '5',
+            'user_id' => 1,
+            'provider_id' => null
+        ];
+        $objCar = $this->carService->add($arrCar);
+
+        $objCarCompany = $this->carService->getByCompany($objCar->id, $objCompany->id);
+    }
 }

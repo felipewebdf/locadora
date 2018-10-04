@@ -181,4 +181,47 @@ class ClientServiceTest extends TestCase
         $this->company();
         $this->clientService->get(4, 2);
     }
+
+    public function testGetByCompany()
+    {
+        $company = $this->company();
+        $arrClient = [
+            'name' => 'Novo cliente',
+            'cnh' => '1.8',
+            'description' => 'federal',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da cidade',
+            'uf' => 'DF',
+            'user_id' => 2
+        ];
+        $client = $this->clientService->add($arrClient);
+
+        $clientCompany = $this->clientService->getByCompany($client->id, $company->id);
+        $this->assertEquals($client->description, $clientCompany->description);
+        $this->assertEquals($client->cep, $clientCompany->cep);
+
+    }
+
+    /**
+     * @expectedException \App\Exceptions\RulesException
+     */
+    public function testGetNotByCompany()
+    {
+        $company = $this->company();
+        $arrClient = [
+            'name' => 'Novo cliente',
+            'cnh' => '1.8',
+            'description' => 'federal',
+            'district' => '54256465465465',
+            'cep' => '12123456',
+            'city' => 'nome da cidade',
+            'uf' => 'DF',
+            'user_id' => 1
+        ];
+        $client = $this->clientService->add($arrClient);
+
+        $clientCompany = $this->clientService->getByCompany($client->id, $company->id);
+
+    }
 }

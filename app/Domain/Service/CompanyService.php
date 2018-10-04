@@ -4,6 +4,9 @@ namespace App\Domain\Service;
 
 use App\Traits\ContainerTrait;
 use App\Domain\Company;
+use App\Exceptions\RulesException;
+use App\Domain\Car;
+use App\Domain\Client;
 
 /**
  * Class service company
@@ -79,5 +82,4 @@ class CompanyService
         $address = $this->container->make(AddressService::class)->register($arrAddress);
         $company->address_id = $address->id;
     }
-
 }

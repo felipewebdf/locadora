@@ -96,4 +96,24 @@ class CarService
         return range(2009, (new \DateTime())->format("Y"));
     }
 
+    /**
+     * Get car by company
+     * @param integer $carId
+     * @param integer $companyId
+     * @return Car
+     * @throws RulesException
+     */
+    public function getByCompany($carId, $companyId)
+    {
+        $car = Car::where('id',$carId)
+                        ->where('company_id', $companyId)
+                        ->whereNull('deleted_at')->first();
+
+        if (!$car) {
+            throw new RulesException('Veículo não encontrado');
+        }
+
+        return $car;
+    }
+
 }

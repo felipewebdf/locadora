@@ -104,4 +104,24 @@ class ClientService
         return $client;
     }
 
+    /**
+     * Get client by company
+     * @param integer $clientId
+     * @param integer $companyId
+     * @return Client
+     * @throws RulesException
+     */
+    public function getByCompany($clientId, $companyId)
+    {
+        $client = Client::where('id', $clientId)
+                        ->where('company_id', $companyId)
+                        ->whereNull('deleted_at')->first();
+
+        if (!$client) {
+            throw new RulesException('Cliente não encontrado');
+        }
+
+        return $client;
+    }
+
 }

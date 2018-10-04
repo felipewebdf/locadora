@@ -105,30 +105,26 @@ class RentService
         return $rent;
     }
 
+    /**
+     * Verify params rent
+     * @param array $arrRent
+     * @return array
+     * @throws RulesException
+     */
     protected function verifyParams($arrRent)
     {
         $company = $this->getCompanyUser($arrRent['user_id']);
         $arrRent['company_id'] = $company->id;
 
-        $client = Client::where('id', $arrRent['client_id'])
-                        ->where('company_id', $company->id)->first();
-
-        if (!$client) {
-            throw new RulesException('Cliente não encontrado');
-        }
-
-        $car = Car::where('id', $arrRent['car_id'])
-                        ->where('company_id', $company->id)->first();
-
-        if (!$car) {
-            throw new RulesException('Veículo não encontrado');
-        }
+        $this->container->make(ClientService::class)->getByCompany($arrRent['client_id'], $company->id);
+        $this->container->make(CarService::class)->getByCompany($arrRent['car_id'], $company->id);
 
         $typeRent = TypeRent::where('id', $arrRent['type_rent_id'])->first();
 
         if (!$typeRent) {
             throw new RulesException('Tipo de locação não encontrada');
         }
+
         return $arrRent;
     }
 

@@ -89,7 +89,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
           <li class="nav-item text-center" >
-              <img src="..." alt="..." class="rounded-circle">
+              <img src="" alt="..." class="rounded-circle">
               <hr style="background-color: #ccc">
           </li>
 <!--        <li class="nav-item dropdown">
