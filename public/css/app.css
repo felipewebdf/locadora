@@ -29,3 +29,7 @@
     border: solid 1px #EDEFF2;
     border-radius: .25rem
 }
+
+.breadcrumb-item.active {
+    font-weight: bold
+}

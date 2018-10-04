@@ -21,9 +21,15 @@
         </div>
         <div class="form-group col-md-2">
             <label for="power">Potência</label>
-            <input type="text" name="power" class="form-control"
-                   maxlength="4"
-                   required />
+            <select id="power" name="power" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($powers as $power)
+                <option value="{{ $power }}">
+                    {{ $power }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-2">
             <label for="year_factory">Fabricação</label>

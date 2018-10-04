@@ -6,8 +6,6 @@ use App\Traits\ContainerTrait;
 use App\Traits\CompanyTrait;
 use App\Exceptions\RulesException;
 use App\Domain\Rent;
-use App\Domain\Client;
-use App\Domain\Car;
 use App\Domain\TypeRent;
 
 class RentService

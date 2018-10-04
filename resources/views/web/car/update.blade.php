@@ -31,9 +31,16 @@
         </div>
         <div class="form-group col-md-2">
             <label for="power">Potência</label>
-            <input type="text" name="power" class="form-control"
-                   maxlength="4"
-                   value="<?php echo $car->power?>">
+            <select id="power" name="power" class="form-control"
+                   required >
+                <option value="">Selecione</option>
+                @foreach ($powers as $power)
+                <option value="{{ $power }}"
+                        <?php echo $car->power==$power ? 'selected':'' ?>>
+                    {{ $power }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group col-md-2">
             <label for="year_factory">Fabricação</label>
