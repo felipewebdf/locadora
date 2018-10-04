@@ -4,14 +4,14 @@
 
 <form method="POST" action="javascript:void(0)" id='form-company'>
     <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-8">
             <label for="name">Empresa</label>
             <input type="text" name="name" class="form-control"
                    maxlength="300"
                    value="<?php echo isset($company->name)?$company->name:'' ?>"
                    />
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <label for="cnpj">Cnpj</label>
             <input type="text" name="cnpj" class="form-control"
                    maxlength="14"
