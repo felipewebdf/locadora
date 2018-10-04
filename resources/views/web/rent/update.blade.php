@@ -72,19 +72,19 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <label for="init">Início</label>
             <input type="datetime-local" name="init"
                    value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s', $rent->init)->format('Y-m-d\TH:i') ?>"
                    class="form-control" required />
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <label for="end">Fim</label>
             <input type="datetime-local" name="end"
                    value="<?php echo \DateTime::createFromFormat('Y-m-d H:i:s', $rent->end)->format('Y-m-d\TH:i') ?>"
                    class="form-control" />
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
             <label for="contract_id">Contrato</label>
             <select name="contract_id" class="form-control" required>
                 <option value="">Selecione</option>

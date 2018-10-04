@@ -4,18 +4,11 @@
 <form method="POST" action="javascript:void(0)" id='form-client'>
     <hr>
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-6">
             <label for="name">Nome</label>
             <input type="text" name="name" class="form-control"
                    maxlength="300"
                    required />
-        </div>
-        <div class="form-group col-md-3">
-            <label for="cnh">CNH</label>
-            <input type="text" name="cnh" class="form-control"
-                   maxlength="9"
-                   required
-                   />
         </div>
         <div class="form-group col-md-3">
             <label for="document">CPF/CNPJ</label>
@@ -46,24 +39,31 @@
                    required
                    />
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
+            <label for="cnh">CNH</label>
+            <input type="text" name="cnh" class="form-control"
+                   maxlength="9"
+                   required
+                   />
+        </div>
+        <div class="form-group col-md-3">
             <label for="cep">CEP</label>
             <input type="text" name="cep" class="form-control"
                    maxlength="9">
         </div>
-        <div class="form-group col-md-4">
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
             <label for="description">Logradouro</label>
             <input type="text" name="description" class="form-control"
                    maxlength="300">
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <label for="district">Bairro</label>
             <input type="text" name="district" class="form-control"
                    maxlength="200">
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <label for="city">Cidade</label>
             <input type="text" name="city" class="form-control"
                    maxlength="100">
