@@ -3,6 +3,7 @@
 @section('content')
 
 <form method="POST" action="javascript:void(0)" id='form-company'>
+    <hr>
     <div class="row">
         <div class="form-group col-md-8">
             <label for="name">Empresa</label>
@@ -18,7 +19,6 @@
                    value="<?php echo isset($company->cnpj)?$company->cnpj:'' ?>">
         </div>
     </div>
-    <hr>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="cep">CEP</label>
@@ -59,6 +59,7 @@
             </select>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-md-12 text-right">
             <input type="submit" name="company_submit"

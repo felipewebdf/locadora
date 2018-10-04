@@ -89,7 +89,9 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
           <li class="nav-item text-center" >
-              <img src="" alt="..." class="rounded-circle">
+              <img src="{{ asset('img/1/logo.png') }}" alt="Federal locadora"
+                    width="160px"
+                   class="rounded-circle">
               <hr style="background-color: #ccc">
           </li>
 <!--        <li class="nav-item dropdown">
