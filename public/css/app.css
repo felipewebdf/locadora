@@ -30,6 +30,22 @@
     border-radius: .25rem
 }
 
+.breadcrumb-arrow {
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    list-style: none;
+    background-color: #e6e9ed;
+}
+
 .breadcrumb-item.active {
-    font-weight: bold
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #3bafda;
+    border: 1px solid #3bafda;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: .25rem;
+    border-bottom-right-radius: 45px
 }

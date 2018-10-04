@@ -138,7 +138,7 @@
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow">
             <li class="breadcrumb-item active">{{ $title }}</li>
           </ol>
           <div id="alert-content"></div>
