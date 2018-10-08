@@ -76,7 +76,7 @@ class RentController extends Controller
         $htmlContract = str_replace('{{car_type_fuel}}', Car::$arrFuel[$rent->car->type_fuel], $htmlContract);
         $htmlContract = str_replace('{{car_tag}}', $rent->car->tag, $htmlContract);
 
-        $pdf = new \niklasravnsborg\LaravelPdf\Pdf($htmlContract);
+        $pdf = new \niklasravnsborg\LaravelPdf\Pdf($htmlContract, ['tempDir' => '/tmp']);
         return $pdf->download('contrato.pdf');
     }
 
