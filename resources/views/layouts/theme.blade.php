@@ -89,9 +89,17 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
           <li class="nav-item text-center" >
+              <a class="navbar-brand mr-1"
+                 title="Página inicial"
+                 href="{{ url('/web') }}">
               <img src="{{ asset('img/1/logo.png') }}" alt="Federal locadora"
                     width="160px"
                    class="rounded-circle">
+              </a>
+              <a class="nav-link" href="javascript:;" title="Alterar logo">
+                  <i class="fas fa-download"></i>
+                  Alterar logo
+              </a>
               <hr style="background-color: #ccc">
           </li>
 <!--        <li class="nav-item dropdown">
@@ -168,7 +176,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+<!--     Logout Modal
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -186,6 +194,7 @@
         </div>
       </div>
     </div>
+
     <div id="alert-model" class="hide">
         <div id="alert-app" class="alert alert-dismissible fade hide" role="alert">
             <span id="alert-message"></span>
@@ -193,9 +202,11 @@
               <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    </div>
+    </div>-->
     <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"
         type="text/javascript"></script>
+    <script src="{{ asset('vendor/igorescobar/jquery-mask-plugin/dist/jquery.mask.min.js') }}"
+    type="text/javascript"></script>
     <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"
     type="text/javascript"></script>
     <script src="{{ asset('js/themes/sb-admin.min.js') }}"></script>
