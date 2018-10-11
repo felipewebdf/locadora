@@ -5,7 +5,7 @@
     <hr>
     <div class="row">
         <div class="form-group col-md-3">
-            <label for="automaker">Montadora</label>
+            <label for="brand">Montadora</label>
             <select name="brand" id="brand" class="form-control" required>
                 <option value="">Selecione</option>
                 @foreach ($brands as $brand)

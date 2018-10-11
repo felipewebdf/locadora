@@ -27,4 +27,6 @@ $().ready(function() {
             $('#model').html(option);
         });
     });
+
+    $('input[name=tag]').mask('SSS-0000');
 });
