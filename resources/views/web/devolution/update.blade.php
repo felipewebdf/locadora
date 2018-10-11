@@ -62,7 +62,7 @@
                    id="devolution_update"
                    class="btn btn-primary"
                    title="Enviar dados da devolução"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

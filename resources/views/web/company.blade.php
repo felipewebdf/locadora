@@ -65,7 +65,7 @@
             <input type="submit" name="company_submit"
                    class="btn btn-primary"
                    title="Enviar dados da empresa"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

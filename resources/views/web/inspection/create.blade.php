@@ -53,7 +53,7 @@
             <input type="submit" name="inspection_submit"
                    class="btn btn-primary"
                    title="Enviar dados da vistoria"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

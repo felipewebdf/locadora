@@ -104,7 +104,7 @@
             <input type="button" id="client_update"
                    class="btn btn-primary"
                    title="Enviar dados do cliente"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

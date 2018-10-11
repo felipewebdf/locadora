@@ -5,8 +5,8 @@
     <div class="col-md-12 text-right">
         <a href="{{url('web/rent/create')}}"
         name="add_rent"
-        title="Adicionar locação"
-        class="btn btn-primary right">Adicionar locação</a>
+        title="Adicionar contrato"
+        class="btn btn-primary right">Adicionar contrato</a>
     </div>
 </div>
 <br />
@@ -23,7 +23,7 @@
     </thead>
     <tbody>
         @foreach ($rents as $rent)
-        <tr title="Clique na linha para editar esse locação"
+        <tr title="Clique na linha para editar esse contrato"
             style='cursor: pointer' itemref="{{ url('/web/rent/update/' . $rent->id) }}"
             class='form_update'>
             <td>{{ $rent->client->name }}</td>

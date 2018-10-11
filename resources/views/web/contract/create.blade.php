@@ -26,7 +26,7 @@
             <input type="submit" name="contract_submit"
                    class="btn btn-primary"
                    title="Enviar dados do contrato"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

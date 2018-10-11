@@ -118,7 +118,7 @@
             <input type="submit" name="car_submit"
                    class="btn btn-primary"
                    title="Enviar dados do veículo"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

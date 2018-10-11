@@ -138,7 +138,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/web/rent') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
-                        <span>Minhas locações</span>
+                        <span>Contratos</span>
                     </a>
                 </li>
             </ul>

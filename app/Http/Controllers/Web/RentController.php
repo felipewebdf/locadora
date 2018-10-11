@@ -25,7 +25,7 @@ class RentController extends Controller
         $rents = $this->container
                 ->make(RentService::class)
                 ->all(['user_id' => $user_id]);
-        return view('web.rent.list', ['rents' => $rents, 'title' => 'Lista de locações']);
+        return view('web.rent.list', ['rents' => $rents, 'title' => 'Lista de contratos']);
     }
 
     public function create()
@@ -35,7 +35,7 @@ class RentController extends Controller
         $cars = $this->container->make(CarService::class)->all($arrParams);
         $contracts = $this->container->make(ContractService::class)->all($arrParams);
         return view('web.rent.create', [
-            'title' => 'Cadastrar locação',
+            'title' => 'Novo contrato',
             'clients' => $clients,
             'cars' => $cars,
             'types_rents' => TypeRent::all(),
@@ -53,7 +53,7 @@ class RentController extends Controller
 
         return view('web.rent.update', [
             'rent' => $rent,
-            'title' => 'Alterar locação',
+            'title' => 'Alterar contrato',
             'types_rents' => TypeRent::all(),
             'inspection' => $inspection,
             'contracts' => $contracts,

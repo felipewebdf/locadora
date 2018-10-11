@@ -113,7 +113,7 @@
                    id="rent_update"
                    class="btn btn-primary"
                    title="Enviar dados da locação"
-                   value="Enviar"/>
+                   value="Salvar"/>
             <a href="{{ url('/web/rent/'.$rent->id.'/pdf') }}"
                class="btn btn-info"
                title="Visualizar contrato"

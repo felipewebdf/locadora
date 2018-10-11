@@ -94,7 +94,7 @@
             <input type="submit" name="rent_submit"
                    class="btn btn-primary"
                    title="Enviar dados da locação"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

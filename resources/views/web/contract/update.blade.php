@@ -30,7 +30,7 @@
             <input type="button" id="contract_update"
                    class="btn btn-primary"
                    title="Enviar dados do contrato"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

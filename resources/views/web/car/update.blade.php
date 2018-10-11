@@ -133,7 +133,7 @@
             <input type="button" id="car_update"
                    class="btn btn-primary"
                    title="Enviar dados do veículo"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>

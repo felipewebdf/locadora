@@ -89,7 +89,7 @@
             <input type="submit" name="client_submit"
                    class="btn btn-primary"
                    title="Enviar dados do cliente"
-                   value="Enviar"/>
+                   value="Salvar"/>
         </div>
     </div>
 </form>
