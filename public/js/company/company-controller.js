@@ -4,7 +4,9 @@ $().ready(function() {
     }
     $('#form-company').submit(function(e) {
         e.preventDefault();
-        companyService.post($(this).serialize());
+        var params = $(this).serializeArray();
+        params = app.filter.inputNumber(params);
+        companyService.post(params);
     });
 
     $('input[name=cep]').mask('00.000-000', {reverse: true});
