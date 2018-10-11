@@ -13,7 +13,7 @@
                    />
         </div>
         <div class="form-group col-md-3">
-            <label for="cnpj">Cnpj</label>
+            <label for="cnpj">CNPJ</label>
             <input type="text" name="cnpj" class="form-control"
                    maxlength="14"
                    value="<?php echo isset($company->cnpj)?$company->cnpj:'' ?>">

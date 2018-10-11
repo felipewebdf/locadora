@@ -16,15 +16,15 @@
         </div>
         <div class="form-group col-md-3">
             <label for="document">CPF/CNPJ</label>
-            <input type="text" name="document" class="form-control"
+            <input type="text" name="document" class="form-control filter-number"
                    value="<?php echo $client->document ?>"
                    maxlength="14"
                    required
                    />
         </div>
         <div class="form-group col-md-3">
-            <label for="phone">Telefones</label>
-            <input type="text" name="phone" class="form-control"
+            <label for="phone">Telefone</label>
+            <input type="text" name="phone" class="form-control filter-number"
                    value="<?php echo $client->phone ?>"
                    maxlength="50"
                    required
@@ -34,7 +34,7 @@
      <div class="row">
         <div class="form-group col-md-3">
             <label for="credcard">Cartão de crédito</label>
-            <input type="text" name="credcard" class="form-control"
+            <input type="text" name="credcard" class="form-control filter-number"
                    value="<?php echo $client->credcard ?>"
                    maxlength="150"
                    required />
@@ -49,7 +49,7 @@
         </div>
          <div class="form-group col-md-3">
             <label for="cnh">CNH</label>
-            <input type="text" name="cnh" class="form-control"
+            <input type="text" name="cnh" class="form-control filter-number"
                    value="<?php echo $client->cnh ?>"
                    maxlength="9"
                    required
@@ -57,7 +57,7 @@
         </div>
          <div class="form-group col-md-3">
             <label for="cep">CEP</label>
-            <input type="text" name="cep" class="form-control"
+            <input type="text" name="cep" class="form-control filter-number"
                    value="<?php echo $client->address->cep ?>"
                    maxlength="9">
         </div>

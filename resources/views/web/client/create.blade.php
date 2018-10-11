@@ -13,14 +13,14 @@
         <div class="form-group col-md-3">
             <label for="document">CPF/CNPJ</label>
             <input type="text" name="document" class="form-control"
-                   maxlength="14"
+                   maxlength="19"
                    required
                    />
         </div>
         <div class="form-group col-md-3">
-            <label for="phone">Telefones</label>
-            <input type="text" name="phone" class="form-control"
-                   maxlength="50"
+            <label for="phone">Telefone</label>
+            <input type="text" name="phone" class="form-control filter-number"
+                   maxlength="16"
                    required
                    />
         </div>
@@ -28,8 +28,8 @@
     <div class="row">
         <div class="form-group col-md-3">
             <label for="credcard">Cartão de crédito</label>
-            <input type="text" name="credcard" class="form-control"
-                   maxlength="150"
+            <input type="text" name="credcard" class="form-control filter-number"
+                   maxlength="19"
                    required />
         </div>
         <div class="form-group col-md-3">
@@ -41,14 +41,14 @@
         </div>
         <div class="form-group col-md-3">
             <label for="cnh">CNH</label>
-            <input type="text" name="cnh" class="form-control"
+            <input type="text" name="cnh" class="form-control filter-number"
                    maxlength="9"
                    required
                    />
         </div>
         <div class="form-group col-md-3">
             <label for="cep">CEP</label>
-            <input type="text" name="cep" class="form-control"
+            <input type="text" name="cep" class="form-control filter-number"
                    maxlength="9">
         </div>
     </div>

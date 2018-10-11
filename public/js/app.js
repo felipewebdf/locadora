@@ -15,7 +15,7 @@ $().ready(function() {
                 }
 
                 $('<span class="text-danger errors-app" id="erro_'+k+'">'+ errors +'</span>')
-                        .insertAfter('*[name='+k+']');
+                        .insertAfter('*[name='+k+']').show();
             });
         },
         getCookie: function (name) {
@@ -55,6 +55,57 @@ $().ready(function() {
                 error: 500,
                 rules: 412,
                 validation: 422
+            }
+        },
+        filter: {
+            punctuation: function(data) {
+                return data.replace(/[^\d]+/g, '');
+            },
+            inputNumber: function(params) {
+                $.each(params, function() {
+                    if ($('input[name=' + this.name + ']').hasClass('filter-number')) {
+                        this.value = app.filter.punctuation(this.value);
+                    }
+                });
+                return params;
+            },
+            cpfCnpj: function(event) {
+                try {
+                    $(event).unmask();
+                } catch (e) {}
+
+                var tamanho = $(event).val().length;
+
+                if(tamanho < 11){
+                    $(event).mask("000.000.000-00", {reverse: true});
+                } else {
+                    $(event).mask("00.000.000/0000-00", {reverse: true});
+                }
+
+                // ajustando foco
+                var elem = this;
+                setTimeout(function(){
+                    // mudo a posição do seletor
+                    elem.selectionStart = elem.selectionEnd = 10000;
+                }, 0);
+                // reaplico o valor para mudar o foco
+                var currentValue = $(event).val();
+                $(event).val('');
+                $(event).val(currentValue);
+            },
+            phone: function(selector) {
+                var SPMaskBehavior = function (val) {
+                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+                },
+                spOptions = {
+                    onKeyPress: function(val, e, field, options) {
+                        field.mask(SPMaskBehavior.apply({}, arguments), options);
+                    }
+                };
+                $(selector).mask(SPMaskBehavior, spOptions);
+            },
+            cep: function(selector) {
+                $(selector).mask('00000-000', {reverse: true});
             }
         }
     };

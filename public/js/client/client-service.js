@@ -2,6 +2,7 @@ var clientService = {
     post: function (params, callbackSuccess) {
         $('.errors-app').remove();
         try {
+            params = app.filter.inputNumber(params);
             $.post('/api/client', params, function (response, data, headers) {
                 if (headers.status == app.http.status.created) {
                     $('.errors-app').remove();
@@ -26,6 +27,7 @@ var clientService = {
     },
 
     put: function (id, params) {
+        params = app.filter.inputNumber(params);
         try {
             var request = $.ajax({
                 url: "/api/client/" + id,
@@ -41,7 +43,7 @@ var clientService = {
             request.fail(function (jqXHR, textStatus) {
                 app.erroAuthentication(textStatus);
                 $('.errors-app').remove();
-                if (textStatus == 422) {
+                if (jqXHR.status == 422 || textStatus == 422) {
                     app.alert('Favor as informações', 'warning');
                     return app.inputErros(jqXHR);
                 }
