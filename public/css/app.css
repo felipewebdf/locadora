@@ -57,3 +57,7 @@ label{
 :required {
   border-color: red;
 }
+
+:valid {
+    border-color: blue;
+}
