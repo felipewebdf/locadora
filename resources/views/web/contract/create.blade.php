@@ -20,7 +20,7 @@
             <textarea name="template" id="template" class="form-control"
                    required
                    rows="10"
-                   ></textarea>
+                   required></textarea>
         </div>
     </div>
     <hr>

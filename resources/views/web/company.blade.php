@@ -8,6 +8,7 @@
             <label for="name">Empresa</label>
             <input type="text" name="name" class="form-control"
                    maxlength="300"
+                   required
                    value="<?php echo isset($company->name)?$company->name:'' ?>"
                    />
         </div>
@@ -15,6 +16,7 @@
             <label for="cnpj">CNPJ</label>
             <input type="text" name="cnpj" class="form-control filter-number"
                    maxlength="14"
+                   required
                    value="<?php echo isset($company->cnpj)?$company->cnpj:'' ?>">
         </div>
     </div>
@@ -23,32 +25,37 @@
             <label for="cep">CEP</label>
             <input type="text" name="cep" class="form-control filter-number"
                    maxlength="9"
+                   required
                    value="<?php echo isset($company->id)?$company->address()->first()->cep:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="description">Logradouro</label>
             <input type="text" name="description" class="form-control"
                    maxlength="300"
+                   required
                    value="<?php echo isset($company->id)?$company->address()->first()->description:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="district">Bairro</label>
             <input type="text" name="district" class="form-control"
                    maxlength="200"
+                   required
                    value="<?php echo isset($company->id)?$company->address()->first()->district:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="city">Cidade</label>
             <input type="text" name="city" class="form-control"
                    maxlength="100"
+                   required
                    value="<?php echo isset($company->id)?$company->address()->first()->city:''?>">
         </div>
         <div class="form-group col-md-4">
             <label for="uf">UF</label>
             <input type="hidden"
                    id="defaultUF"
+                   required
                    value="<?php echo isset($company->id)?$company->address()->first()->uf:''?>">
-            <select name="uf" class="form-control">
+            <select name="uf" class="form-control" required>
                 <option value="">Selecione</option>
                 @foreach ($ufs as $uf=>$name)
                 <option value="{{ $uf }}">
