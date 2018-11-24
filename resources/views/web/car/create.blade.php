@@ -2,7 +2,6 @@
 
 @section('content')
 <form method="POST" action="javascript:void(0)" id='form-car'>
-    <hr>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="brand">Montadora</label>
@@ -84,7 +83,7 @@
         <div class="form-group col-md-3">
             <label for="renavan">Renavan</label>
             <input type="number" name="renavan" class="form-control"
-                   maxlength="60">
+                   maxlength="60" required>
         </div>
     </div>
     <div class='row'>

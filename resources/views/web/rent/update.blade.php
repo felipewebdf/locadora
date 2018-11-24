@@ -2,7 +2,6 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-rent'>
-    <hr>
     <input type="hidden" name="id"
            value="<?php echo $rent->id ?>" required />
     <div class="row">

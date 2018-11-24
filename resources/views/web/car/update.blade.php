@@ -2,12 +2,11 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-car'>
-   <hr>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="brand">Montadora</label>
             <select id="brand" name="brand" class="form-control"
-                   >
+                   required>
                 <option value="">Selecione</option>
                 @foreach ($brands as $brand)
                 <option value="{{ $brand->id }}"
@@ -19,7 +18,7 @@
         </div>
         <div class="form-group col-md-3">
             <label for="model">Modelo</label>
-            <select id="model" name="model" class="form-control">
+            <select id="model" name="model" class="form-control" required>
                 <option value="">Selecione</option>
                 @foreach ($models as $model)
                 <option value="{{ $model->id }}"
@@ -73,6 +72,7 @@
             <label for="tag">Placa</label>
             <input type="text" name="tag" class="form-control"
                    maxlength="9"
+                   required
                    value="<?php echo $car->tag ?>"
                    />
         </div>
@@ -80,6 +80,7 @@
             <label for="chassi">Chassi</label>
             <input type="text" name="chassi" class="form-control"
                    maxlength="150"
+                   required
                    value="<?php echo $car->chassi ?>"
                    />
         </div>
@@ -98,6 +99,7 @@
             <label for="renavan">Renavan</label>
             <input type="number" name="renavan" class="form-control"
                    maxlength="60"
+                   required
                    value="<?php echo $car->renavan ?>">
         </div>
     </div>
@@ -106,12 +108,14 @@
             <label for="door">Portas</label>
             <input type="number" name="door" class="form-control"
                    maxlength="2"
+                   required
                    value="<?php echo $car->door ?>">
         </div>
         <div class="form-group col-md-2">
             <label for="capacity">Capacidade</label>
             <input type="number" name="capacity" class="form-control"
                    maxlength="4"
+                   required
                    value="<?php echo $car->capacity ?>">
         </div>
        <div class="form-group col-md-2">

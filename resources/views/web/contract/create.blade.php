@@ -10,6 +10,12 @@
                    required />
         </div>
         <div class="form-group col-md-12">
+            <h3>Tag(s) para montar contrado</h3>
+            <p>"@{{name}}",
+            "@{{cnpj}}",
+            "@{{address}}",
+            "@{{client_name}}",
+            "@{{client_document}}"</p>
             <label for="template">Contrato</label>
             <textarea name="template" id="template" class="form-control"
                    required

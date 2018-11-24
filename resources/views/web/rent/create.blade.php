@@ -2,7 +2,6 @@
 
 @section('content')
 <form method="POST" action="javascript:void(0)" id='form-rent'>
-    <hr>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="client_id">Cliente</label>

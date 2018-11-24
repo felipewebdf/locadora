@@ -2,7 +2,7 @@
 
 @section('content')
 <form method="POST" action="javascript:void(0)" id='form-client'>
-    <hr>
+
     <div class="row">
         <div class="form-group col-md-6">
             <label for="name">Nome</label>

@@ -16,7 +16,8 @@ $().ready(function() {
 
 
     app.filter.cep('input[name=cep]');
-    $("input[name=document]").on('keypress keyup blur focus change',function(){
+    app.filter.cpfCnpj($('input[name=document]'));
+    $("input[name=document]").on('keypress keyup blur focus change',function() {
         app.filter.cpfCnpj(this);
     });
 

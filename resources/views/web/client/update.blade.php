@@ -2,7 +2,6 @@
 
 @section('content')
 <form method="PUT" action="javascript:void(0)" id='form-client'>
-    <hr>
      <input type="hidden" name="id"
                    value="<?php echo $client->id ?>"
                    required />

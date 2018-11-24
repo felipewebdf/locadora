@@ -3,7 +3,6 @@
 @section('content')
 
 <form method="POST" action="javascript:void(0)" id='form-company'>
-    <hr>
     <div class="row">
         <div class="form-group col-md-8">
             <label for="name">Empresa</label>

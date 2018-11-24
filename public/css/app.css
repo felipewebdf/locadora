@@ -53,3 +53,7 @@
 label{
     font-weight: bold
 }
+
+:required {
+  border-color: red;
+}
