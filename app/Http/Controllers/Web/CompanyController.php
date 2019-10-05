@@ -24,4 +24,14 @@ class CompanyController extends Controller
         ]);
     }
 
+    public function updateImage()
+    {
+        $user_id = Auth::id();
+        $company = $this->container->make(CompanyService::class)->forUser($user_id);
+        return view('web.update.image', [
+            'company' => $company,
+            'title' => 'Alterar imagem'
+        ]);
+    }
+
 }
