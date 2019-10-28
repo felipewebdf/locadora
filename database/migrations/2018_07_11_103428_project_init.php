@@ -44,6 +44,7 @@ class ProjectInit extends Migration
             $table->increments('id')->index()->unsigned();
             $table->string('description',500)->nullable();
             $table->string('district', 200)->nullable();
+            $table->string('complement', 255)->nullable(true);
             $table->string('cep', 10);
             $table->string('city', 100);
             $table->string('uf', 2)->nullable();
@@ -99,13 +100,18 @@ class ProjectInit extends Migration
             $table->increments('id')->index()->unsigned();
             $table->string('name', 300)->nullable();
             $table->string('cnh', 50)->nullable();
+            $table->string('cnh_category', 5)->nullable();
+            $table->timestamp('cnh_at')->nullable();
             $table->string('document', 14)->nullable();
-            $table->string('phone', 50)->nullable();
+            $table->string('rg', 25)->nullable();
+            $table->string('phone', 50)->nullable(true);
+            $table->string('phone_cel', 50)->nullable();
             $table->string('credcard', 150)->nullable(true);
             $table->string('credcard_name', 150)->nullable(true);
             $table->string('credcard_cod', 3)->nullable(true);
             $table->string('credcard_at', 5)->nullable(true);
             $table->integer('address_id')->unsigned();
+            $table->string('note', 500)->nullable(true);
 
             $table->integer('user_id')->unsigned();
 

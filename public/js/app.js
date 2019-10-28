@@ -17,6 +17,8 @@ $().ready(function() {
                 $('<span class="text-danger errors-app" id="erro_'+k+'">'+ errors +'</span>')
                         .insertAfter('*[name='+k+']').show();
             });
+
+            $('#alert-content').trigger('click');
         },
         getCookie: function (name) {
             var cookie = decodeURIComponent(document.cookie);
@@ -76,7 +78,7 @@ $().ready(function() {
 
                 var tamanho = $(event).val().length;
 
-                if(tamanho < 11){
+                if(tamanho < 12){
                     $(event).mask("000.000.000-00", {reverse: true});
                 } else {
                     $(event).mask("00.000.000/0000-00", {reverse: true});

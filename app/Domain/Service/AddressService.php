@@ -40,6 +40,7 @@ class AddressService
         $address->district = $arrAddress['district'];
         $address->cep = $arrAddress['cep'];
         $address->city = $arrAddress['city'];
+        $address->complement = $arrAddress['complement'];
         $address->uf = strtoupper($arrAddress['uf']);
         $address->created_at = new \DateTime();
         $address->save();
@@ -51,6 +52,7 @@ class AddressService
         $address->description = $arrAddress['description'];
         $address->district = $arrAddress['district'];
         $address->cep = $arrAddress['cep'];
+        $address->complement = $arrAddress['complement'];
         $address->city = $arrAddress['city'];
         $address->uf = strtoupper($arrAddress['uf']);
         $address->save();

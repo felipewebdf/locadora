@@ -44,7 +44,7 @@ var clientService = {
                 app.erroAuthentication(textStatus);
                 $('.errors-app').remove();
                 if (jqXHR.status == 422 || textStatus == 422) {
-                    app.alert('Favor as informações', 'warning');
+                    app.alert('Favor verificar as informações', 'warning');
                     return app.inputErros(jqXHR);
                 }
                 if (textStatus == 412) {
