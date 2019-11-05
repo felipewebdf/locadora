@@ -36,7 +36,9 @@ class ClientRequest extends FormRequest
             'district.required' => 'Favor informar o bairro do cliente',
             'city.required' => 'Favor informar a cidade do cliente',
             'uf.required' => 'Favor informar a UF do cliente',
-            'cep.required' => 'Favor informar o cep do cliente'
+            'cep.required' => 'Favor informar o cep do cliente',
+            'marital_status.required' => 'Favor informar o estado civil do cliente',
+            'nationality.required' => 'Favor informar a nacionalidade do cliente'
         ];
     }
 
@@ -59,7 +61,9 @@ class ClientRequest extends FormRequest
             'district' => 'required',
             'city' => 'required',
             'uf' => 'required',
-            'cep' => 'required'
+            'cep' => 'required',
+            'nationality' => 'required|numeric',
+            'marital_status' => 'required|numeric'
         ];
 
         return $validator;

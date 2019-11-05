@@ -19,4 +19,6 @@ $().ready(function() {
             window.location.href = '/web/rent/update/' + $('input[name=rent_id]').val();
         });
     });
+
+    $('input[name=end_km').mask('000000000');
 });

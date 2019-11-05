@@ -46,6 +46,7 @@ class ClientService
                         ->make(AddressService::class)
                         ->register($arrClient)->id;
         $arrClient['name'] = mb_strtoupper($arrClient['name']);
+        $arrClient['cnh_at'] = new \DateTime($arrClient['cnh_at']);
         $client = new Client();
         $client->fill($arrClient);
         $client->save();
@@ -55,15 +56,14 @@ class ClientService
     /**
      *
      * @param array $arrClient
-     * @return type
+     * @return Client
      * @throws RulesException
      */
     public function update($id, $arrClient)
     {
         $client = $this->get($id, $arrClient['user_id']);
 
-        $exists = Client::where('cnh', $arrClient['cnh'])
-                        ->where('company_id', $client->company->id)->first();
+        $exists = Client::where('cnh', $arrClient['cnh'])->first();
 
         if ($exists && $exists->id != $client->id) {
             throw new RulesException('Cliente já existente');
@@ -79,7 +79,6 @@ class ClientService
         $arrClient['name'] = mb_strtoupper($arrClient['name']);
         $arrClient['updated_at'] = new \DateTime();
         $client->fill($arrClient);
-        $client->save();
         return $client;
     }
 

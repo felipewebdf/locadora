@@ -11,6 +11,27 @@
                    required />
         </div>
         <div class="form-group col-md-3">
+            <label for="marital_status">Estado civil</label>
+            <select name="marital_status" class="form-control filter-number"
+                   required
+                   >
+                <option value="1">Solteiro (a)</option>
+                <option value="2">Casado (a)</option>
+                <option value="3">Divorciado (a)</option>
+                <option value="4">Outro</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="nationality">Nacionalidade</label>
+            <select name="nationality" class="form-control filter-number"
+                   required
+                   >
+                <option value="1">Brasileiro</option>
+                <option value="2">Estrangeiro</option>
+
+            </select>
+        </div>
+        <div class="form-group col-md-3">
             <label for="document">CPF/CNPJ</label>
             <input type="text" name="document" class="form-control filter-number"
                    maxlength="19"
@@ -18,7 +39,7 @@
                    />
         </div>
         <div class="form-group col-md-3">
-            <label for="rg">RG</label>
+            <label for="rg">RG/Inscrição estadual</label>
             <input type="text" name="rg" class="form-control  filter-number"
                    maxlength="19"
                    required
@@ -103,8 +124,7 @@
         <div class="form-group col-md-3">
             <label for="credcard_name">Bandeira do cartão</label>
             <select name="credcard_name" class="form-control">
-
-                <option>Selecionar bandeira</option>
+                <option>Selecione a bandeira do cartão</option>
                 <option value="visa">Visa</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="amex">American express</option>

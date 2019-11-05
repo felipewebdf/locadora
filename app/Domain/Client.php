@@ -22,7 +22,10 @@ class Client extends Model
         'address_id',
         'user_id',
         'company_id',
-        'note'
+        'note',
+        'marital_status',
+        'profession',
+        'nationality'
     ];
     protected $dates = [
         'created_at',

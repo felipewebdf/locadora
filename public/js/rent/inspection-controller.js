@@ -17,4 +17,6 @@ $().ready(function() {
             $('#form-inspection').serializeArray()
         );
     });
+
+    $('input[name=init_km').mask('000000000');
 });

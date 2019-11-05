@@ -103,7 +103,10 @@ class ProjectInit extends Migration
             $table->string('cnh_category', 5)->nullable();
             $table->timestamp('cnh_at')->nullable();
             $table->string('document', 14)->nullable();
+            $table->integer('nationality')->nullable();
+            $table->integer('marital_status')->nullable();
             $table->string('rg', 25)->nullable();
+            $table->string('profession', 150)->nullable(true);
             $table->string('phone', 50)->nullable(true);
             $table->string('phone_cel', 50)->nullable();
             $table->string('credcard', 150)->nullable(true);
